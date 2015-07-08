@@ -8,7 +8,9 @@
 }
 
 .eatables .pure-form input[type=text]{
-    width:100%;
+    width:98%;
+    display: block;
+    margin: 0 auto
 }
 
 .eatables .query .pure-form{
