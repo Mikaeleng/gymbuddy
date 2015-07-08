@@ -1,0 +1,14 @@
+.add-eatable header .pure-g div{
+
+}
+
+h3{
+    margin: 0;
+    padding: 0.5rem 0 0 1.2rem;
+}
+
+.add-eatable .pure-button{
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+}

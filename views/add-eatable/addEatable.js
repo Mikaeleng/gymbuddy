@@ -1,6 +1,6 @@
 var addEatable = {
     //this css will be loaded automatically
-    //css:['dashboard.css'],
+    css:['add-eatable/add-eatable.css'],
     index: function ($scope, $route, $location,$rootScope, $routeParams, $log, restApi, eatable) {
         var eatableID = ($routeParams.id) ? parseInt($routeParams.id) : 0;
         var eatableEdit = ($routeParams.editable) ? parseInt($routeParams.editable) : null;
