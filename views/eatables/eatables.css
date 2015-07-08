@@ -1,0 +1,21 @@
+.pure-menu-item{
+    background: #fff;
+    border-bottom: 1px solid gray;
+}
+
+.eatables .form-group .pure-button{
+    width:96%;
+}
+
+.eatables .pure-form input[type=text]{
+    width:100%;
+}
+
+.eatables .query .pure-form{
+    padding-bottom: 3%;
+}
+
+.query .pure-g{
+    padding-bottom: 3%;
+}
+.eatables .pure-form label, .eatables .pure-form button{ width: 99%; }

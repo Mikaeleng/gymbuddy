@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" ng-app="gymbuddy" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" ng-app="gymbuddy" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" ng-app="gymbuddy" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en" ng-app="gymbuddy" class="no-js"> <!--<![endif]-->
+<head>
+  <meta charset="UTF-8">
+  <title>Gymbuddy</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <!-- Favorites & Bookmark Icon -->
+  <link href="/favicon.ico" rel="shortcut icon">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon2.png">
+  <!-- Frameworks -->
+  <script src="assets/vendors/jquery.min.js"></script>
+  <link rel="stylesheet" href="assets/css/app.css">
+  <link rel="stylesheet" type="text/css" href="assets/css/pure/base-min.css" />
+  <!--<link rel="stylesheet" type="text/css" href="assets/css/pure/grid-old-ie.css" />-->
+  <link rel="stylesheet" type="text/css" href="assets/css/pure/grid-min.css" />
+  <link rel="stylesheet" type="text/css" href="assets/css/pure/buttons-min.css" />
+  <link rel="stylesheet" type="text/css" href="assets/css/pure/forms-min.css" />
+  <link rel="stylesheet" type="text/css" href="assets/css/pure/tables-min.css" />
+  <link rel="stylesheet" type="text/css" href="assets/css/pure/menus-min.css" />
+  <link rel="stylesheet" type="text/css" href="assets/css/pure/custom-pure-classes-min.css" />
+
+
+  <link rel="stylesheet" type="text/css" href="assets/css/menu-effects.css" />
+  <script src="assets/vendors/modernizr.custom.js"></script>
+</head>
+<body>
+
+<!--[if lt IE 7]>
+<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+<![endif]-->
+<div id="st-container" class="st-container">
+
+
+  <!-- content push wrapper -->
+  <div class="st-pusher">
+    <nav class="st-menu st-effect-3">
+      <main-menu></main-menu>
+    </nav>
+
+    <div class="st-content"><!-- this is the wrapper for the content -->
+      <div class="st-content-inner pure-g"><!-- extra div for emulating position:fixed of the menu -->
+
+        <top-menu></top-menu>
+        <div ng-view class="pure-u-12-12"></div>
+
+      </div><!-- /main -->
+    </div><!-- /st-content-inner -->
+  </div><!-- /st-content -->
+</div><!-- /st-pusher -->
+</div><!-- /st-container -->
+
+<script src="assets/vendors/angular.min.js"></script>
+<script src="assets/vendors/angular-route.min.js"></script>
+<!-- views and app imports -->
+<script src="app.js"></script>
+
+<!-- service and directive imports -->
+<script src="navigation/mainMenuDirective.js"></script>
+<script src="services/mainNavigationService.js"></script>
+<script src="services/classie.js"></script>
+<script src="services/Loader.js"></script>
+<script src="services/Router.js"></script>
+<script src="services/sidebarEffects.js"></script>
+<script src="services/restServices.js"></script>
+</body>
+</html>

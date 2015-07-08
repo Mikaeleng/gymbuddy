@@ -1,0 +1,18 @@
+.pure-table{
+    width: 100%;
+}
+.weights .pure-g{
+    margin-top: 3rem;
+
+}
+.weights .pure-g .pure-button{
+    width:80%;
+    display: block;
+    margin: 0 auto;
+    white-space: normal;
+}
+
+.weights .pure-g [class *= "pure-u"]{
+    padding-bottom: 3%;
+}
+

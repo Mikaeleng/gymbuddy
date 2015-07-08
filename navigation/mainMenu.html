@@ -1,0 +1,25 @@
+<ul class="menu level0 mainNavigation" ng-cloak>
+    <a href="#{{navElements[1].location}}" ng-click="menuClick.toggle('level0', $event)" class="closeMenu {{navElements.class}}">{{navElements[1].label}}</a>
+
+
+    <li ng-repeat="level1 in navElements[1].groups" class="opened level1">
+        <a href="#{{level1.location}}" class="closeMenu ">{{level1.label}}</a>
+        <span class="expand" ng-click="menuClick.toggle(level1, $event)" ng-if="level1.groups != NULL && level1.groups.length>0">+</span>
+</li>
+        <ul>
+
+            <li ng-repeat="level2 in level1[1].groups" class=" ng-hide closed level2">
+                <a href="#{{level2.location}}" class="closeMenu">{{level2.label}}</a>
+                <span class="expand" ng-click="menuClick.toggle(level2, $event)" ng-if="level2.groups != NULL && level2.groups.length>0">+</span>
+
+                <ul>
+
+                    <li ng-repeat="level3 in level2.groups" ng-click="menuClick.toggle(level3, $event)" class=" ng-hide closed level3"><a href="#{{level3.location}}" class="closeMenu">{{level3.label}}</a>
+
+                    </li>
+
+                </ul>
+            </li>
+        </ul>
+    </li>
+</ul>

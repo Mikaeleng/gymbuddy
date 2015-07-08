@@ -1,0 +1,27 @@
+<div class="weights">
+    <div class="pure-g" ng-show="weights.length > 0">
+        <div class="pure-u-12-12">
+            <button class="pure-button pure-button-primary" onclick="window.location.href='#/add-weight/index'">Add new weight</button></a>
+        </div>
+        <table class="pure-table pure-table-striped">
+            <thead>
+            <th>Id</th>
+            <th>Time</th>
+            <th>Weight</th>
+            </thead>
+            <tbody>
+            <tr ng-repeat="data in weights">
+                <td>{{data.id}}</td>
+                <td>{{data.time}}</td>
+                <td>{{data.weight}}</td>
+               <!-- <td><a href="#/add-weight/index/?id={{data.id}}">&nbsp; Edit weight</a></td>-->
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="" ng-show="weights.length == 0">
+        <div class="">
+            <h4>No customers found</h4>
+        </div>
+    </div>
+</div>
