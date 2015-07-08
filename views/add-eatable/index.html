@@ -1,12 +1,9 @@
 <div class="add-eatable">
-
     <header>
         <div class="pure-g">
-            <div class="pure-u-1-12"><a href= "#/eatables/index" class="pure-button pure-button-secondary"><</a></div>
-            <h3 class="pure-u-11-12">{{title}}</h3>
+            <h3 class="pure-u-12-12">{{title}}</h3>
         </div>
             <div class="pure-g">
-                <a href= "#/eatables/index"> Food produce list </a><br/>
                 <i ng-show="_eatable.editable > 0"> Currently Editing food produce: {{_eatable.name}}</i>
                 <i ng-show="_eatable.editable <= 0"> Currently viewing food produce: {{_eatable.name}}</i>
                 <button class="" ng-show="_eatable.editable != null && _eatable.editable>0" ng-click="editEatable()">Edit food produce</button>
@@ -53,5 +50,15 @@
                 </div>
             </div>
         </form>
+    </div>
+    <div class="footer">
+        <div class="pure-g">
+            <div class="pure-u-12-12">
+                <button class="pure-button">
+                <a href="#/settings/index"><p class="Avantgarde-settings"></p>
+                </a>
+                </button>
+            </div>
+        </div>
     </div>
 </div>

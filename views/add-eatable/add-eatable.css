@@ -1,3 +1,6 @@
+.add-eatable{
+    position: relative;
+}
 .add-eatable header .pure-g div{
 
 }
@@ -11,4 +14,27 @@ h3{
     -webkit-border-radius: 0;
     -moz-border-radius: 0;
     border-radius: 0;
+}
+
+.footer{
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    background: #fff;
+    height: 3.125rem;
+    width: 100%;
+}
+
+.footer .pure-button{
+    height: 3.1rem;
+    background-image: none;
+    font-size: 2rem;
+    font-family: Avantgarde;
+    border-radius: 0;
+    padding: 0 2%;
+    float: right;
+}
+
+.footer .pure-button p{
+    margin:0; text-align:center; width: 100%; vertical-align: middle;line-height: 3.125rem;
 }

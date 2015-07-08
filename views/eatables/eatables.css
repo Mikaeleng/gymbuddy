@@ -19,3 +19,7 @@
     padding-bottom: 3%;
 }
 .eatables .pure-form label, .eatables .pure-form button{ width: 99%; }
+
+.pure-menu-item a{
+    white-space: normal;
+}
