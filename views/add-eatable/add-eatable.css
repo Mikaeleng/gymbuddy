@@ -25,23 +25,20 @@ h3{
     width: 100%;
 }
 
-.add-eatable h3{
-    width:98%;
-    display: block;
-    margin: 0 auto;
-}
 
-.pure-form input[type=text]{
-    width:98%;
+.pure-form input[type=text], .pure-form label, .add-eatable h3{
+    width:96%;
     display: block;
     margin: 0 auto
 }
 
+.add-eatable h3{
+    padding: 2% 0 2%;
+}
+
+
 .pure-form label{
-    width:98%;
-    display: block;
-    margin: 0 auto;
-    padding: 2%;
+    padding: 2% 2% 2% 0;
 }
 
 .footer .pure-button{
