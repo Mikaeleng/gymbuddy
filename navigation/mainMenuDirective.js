@@ -58,7 +58,7 @@ angular.module('menuDirectives', [])
             templateUrl: 'navigation/topMenu.html',
             replace: true,
             controller: function($scope, $element, $log, sidebarMenuEvent){
-               // SidebarMenuEffects.prototype.init.call();
+
                 sidebarMenuEvent.init();
 
                 $scope.toggleMainMenu = function(event){
@@ -67,6 +67,25 @@ angular.module('menuDirectives', [])
             },
             link: function (scope, el, attrs) {
 
+            }
+        };
+    }).directive('footer', function(){
+
+        return {
+            restrict: 'E',
+            templateUrl: 'navigation/footer.html',
+            replace: true,
+            controller: function($scope, $element, $log){
+
+                $scope.backButton = function(event){
+
+                }
+            },
+            link: function (scope, el, attrs) {
+                console.log(el);
+                $(el).find('.back-button').on('click', function(){
+                    window.history.back();
+                })
             }
         };
     });

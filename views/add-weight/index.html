@@ -1,4 +1,4 @@
-<div class="add-weight">
+<div class="add-weight view">
     <header>
         <div class="pure-g">
             <h3 class="pure-u-12-12">{{title}}</h3>
@@ -8,7 +8,7 @@
             <a ng-show="weight.id" class= "navbar-brand pull-right"><i class="glyphicon glyphicon-edit"></i> Currently Editing weight: {{weight.weight}}</a>
         </div>
     </header>
-    <div class="">
+    <div class="view-content">
         <form role="form" name="myForm" class="pure-form pure-form-stacked" ng-cloak accept-charset="utf-8">
             <div class= "form-group" ng-class="{error: myForm.name.$invalid}">
                 <label> Name </label>

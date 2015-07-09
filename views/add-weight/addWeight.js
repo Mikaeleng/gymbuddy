@@ -1,6 +1,6 @@
 var addWeight = {
     //this css will be loaded automatically
-    //css:['dashboard.css'],
+    css:['add-weight/add-weight.css'],
     index: function ($scope, $location,$rootScope, $routeParams, $log, restApi, weight) {
         var weightID = ($routeParams.id) ? parseInt($routeParams.id) : 0;
         $rootScope.title = (weightID > 0) ? 'Edit weight' : 'Add weight';
