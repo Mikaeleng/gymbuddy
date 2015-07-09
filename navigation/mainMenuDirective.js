@@ -82,7 +82,7 @@ angular.module('menuDirectives', [])
                 }
             },
             link: function (scope, el, attrs) {
-                console.log(el);
+                //console.log(el);
                 $(el).find('.back-button').on('click', function(){
                     window.history.back();
                 })

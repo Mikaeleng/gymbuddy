@@ -1,26 +1,35 @@
 <div class="add-weight view">
     <header>
         <div class="pure-g">
-            <h3 class="pure-u-12-12">{{title}}</h3>
+            <div class="pure-u-12-12">
+                <h3>{{title}}</h3>
+            </div>
+          <!--    <button class= "pure-button pure-u-1-2" href= "#/weights/index"><i class="glyphicon glyphicon-th-large"></i> Weight List </button> -->
         </div>
         <div class="pure-g">
-            <a class= "pure-button" href= "#/weights/index"><i class="glyphicon glyphicon-th-large"></i> Weight List </a>
-            <a ng-show="weight.id" class= "navbar-brand pull-right"><i class="glyphicon glyphicon-edit"></i> Currently Editing weight: {{weight.weight}}</a>
+            <a ng-show="weight.id" class= "pure-u-1-2">Currently Editing weight: {{weight.weight}}</a>
         </div>
     </header>
     <div class="view-content">
         <form role="form" name="myForm" class="pure-form pure-form-stacked" ng-cloak accept-charset="utf-8">
             <div class= "form-group" ng-class="{error: myForm.name.$invalid}">
-                <label> Name </label>
-                <input name="weight" ng-model="weight.weight" type="text" placeholder="{{weight.weight}}" required/>
+                <input name="weight" ng-model="weight.weight" ng-maxlength="6" maxlength="6" type="text" placeholder="{{weight.weight}}" required/>
+            </div>
+            <div class="pure-g">
+                <label class="pure-u-12-12">yesterday 12:30</label>
+                <label class="pure-u-12-12">Today at 11:43</label>
             </div>
             <div class= "form-group">
                 <div class="pure-g">
-                    <button class="pure-button pure-u-1-2" onclick="window.location.href='#/weights/index'">Cancel</button>
-                    <button ng-click="saveWeight(weight);"
-                        ng-disabled="isClean() || myForm.$invalid"
-                        class="pure-button pure-button-primary pure-u-1-2">{{buttonText}}</button>
+                    <div class=" pure-u-1-2">
+                        <button class="pure-button-lg" onclick="window.location.href='#/weights/index'">Cancel</button>
                     </div>
+                    <div class="pure-u-1-2">
+                        <button ng-click="saveWeight(weight);"
+                            ng-disabled="isClean() || myForm.$invalid"
+                            class="pure-button-lg pure-button-primary">{{buttonText}}</button>
+                    </div>
+                </div>
                 <div class="pure-g">
                 <button ng-click="deleteWeight(weight)"
                         ng-show="weight.id" class="pure-button pure-button-error pure-u-12-12">Delete</button>

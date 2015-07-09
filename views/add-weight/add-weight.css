@@ -1,0 +1,33 @@
+.add-weight .pure-form input[type=text] {
+  height: 5rem;
+  font-size: 2rem;
+  width: 9rem;
+  display: block;
+  margin: 0 auto;
+  border: none;
+  -webkit-appearance: none;
+}
+header {
+  margin-bottom: 2rem;
+}
+.add-weight h3 {
+  display: block!important;
+  margin: 0 auto;
+  text-align: center;
+}
+.add-weight .pure-form input[type=text]:focus {
+  background: #FFF;
+}
+.add-weight .pure-form label {
+  text-align: center;
+}
+.add-weight .pure-form label:first-child {
+  margin-top: 1rem;
+}
+.add-weight .pure-form label:last-child {
+  margin-bottom: 1rem;
+}
+.add-weight button {
+  width: 96%;
+  margin: 0 auto;
+}

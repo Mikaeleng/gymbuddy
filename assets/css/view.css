@@ -57,6 +57,10 @@
 .view {
   padding: 0 8%;
 }
+.view header h3 {
+  padding: 3rem;
+  margin: 0;
+}
 .view-content {
   width: 100%;
 }

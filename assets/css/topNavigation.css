@@ -21,6 +21,7 @@
 .Avantgarde-back-button:before,
 .Avantgarde-calculate:before,
 .Avantgarde-dashboard:before,
+.Avantgarde-dashboard-square:before,
 .Avantgarde-facebook:before,
 .Avantgarde-food-produce:before,
 .Avantgarde-home:before,
@@ -32,21 +33,7 @@
 .Avantgarde-twitter:before,
 .Avantgarde-weightlist:before {
   display: inline-block;
-  font-family: 'Avantgarde';
-  font-style: normal;
-  font-weight: normal;
-  font-variant: normal;
-  line-height: 1;
-  text-decoration: inherit;
-  text-rendering: optimizeLegibility;
-  text-transform: none;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  font-smoothing: antialiased;
-}
-.Avantgarde {
-  display: inline;
-  font-family: 'Avantgarde';
+  font-family: "Avantgarde";
   font-style: normal;
   font-weight: normal;
   font-variant: normal;
@@ -93,6 +80,9 @@
 }
 .Avantgarde-dashboard:before {
   content: "\f10f";
+}
+.Avantgarde-dashboard-square:before {
+  content: "\f11c";
 }
 .Avantgarde-facebook:before {
   content: "\f109";
@@ -164,7 +154,7 @@ TOOLS
   display: inline-block;
   float: left;
 }
-.header.nav .Avantgarde-dashboard {
+.header.nav .Avantgarde-dashboard-square {
   height: 3.1rem;
   background-image: none;
   font-size: 2rem;
