@@ -16,14 +16,7 @@ h3{
     border-radius: 0;
 }
 
-.footer{
-    position: fixed;
-    bottom: 0;
-    right: 0;
-    background: #fff;
-    height: 3.125rem;
-    width: 100%;
-}
+
 
 
 .pure-form input[type=text], .pure-form label, .add-eatable h3{
@@ -34,6 +27,8 @@ h3{
 
 .add-eatable h3{
     padding: 2% 0 2%;
+    float: none!important;
+    display: block!important;
 }
 
 
@@ -41,16 +36,3 @@ h3{
     padding: 2% 2% 2% 0;
 }
 
-.footer .pure-button{
-    height: 3.1rem;
-    background-image: none;
-    font-size: 2rem;
-    font-family: Avantgarde;
-    border-radius: 0;
-    padding: 0 2%;
-    float: right;
-}
-
-.footer .pure-button p{
-    margin:0; text-align:center; width: 100%; vertical-align: middle;line-height: 3.125rem;
-}

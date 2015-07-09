@@ -39,14 +39,22 @@
                 <input type="hidden" name="_editable" value="1">
             </div>
             <div class= "form-group">
-                <div class="">
-                    <a href="#/eatables/index" class="">Cancel</a>
-                    <button ng-click="saveEatable(_eatable);"
-                            ng-disabled="isClean() || myForm.$invalid"
-                            class="">{{buttonText}}</button>
-                    <button ng-show="_eatable.editable > 0 && _eatable.editable!=null"
-                            ng-click="deleteEatable(_eatable)"
-                            class="">Delete</button>
+                <div class="pure-g">
+                    <div class="pure-u-1-2">
+                        <button class="pure-button" onclick="window.location.href='#/eatables/index'">Cancel</button>
+                    </div>
+                    <div class="pure-u-1-2">
+                        <button ng-click="saveEatable(_eatable);"
+                                ng-disabled="isClean() || myForm.$invalid"
+                                class="">{{buttonText}}</button>
+                    </div>
+                </div>
+                <div class="pure-g">
+                    <div class="pure-u-12-12">
+                        <button ng-show="_eatable.editable > 0 && _eatable.editable!=null"
+                                ng-click="deleteEatable(_eatable)"
+                                class="pure-button pure-button-primary">Delete</button>
+                    </div>
                 </div>
             </div>
         </form>
@@ -55,7 +63,7 @@
         <div class="pure-g">
             <div class="pure-u-12-12">
                 <button class="pure-button">
-                <a href="#/settings/index"><p class="Avantgarde-settings"></p>
+                <a href="window.history.back()"><p class="Avantgarde-back-button"></p>
                 </a>
                 </button>
             </div>

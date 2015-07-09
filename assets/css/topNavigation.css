@@ -18,10 +18,12 @@
 .Avantgarde-Wall:before,
 .Avantgarde-Work:before,
 .Avantgarde-add-weight:before,
+.Avantgarde-back-button:before,
 .Avantgarde-calculate:before,
 .Avantgarde-dashboard:before,
 .Avantgarde-facebook:before,
 .Avantgarde-food-produce:before,
+.Avantgarde-home:before,
 .Avantgarde-pinterest:before,
 .Avantgarde-search:before,
 .Avantgarde-settings:before,
@@ -83,6 +85,9 @@
 .Avantgarde-add-weight:before {
   content: "\f114";
 }
+.Avantgarde-back-button:before {
+  content: "\f11a";
+}
 .Avantgarde-calculate:before {
   content: "\f111";
 }
@@ -94,6 +99,9 @@
 }
 .Avantgarde-food-produce:before {
   content: "\f117";
+}
+.Avantgarde-home:before {
+  content: "\f118";
 }
 .Avantgarde-pinterest:before {
   content: "\f10a";
