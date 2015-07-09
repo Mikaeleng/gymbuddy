@@ -23,10 +23,8 @@
             <p>Do you want to add a new?</p>
             <form role="form" name="myForm" class="pure-form pure-form-stacked" ng-cloak ng-show="eatable.editable != 0" accept-charset="utf-8">
                 <div class= "form-group" ng-class="{error: myForm.name.$invalid}">
-                    <label class= ""> Name </label>
-                    <div class="">
+                    <label for="name"> Name </label>
                         <input name="name" ng-model="eatable.name" type= "text" placeholder="{{eatable.name}}" required/>
-                    </div>
                     <label for="kcal"> Kcal </label>
                         <input name="kcal" ng-model="eatable.kcal" type= "text" placeholder="{{eatable.kcal}}" required/>
                     <label for="carbohydrates"> Carbohydrates </label>
