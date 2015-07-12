@@ -1,38 +1,36 @@
-.add-eatable{
-    position: relative;
+.add-eatable,
+.view {
+  position: relative;
 }
-.add-eatable header .pure-g div{
-
+.add-eatable .view-content label,
+.view .view-content label {
+  padding: 2% 2% 2% 0;
 }
-
-h3{
-    margin: 0;
-    padding: 0.5rem 0 0 1.2rem;
+.add-eatable .view-content .pure-form .pure-button-lg,
+.view .view-content .pure-form .pure-button-lg,
+.add-eatable .view-content .pure-form .pure-button,
+.view .view-content .pure-form .pure-button {
+  width: 96%;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
 }
-
-.add-eatable .pure-button{
-    -webkit-border-radius: 0;
-    -moz-border-radius: 0;
-    border-radius: 0;
+.add-eatable .view-content .pure-form input[type=text],
+.view .view-content .pure-form input[type=text],
+.add-eatable .view-content .pure-form label,
+.view .view-content .pure-form label,
+.add-eatable .view-content .add-eatable h3,
+.view .view-content .add-eatable h3 {
+  width: 96%;
+  display: block;
+  margin: 0 auto;
 }
-
-
-
-
-.pure-form input[type=text], .pure-form label, .add-eatable h3{
-    width:96%;
-    display: block;
-    margin: 0 auto
+.view {
+  position: relative;
 }
-
-.add-eatable h3{
-    padding: 2% 0 2%;
-    float: none!important;
-    display: block!important;
+.view header h3 {
+  margin: 0;
+  padding: 0.5rem 0 0 2%;
+  float: none !important;
+  display: block !important;
 }
-
-
-.pure-form label{
-    padding: 2% 2% 2% 0;
-}
-

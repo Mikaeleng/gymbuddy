@@ -9,7 +9,7 @@
                 <button class="" ng-show="_eatable.editable != null && _eatable.editable>0" ng-click="editEatable()">Edit food produce</button>
             </div>
     </header>
-    <div class="pure-g" >
+    <div class="pure-g view-content">
         <div ng-show="_eatable.editable != null" id="food-info">
             <h6>Name</h6>
             <p>{{_eatable.name}}</p>
@@ -38,22 +38,22 @@
                 <input name="fat" ng-model="_eatable.fat" type= "text" placeholder="{{_eatable.fat}}" required/>
                 <input type="hidden" name="_editable" value="1">
             </div>
-            <div class= "form-group">
+            <div class= "form-group form-buttons">
                 <div class="pure-g">
                     <div class="pure-u-1-2">
-                        <button class="pure-button" onclick="window.location.href='#/eatables/index'">Cancel</button>
+                        <button class="pure-button-lg" ng-click="window.location.href='#/eatables/index'">Cancel</button>
                     </div>
                     <div class="pure-u-1-2">
                         <button ng-click="saveEatable(_eatable);"
                                 ng-disabled="isClean() || myForm.$invalid"
-                                class="">{{buttonText}}</button>
+                                class="pure-button-lg pure-button-primary">{{buttonText}}</button>
                     </div>
                 </div>
                 <div class="pure-g">
                     <div class="pure-u-12-12">
                         <button ng-show="_eatable.editable > 0 && _eatable.editable!=null"
                                 ng-click="deleteEatable(_eatable)"
-                                class="pure-button pure-button-primary">Delete</button>
+                                class="pure-button pure-button-error">Delete</button>
                     </div>
                 </div>
             </div>

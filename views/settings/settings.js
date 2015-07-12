@@ -1,6 +1,6 @@
-var dashboard = {
+var settings = {
     //this css will be loaded automatically
-   // css:['dashboard.css'],
+   css:['settings/settings.css'],
     index: function ($scope, $location, $filter) {
 
     }

@@ -65,6 +65,9 @@
 .view-content {
   width: 100%;
 }
+.view-content .form-buttons {
+  margin-top: 2rem;
+}
 .footer {
   position: fixed;
   bottom: 0;
@@ -73,7 +76,7 @@
   height: 3.125rem;
   width: 100%;
   z-index: 9999;
-  border-top: 1px solid gray;
+  border-top: 1px solid rgba(92, 92, 92, 0.2);
 }
 .footer .pure-button {
   height: 3.1rem;

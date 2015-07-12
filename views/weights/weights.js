@@ -5,5 +5,9 @@ var weights = {
         restApi.getWeights().then(function(data){
             $scope.weights = data.data;
         });
+
+        $scope.editWeight = function(data){
+            $location.path('add-weight/index/?id=' + data.id);
+        }
     }
 };

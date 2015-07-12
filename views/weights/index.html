@@ -10,7 +10,7 @@
             <th>Weight</th>
             </thead>
             <tbody>
-            <tr ng-repeat="data in weights">
+            <tr ng-repeat="data in weights" ng-click="editWeight(data)">
                 <td>{{data.id}}</td>
                 <td>{{data.time}}</td>
                 <td>{{data.weight}}</td>

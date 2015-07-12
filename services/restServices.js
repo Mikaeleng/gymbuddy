@@ -1,4 +1,4 @@
-/**
+	/**
  * sidebarEffects.js v1.0.0
  * http://www.codrops.com
  *
@@ -13,7 +13,8 @@ gymbuddy.factory("restApi", ['$http', "$log", function($http, $log) {
 	var serviceBase = 'services/servercalls/'
 	var obj = {};
 	obj.getWeights = function(){
-		return $http.get(serviceBase + 'weights');
+		return $http.get(serviceBase + 'weights')
+
 	}
 	obj.getWeight = function(weightID){
 		return $http.get(serviceBase + 'weight?id=' + weightID);
@@ -26,7 +27,6 @@ gymbuddy.factory("restApi", ['$http', "$log", function($http, $log) {
 	};
 
 	obj.updateWeight = function (weightID,weight) {
-		$log.info("updateWeight", weight);
 		return $http.post(serviceBase + 'updateWeight', {weight:weight, id:weightID}).then(function (status) {
 			return status.data;
 		});
@@ -52,7 +52,6 @@ gymbuddy.factory("restApi", ['$http', "$log", function($http, $log) {
 		});
 	};
 	obj.updateEatable = function (eatableID,eatable) {
-		$log.info("updateEatable", eatable);
 		return $http.post(serviceBase + 'updateEatable', {eatable:eatable, id:eatable.ID}).then(function (status) {
 			return status.data;
 		});
