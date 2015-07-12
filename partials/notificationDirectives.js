@@ -3,18 +3,19 @@
  */
 'use strict';
 
-/*angular.module('topMenuDirective',[])
-    .directive('topMenu', function(){
+angular.module('notificationDirectives', [])
+    .directive('notificationHeader', function(){
 
         return {
             restrict: 'E',
-            templateUrl: 'navigation/topMenu.html',
+            templateUrl: 'partials/notificationHeader.html',
             replace: true,
             controller: function($scope, $element, $log){
-                $log.info("adsfds");
+
+
             },
             link: function (scope, el, attrs) {
 
             }
         };
-    });*/
+    })

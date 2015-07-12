@@ -3,7 +3,7 @@
  */
 'use strict';
 
-angular.module('menuDirectives', [])
+angular.module('frameworkDirectives', [])
     .directive('mainMenu', function(){
 
         return {

@@ -21,7 +21,7 @@ String.prototype.setDash  = function () {
     return c;
 }
 
-var gymbuddy = angular.module('gymbuddy', ['ngRoute','menuDirectives'])
+var gymbuddy = angular.module('gymbuddy', ['ngRoute','frameworkDirectives', 'notificationDirectives'])
 
     .constant('SETTINGS', (function() {
     // Define your variable

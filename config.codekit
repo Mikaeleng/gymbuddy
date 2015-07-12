@@ -501,6 +501,17 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
+	"\/navigation\/frameworkDirectives.js": {
+		"fileType": 64,
+		"ignore": 1,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/navigation\/frameworkDirectives.js",
+		"outputAbbreviatedPath": "\/navigation\/mainMenuDirective.min.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 0,
+		"syntaxCheckerStyle": 1
+		},
 	"\/navigation\/mainMenu.html": {
 		"fileType": 8192,
 		"ignore": 0,
@@ -509,28 +520,6 @@
 		"outputAbbreviatedPath": "No Output Path",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
-		},
-	"\/navigation\/mainMenuDirective.js": {
-		"fileType": 64,
-		"ignore": 1,
-		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/navigation\/mainMenuDirective.js",
-		"outputAbbreviatedPath": "\/navigation\/mainMenuDirective.min.js",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"outputStyle": 0,
-		"syntaxCheckerStyle": 1
-		},
-	"\/navigation\/navigation.js": {
-		"fileType": 64,
-		"ignore": 1,
-		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/navigation\/navigation.js",
-		"outputAbbreviatedPath": "\/navigation\/navigation.min.js",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"outputStyle": 0,
-		"syntaxCheckerStyle": 1
 		},
 	"\/navigation\/topMenu.html": {
 		"fileType": 8192,
@@ -541,12 +530,12 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
-	"\/navigation\/topMenuDirective.js": {
+	"\/partials\/notificationDirectives.js": {
 		"fileType": 64,
 		"ignore": 1,
 		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/navigation\/topMenuDirective.js",
-		"outputAbbreviatedPath": "\/navigation\/topMenuDirective.min.js",
+		"inputAbbreviatedPath": "\/partials\/notificationDirectives.js",
+		"outputAbbreviatedPath": "\/partials\/notificationDirectives.min.js",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
@@ -560,17 +549,6 @@
 		"outputAbbreviatedPath": "No Output Path",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
-		},
-	"\/partials\/notificationHeaderDirectives.js": {
-		"fileType": 64,
-		"ignore": 1,
-		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/partials\/notificationHeaderDirectives.js",
-		"outputAbbreviatedPath": "\/partials\/notificationHeaderDirectives.min.js",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"outputStyle": 0,
-		"syntaxCheckerStyle": 1
 		},
 	"\/services\/classie.js": {
 		"fileType": 64,
@@ -600,6 +578,17 @@
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/services\/mainNavigationService.js",
 		"outputAbbreviatedPath": "\/services\/mainNavigationService.min.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 0,
+		"syntaxCheckerStyle": 1
+		},
+	"\/services\/notificationFrameworkService.js": {
+		"fileType": 64,
+		"ignore": 1,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/services\/notificationFrameworkService.js",
+		"outputAbbreviatedPath": "\/services\/notificationFrameworkService.min.js",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
