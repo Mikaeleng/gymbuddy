@@ -12,7 +12,7 @@ var eatables = {
         restApi.getEatables()
             .then(function(data){
             $scope.eatables = data.data;
-        })
+            })
             .catch(function(response) {
                 console.error('Tell notification framework that something went wrong: ->', response.status, response.data);
             })

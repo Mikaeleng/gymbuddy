@@ -41,32 +41,26 @@
             <div class= "form-group form-buttons">
                 <div class="pure-g">
                     <div class="pure-u-1-2">
-                        <button class="pure-button-lg" ng-click="window.location.href='#/eatables/index'">Cancel</button>
+                        <input type="button" class="pure-button-lg" ng-click="cancelEdit($event)" value="Cancel" />
                     </div>
                     <div class="pure-u-1-2">
-                        <button ng-click="saveEatable(_eatable);"
-                                ng-disabled="isClean() || myForm.$invalid"
-                                class="pure-button-lg pure-button-primary">{{buttonText}}</button>
+                        <input type="submit"
+                                ng-click="saveEatable(_eatable);"
+                                ng-disabled=" myForm.$invalid"
+                                class="pure-button-lg pure-button-primary" value="{{buttonText}}"/>
                     </div>
                 </div>
+                <!-- delete food produce  ********
+
                 <div class="pure-g">
                     <div class="pure-u-12-12">
-                        <button ng-show="_eatable.editable > 0 && _eatable.editable!=null"
+                        <input type="button" ng-show="_eatable.editable > 0 && _eatable.editable!=null"
                                 ng-click="deleteEatable(_eatable)"
-                                class="pure-button pure-button-error">Delete</button>
+                                class="pure-button pure-button-error" value="Delete" />
                     </div>
                 </div>
+                -->
             </div>
         </form>
-    </div>
-    <div class="footer">
-        <div class="pure-g">
-            <div class="pure-u-12-12">
-                <button class="pure-button">
-                <a href="window.history.back()"><p class="Avantgarde-back-button"></p>
-                </a>
-                </button>
-            </div>
-        </div>
     </div>
 </div>

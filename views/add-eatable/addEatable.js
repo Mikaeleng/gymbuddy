@@ -1,7 +1,7 @@
 var addEatable = {
     //this css will be loaded automatically
     css:['add-eatable/add-eatable.css'],
-    index: function ($scope, $route, $location,$rootScope, $routeParams, $log, restApi, eatable) {
+    index: function ($scope, $route, $location,$rootScope, $routeParams,$window, $log, restApi, eatable) {
         var eatableID = ($routeParams.id) ? parseInt($routeParams.id) : 0;
         var eatableEdit = ($routeParams.editable) ? parseInt($routeParams.editable) : null;
         $rootScope.title = (eatable.editable != 1) ? 'Food produce' : 'Add food produce';
@@ -18,6 +18,10 @@ var addEatable = {
 
         }
 
+        $scope.cancelEdit = function(){
+            $window.location.href = "#/eatables/index";
+        };
+
         $scope.editEatable = function() {
             $("#myForm").removeClass('ng-hide');
             $("#food-info").addClass('ng-hide');
@@ -31,15 +35,16 @@ var addEatable = {
 
 
         $scope.saveEatable = function(eatable) {
+            console.log(eatableID);
             if (eatableID <= 0) {
                 $scope._eatable.editable = (eatableEdit==null) ? 1 : eatableEdit;
                 restApi.insertEatable(eatable);
                 $location.path('/eatables/index').replace();
             }
-            else {
+           /* else {
                 restApi.updateEatable(eatableID, eatable);
                 $route.reload();
-            }
+            }*/
         };
     }
 };

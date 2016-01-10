@@ -18,18 +18,25 @@
   <link rel="apple-touch-icon" href="assets/img/apple-touch-icon2.png">
   <!-- Frameworks -->
   <script src="assets/vendors/jquery.min.js"></script>
-  <link rel="stylesheet" href="assets/css/app.css">
-  <link rel="stylesheet" type="text/css" href="assets/css/pure/base-min.css" />
-  <!--<link rel="stylesheet" type="text/css" href="assets/css/pure/grid-old-ie.css" />-->
+
+  <link rel="stylesheet" href="assets/vendors/jquery-dpnumberpicker/jquery.dpNumberPicker-1.0.1.css" />
+  <script src="assets/vendors/jquery-dpnumberpicker/jquery.dpNumberPicker-1.0.1-min.js"></script>
+  <!--<link rel="stylesheet" type="text/css" href="assets/css/pure/base-min.css" />
+  // <link rel="stylesheet" type="text/css" href="assets/css/pure/grid-old-ie.css" />
   <link rel="stylesheet" type="text/css" href="assets/css/pure/grid-min.css" />
   <link rel="stylesheet" type="text/css" href="assets/css/pure/buttons-min.css" />
   <link rel="stylesheet" type="text/css" href="assets/css/pure/forms-min.css" />
   <link rel="stylesheet" type="text/css" href="assets/css/pure/tables-min.css" />
   <link rel="stylesheet" type="text/css" href="assets/css/pure/menus-min.css" />
-  <link rel="stylesheet" type="text/css" href="assets/css/pure/custom-pure-classes-min.css" />
-
+  <link rel="stylesheet" type="text/css" href="assets/css/pure/custom-pure-classes-min.css" />-->
+  <link rel="stylesheet" href="assets/css/pure/pure-min.css" />
+  <link rel="stylesheet" href="assets/css/pure/grids-responsive-min.css">
+  <link rel="stylesheet" href="assets/css/custom_12_grid.css">
+  <link rel="stylesheet" href="assets/fonts/Avantgarde/Avantgarde.css">
+  <link rel="stylesheet" href="assets/open_sans/stylesheet.css">
 
   <link rel="stylesheet" type="text/css" href="assets/css/menu-effects.css" />
+  <link rel="stylesheet" href="assets/css/app.css">
   <script src="assets/vendors/modernizr.custom.js"></script>
 </head>
 <body>
@@ -63,10 +70,11 @@
 <script src="assets/vendors/angular-route.min.js"></script>
 <!-- views and app imports -->
 <script src="app.js"></script>
-
 <!-- service and directive imports -->
+<script src="partials/workoutDirectives.js"></script>
 <script src="partials/notificationDirectives.js"></script>
 <script src="navigation/frameworkDirectives.js"></script>
+<script src="services/httpRequests.js"></script>
 <script src="services/mainNavigationService.js"></script>
 <script src="services/classie.js"></script>
 <script src="services/Loader.js"></script>

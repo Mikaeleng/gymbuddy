@@ -13,7 +13,7 @@ gymbuddy.factory("restApi", ['$http', "$log", function($http, $log) {
 	var serviceBase = 'services/servercalls/'
 	var obj = {};
 	obj.getWeights = function(){
-		return $http.get(serviceBase + 'weights')
+		return $http.get(serviceBase + 'weights');
 
 	}
 	obj.getWeight = function(weightID){

@@ -25,10 +25,13 @@ angular.module('frameworkDirectives', [])
                         $scope.navElements = event.data;
                         // build navigation:
                        // buildNavigation.initBuild($scope.navElements,0);
-                    },
-                    function(status){
-                        $log.warn(status);
-                    });;
+                    })
+                    .catch(function(response) {
+                        console.error('Tell notification framework that something went wrong: ->', response.status, response.data);
+                    })
+                    .finally(function() {
+                        console.log("Tell notification framework you are finished", response.status);
+                    });
 
                 $scope.menuClick = {};
                 $scope.menuClick.toggle = function(item, event) {

@@ -1,10 +1,10 @@
 <div class="view eatables">
-    <div class="query" ng-show="filteredData.length > 0">
+    <div class="query" >
         <form class="pure-form">
             <fieldset>
                 <div class="pure-g clearfix">
                     <div class="pure-u-1-2"><label for="query">Search:</label></div>
-                    <div class="pure-u-1-2"><button class="pure-button pure-button-primary" onclick="window.location.href='#/add-eatable/index'">Add new</button></div>
+                    <div class="pure-u-1-2" ng-show="filteredData.length > 0"><button class="pure-button pure-button-primary" onclick="window.location.href='#/add-eatable/index'">Add new</button></div>
                 </div>
             <input type="text" name="query" value="" placeholder="" ng-change="onEditChange()" ng-model="query">
             </fieldset>

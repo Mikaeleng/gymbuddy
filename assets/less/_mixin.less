@@ -5,11 +5,35 @@
   url('../fonts/Avantgarde/Avantgarde.woff2') format('woff2'),
   url('../fonts/Avantgarde/Avantgarde.woff') format('woff'),
   url('../fonts/Avantgarde/Avantgarde.ttf') format('truetype'),
-  url('../fonts/Avantgarde/Avantgarde.svg#ME-Avantgarde') format('svg');
+  url('../fonts/Avantgarde/Avantgarde.svg#Avantgarde') format('svg');
   font-weight: normal;
   font-style: normal;
 
 }
+
+@granit         : #74786d;
+@sten           : #252525;
+@kalk           : #ffffff;
+@sno            : #f4f4ee;
+@sno2            : #ebebe3;
+@sno3            : #dbdbd7;
+@leaf           : #00af49;
+@tab-background : #D7D7D7;
+@page-background : #eee;
+@raps           : #efdf00;
+@sjo            : #2b7ea7;
+
+.randomColor(){
+  @randomColor: `Math.floor(Math.random()*16777215).toString(16)`;
+  @colorHex: e(@randomColor);
+  @color: ~"#@{colorHex}";
+}
+
+@h-padding    :0.4rem;
+@line-height  : 2.75rem;
+@line-height-large  :3.25rem;
+
+// USE
 
 
 [data-icon]:before { content: attr(data-icon); }

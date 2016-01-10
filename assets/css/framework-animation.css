@@ -1,3 +1,151 @@
+@font-face {
+  font-family: 'Avantgarde';
+  src: url('../fonts/Avantgarde/Avantgarde.eot');
+  src: url('../fonts/Avantgarde/Avantgarde.eot?#iefix') format('embedded-opentype'), url('../fonts/Avantgarde/Avantgarde.woff2') format('woff2'), url('../fonts/Avantgarde/Avantgarde.woff') format('woff'), url('../fonts/Avantgarde/Avantgarde.ttf') format('truetype'), url('../fonts/Avantgarde/Avantgarde.svg#Avantgarde') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+[data-icon]:before {
+  content: attr(data-icon);
+}
+[data-icon]:before,
+.Avantgarde-Create:before,
+.Avantgarde-Filter:before,
+.Avantgarde-List-menu:before,
+.Avantgarde-List-tiles:before,
+.Avantgarde-Live:before,
+.Avantgarde-Menu-texticon:before,
+.Avantgarde-Wall:before,
+.Avantgarde-Work:before,
+.Avantgarde-add-weight:before,
+.Avantgarde-back-button:before,
+.Avantgarde-calculate:before,
+.Avantgarde-dashboard:before,
+.Avantgarde-dashboard-square:before,
+.Avantgarde-facebook:before,
+.Avantgarde-food-produce:before,
+.Avantgarde-home:before,
+.Avantgarde-pinterest:before,
+.Avantgarde-search:before,
+.Avantgarde-settings:before,
+.Avantgarde-training:before,
+.Avantgarde-training-person:before,
+.Avantgarde-twitter:before,
+.Avantgarde-weightlist:before {
+  display: inline-block;
+  font-family: "Avantgarde";
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  line-height: 1;
+  text-decoration: inherit;
+  text-rendering: optimizeLegibility;
+  text-transform: none;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+}
+.Avantgarde-Create:before {
+  content: "\f100";
+}
+.Avantgarde-Filter:before {
+  content: "\f101";
+}
+.Avantgarde-List-menu:before {
+  content: "\f102";
+}
+.Avantgarde-List-tiles:before {
+  content: "\f103";
+}
+.Avantgarde-Live:before {
+  content: "\f104";
+}
+.Avantgarde-Menu-texticon:before {
+  content: "\f105";
+}
+.Avantgarde-Wall:before {
+  content: "\f106";
+}
+.Avantgarde-Work:before {
+  content: "\f107";
+}
+.Avantgarde-add-weight:before {
+  content: "\f114";
+}
+.Avantgarde-back-button:before {
+  content: "\f11a";
+}
+.Avantgarde-calculate:before {
+  content: "\f111";
+}
+.Avantgarde-dashboard:before {
+  content: "\f10f";
+}
+.Avantgarde-dashboard-square:before {
+  content: "\f11c";
+}
+.Avantgarde-facebook:before {
+  content: "\f109";
+}
+.Avantgarde-food-produce:before {
+  content: "\f117";
+}
+.Avantgarde-home:before {
+  content: "\f118";
+}
+.Avantgarde-pinterest:before {
+  content: "\f10a";
+}
+.Avantgarde-search:before {
+  content: "\f10b";
+}
+.Avantgarde-settings:before {
+  content: "\f115";
+}
+.Avantgarde-training:before {
+  content: "\f110";
+}
+.Avantgarde-training-person:before {
+  content: "\f112";
+}
+.Avantgarde-twitter:before {
+  content: "\f10c";
+}
+.Avantgarde-weightlist:before {
+  content: "\f113";
+}
+.clearfix {
+  zoom: 1;
+}
+.clearfix:before,
+.clearfix:after {
+  content: "";
+  display: table;
+}
+.clearfix:after {
+  clear: both;
+}
+/*********************
+TOOLS
+*********************/
+/** {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing:    border-box;
+  box-sizing:         border-box;
+}*/
+.disable {
+  color: #999999!important;
+  cursor: default;
+  opacity: 0.5;
+}
+[ng\:cloak],
+[ng-cloak],
+[data-ng-cloak],
+[x-ng-cloak],
+.ng-cloak,
+.x-ng-cloak {
+  display: none !important;
+}
 *,
 *:after,
 *::before {
@@ -9,7 +157,10 @@ body,
 .st-container,
 .st-pusher,
 .st-content {
+  background-color: #ebebe3;
+  color: #74786d;
   height: 100%;
+  position: relative;
 }
 .st-content {
   overflow-y: scroll;

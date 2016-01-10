@@ -21,7 +21,7 @@ String.prototype.setDash  = function () {
     return c;
 }
 
-var gymbuddy = angular.module('gymbuddy', ['ngRoute','frameworkDirectives', 'notificationDirectives'])
+var gymbuddy = angular.module('gymbuddy', ['ngRoute','frameworkDirectives', 'notificationDirectives', 'workoutDirectives'])
 
     .constant('SETTINGS', (function() {
     // Define your variable
@@ -66,6 +66,10 @@ gymbuddy.config(['$routeProvider', 'SETTINGS' ,
                     eatable: function(restApi, $route){
                         var eatableID = $route.current.params.id;
                         return restApi.getEatable(eatableID);
+                    },
+                    workout: function($route){
+                        var workoutname = $route.current.params.workoutname;
+                        return workoutname;
                     }
                 },
                 controller: 'Router'
