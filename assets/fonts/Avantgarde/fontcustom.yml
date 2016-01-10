@@ -1,0 +1,51 @@
+# --------------------------------------------------------------------------- #
+# Project Info
+#   Defaults shown. Learn more about these options by running
+#   `fontcustom help` or visiting <http://fontcustom.com>.
+# --------------------------------------------------------------------------- #
+
+font_name: Avantgarde
+font_design_size: 16
+font_em: 512
+font_ascent: 448
+font_descent: 64
+css_selector: .Avantgarde-{{glyph}}
+preprocessor_path: ""
+autowidth: false
+no_hash: true
+force: true
+debug: false
+quiet: false
+
+
+# --------------------------------------------------------------------------- #
+# Input Paths
+# --------------------------------------------------------------------------- #
+
+input:
+  vectors: 		/Applications/AMPPS/www/dev/gymbuddy/fonts/Avantgarde/vectors     # required
+ # templates: 	/Users/mikaelen/test1
+
+
+# --------------------------------------------------------------------------- #
+# Output Paths
+# --------------------------------------------------------------------------- #
+
+output:
+  fonts: 	/Applications/AMPPS/www/dev/gymbuddy/fonts/Avantgarde                            # required
+  css: 		/Applications/AMPPS/www/dev/gymbuddy/fonts/Avantgarde
+  preview: 	/Applications/AMPPS/www/dev/gymbuddy/fonts/Avantgarde
+  #my-custom-template.yml: path/to/template/output
+
+
+# --------------------------------------------------------------------------- #
+# Templates
+#   Included in Font Custom: preview, css, scss, scss-rails
+#   Custom templates should be saved in the INPUT[:templates] directory and
+#   referenced by their baserame.
+# --------------------------------------------------------------------------- #
+
+templates:
+ - scss
+ - preview
+ #- my-custom-template.yml

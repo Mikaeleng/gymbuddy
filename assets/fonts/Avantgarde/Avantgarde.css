@@ -1,0 +1,226 @@
+@font-face {
+  font-family: "Avantgarde";
+  src: url("Avantgarde.eot");
+  src: url("Avantgarde.eot?#iefix") format("embedded-opentype"), url("Avantgarde.woff") format("woff"), url("Avantgarde.ttf") format("truetype"), url("Avantgarde.svg#Avantgarde") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+  @font-face {
+    font-family: "Avantgarde";
+    src: url("Avantgarde.svg#Avantgarde") format("svg"); } }
+[data-icon]:before {
+  content: attr(data-icon); }
+
+[data-icon]:before,
+.Avantgarde-Create:before,
+.Avantgarde-Filter:before,
+.Avantgarde-List-menu:before,
+.Avantgarde-List-tiles:before,
+.Avantgarde-Live:before,
+.Avantgarde-Menu-texticon:before,
+.Avantgarde-Wall:before,
+.Avantgarde-Work:before,
+.Avantgarde-add-weight:before,
+.Avantgarde-back-button:before,
+.Avantgarde-calculate:before,
+.Avantgarde-check:before,
+.Avantgarde-checkmark-circle:before,
+.Avantgarde-checkmark-unchecked:before,
+.Avantgarde-chevron-down:before,
+.Avantgarde-chevron-down-circle:before,
+.Avantgarde-chevron-left:before,
+.Avantgarde-chevron-left-circle:before,
+.Avantgarde-chevron-right:before,
+.Avantgarde-chevron-right-circle:before,
+.Avantgarde-chevron-up:before,
+.Avantgarde-chevron-up-circle:before,
+.Avantgarde-circle-minus:before,
+.Avantgarde-cog:before,
+.Avantgarde-cross:before,
+.Avantgarde-cross-circle:before,
+.Avantgarde-dashboard:before,
+.Avantgarde-dashboard-square:before,
+.Avantgarde-facebook:before,
+.Avantgarde-food-produce:before,
+.Avantgarde-heart:before,
+.Avantgarde-home:before,
+.Avantgarde-leaf:before,
+.Avantgarde-lock:before,
+.Avantgarde-map:before,
+.Avantgarde-map-marker:before,
+.Avantgarde-marquee-minus:before,
+.Avantgarde-marquee-plus:before,
+.Avantgarde-menu:before,
+.Avantgarde-menu-circle:before,
+.Avantgarde-pinterest:before,
+.Avantgarde-plus:before,
+.Avantgarde-search:before,
+.Avantgarde-settings:before,
+.Avantgarde-thumbs-down:before,
+.Avantgarde-thumbs-up:before,
+.Avantgarde-training:before,
+.Avantgarde-training-person:before,
+.Avantgarde-twitter:before,
+.Avantgarde-weightlist:before {
+  display: inline-block;
+  font-family: "Avantgarde";
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  line-height: 1;
+  text-decoration: inherit;
+  text-rendering: optimizeLegibility;
+  text-transform: none;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased; }
+
+.Avantgarde-Create:before {
+  content: "\f100"; }
+
+.Avantgarde-Filter:before {
+  content: "\f101"; }
+
+.Avantgarde-List-menu:before {
+  content: "\f102"; }
+
+.Avantgarde-List-tiles:before {
+  content: "\f103"; }
+
+.Avantgarde-Live:before {
+  content: "\f104"; }
+
+.Avantgarde-Menu-texticon:before {
+  content: "\f105"; }
+
+.Avantgarde-Wall:before {
+  content: "\f106"; }
+
+.Avantgarde-Work:before {
+  content: "\f107"; }
+
+.Avantgarde-add-weight:before {
+  content: "\f108"; }
+
+.Avantgarde-back-button:before {
+  content: "\f109"; }
+
+.Avantgarde-calculate:before {
+  content: "\f10a"; }
+
+.Avantgarde-check:before {
+  content: "\f137"; }
+
+.Avantgarde-checkmark-circle:before {
+  content: "\f10b"; }
+
+.Avantgarde-checkmark-unchecked:before {
+  content: "\f10c"; }
+
+.Avantgarde-chevron-down:before {
+  content: "\f10d"; }
+
+.Avantgarde-chevron-down-circle:before {
+  content: "\f10e"; }
+
+.Avantgarde-chevron-left:before {
+  content: "\f10f"; }
+
+.Avantgarde-chevron-left-circle:before {
+  content: "\f110"; }
+
+.Avantgarde-chevron-right:before {
+  content: "\f111"; }
+
+.Avantgarde-chevron-right-circle:before {
+  content: "\f112"; }
+
+.Avantgarde-chevron-up:before {
+  content: "\f113"; }
+
+.Avantgarde-chevron-up-circle:before {
+  content: "\f114"; }
+
+.Avantgarde-circle-minus:before {
+  content: "\f115"; }
+
+.Avantgarde-cog:before {
+  content: "\f116"; }
+
+.Avantgarde-cross:before {
+  content: "\f117"; }
+
+.Avantgarde-cross-circle:before {
+  content: "\f118"; }
+
+.Avantgarde-dashboard:before {
+  content: "\f119"; }
+
+.Avantgarde-dashboard-square:before {
+  content: "\f11a"; }
+
+.Avantgarde-facebook:before {
+  content: "\f11b"; }
+
+.Avantgarde-food-produce:before {
+  content: "\f11c"; }
+
+.Avantgarde-heart:before {
+  content: "\f11d"; }
+
+.Avantgarde-home:before {
+  content: "\f11e"; }
+
+.Avantgarde-leaf:before {
+  content: "\f11f"; }
+
+.Avantgarde-lock:before {
+  content: "\f120"; }
+
+.Avantgarde-map:before {
+  content: "\f121"; }
+
+.Avantgarde-map-marker:before {
+  content: "\f122"; }
+
+.Avantgarde-marquee-minus:before {
+  content: "\f12f"; }
+
+.Avantgarde-marquee-plus:before {
+  content: "\f133"; }
+
+.Avantgarde-menu:before {
+  content: "\f123"; }
+
+.Avantgarde-menu-circle:before {
+  content: "\f124"; }
+
+.Avantgarde-pinterest:before {
+  content: "\f125"; }
+
+.Avantgarde-plus:before {
+  content: "\f132"; }
+
+.Avantgarde-search:before {
+  content: "\f126"; }
+
+.Avantgarde-settings:before {
+  content: "\f127"; }
+
+.Avantgarde-thumbs-down:before {
+  content: "\f128"; }
+
+.Avantgarde-thumbs-up:before {
+  content: "\f129"; }
+
+.Avantgarde-training:before {
+  content: "\f12a"; }
+
+.Avantgarde-training-person:before {
+  content: "\f12b"; }
+
+.Avantgarde-twitter:before {
+  content: "\f12c"; }
+
+.Avantgarde-weightlist:before {
+  content: "\f12d"; }

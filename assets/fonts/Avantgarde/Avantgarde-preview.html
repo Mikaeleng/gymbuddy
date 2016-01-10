@@ -1,0 +1,968 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Avantgarde glyphs preview</title>
+
+    <style>
+      /* Page Styles */
+
+      * {
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        background: #fff;
+        color: #444;
+        font: 16px/1.5 "Helvetica Neue", Helvetica, Arial, sans-serif;
+      }
+
+      a,
+      a:visited {
+        color: #888;
+        text-decoration: underline;
+      }
+      a:hover,
+      a:focus { color: #000; }
+
+      header {
+        border-bottom: 2px solid #ddd;
+        margin-bottom: 20px;
+        overflow: hidden;
+        padding: 20px 0;
+      }
+
+      header h1 {
+        color: #888;
+        float: left;
+        font-size: 36px;
+        font-weight: 300;
+      }
+
+      header a {
+        float: right;
+        font-size: 14px;
+      }
+
+      .container {
+        margin: 0 auto;
+        max-width: 1200px;
+        min-width: 960px;
+        padding: 0 40px;
+        width: 90%;
+      }
+
+      .glyph {
+        border-bottom: 1px dotted #ccc;
+        padding: 10px 0 20px;
+        margin-bottom: 20px;
+      }
+
+      .preview-glyphs { vertical-align: bottom; }
+
+      .preview-scale {
+        color: #888;
+        font-size: 12px;
+        margin-top: 5px;
+      }
+
+      .step {
+        display: inline-block;
+        line-height: 1;
+        position: relative;
+        width: 10%;
+      }
+
+      .step .letters,
+      .step i {
+        -webkit-transition: opacity .3s;
+        -moz-transition: opacity .3s;
+        -ms-transition: opacity .3s;
+        -o-transition: opacity .3s;
+        transition: opacity .3s;
+      }
+
+      .step:hover .letters { opacity: 1; }
+      .step:hover i { opacity: .3; }
+
+      .letters {
+        opacity: .3;
+        position: absolute;
+      }
+
+      .characters-off .letters { display: none; }
+      .characters-off .step:hover i { opacity: 1; }
+
+      
+      .size-12 { font-size: 12px; }
+      
+      .size-14 { font-size: 14px; }
+      
+      .size-16 { font-size: 16px; }
+      
+      .size-18 { font-size: 18px; }
+      
+      .size-21 { font-size: 21px; }
+      
+      .size-24 { font-size: 24px; }
+      
+      .size-36 { font-size: 36px; }
+      
+      .size-48 { font-size: 48px; }
+      
+      .size-60 { font-size: 60px; }
+      
+      .size-72 { font-size: 72px; }
+      
+
+      .usage { margin-top: 10px; }
+
+      .usage input {
+        font-family: monospace;
+        margin-right: 3px;
+        padding: 2px 5px;
+        text-align: center;
+      }
+
+      .usage .point { width: 150px; }
+
+      .usage .class { width: 250px; }
+
+      footer {
+        color: #888;
+        font-size: 12px;
+        padding: 20px 0;
+      }
+
+      /* Icon Font: Avantgarde */
+
+      @font-face {
+  font-family: "Avantgarde";
+  src: url("./Avantgarde.eot");
+  src: url("./Avantgarde.eot?#iefix") format("embedded-opentype"),
+       url("./Avantgarde.woff") format("woff"),
+       url("./Avantgarde.ttf") format("truetype"),
+       url("./Avantgarde.svg#Avantgarde") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: "Avantgarde";
+    src: url("./Avantgarde.svg#Avantgarde") format("svg");
+  }
+}
+
+      [data-icon]:before { content: attr(data-icon); }
+
+      [data-icon]:before,
+      .Avantgarde-Create:before,
+.Avantgarde-Filter:before,
+.Avantgarde-List-menu:before,
+.Avantgarde-List-tiles:before,
+.Avantgarde-Live:before,
+.Avantgarde-Menu-texticon:before,
+.Avantgarde-Wall:before,
+.Avantgarde-Work:before,
+.Avantgarde-add-weight:before,
+.Avantgarde-back-button:before,
+.Avantgarde-calculate:before,
+.Avantgarde-check:before,
+.Avantgarde-checkmark-circle:before,
+.Avantgarde-checkmark-unchecked:before,
+.Avantgarde-chevron-down:before,
+.Avantgarde-chevron-down-circle:before,
+.Avantgarde-chevron-left:before,
+.Avantgarde-chevron-left-circle:before,
+.Avantgarde-chevron-right:before,
+.Avantgarde-chevron-right-circle:before,
+.Avantgarde-chevron-up:before,
+.Avantgarde-chevron-up-circle:before,
+.Avantgarde-circle-minus:before,
+.Avantgarde-cog:before,
+.Avantgarde-cross:before,
+.Avantgarde-cross-circle:before,
+.Avantgarde-dashboard:before,
+.Avantgarde-dashboard-square:before,
+.Avantgarde-facebook:before,
+.Avantgarde-food-produce:before,
+.Avantgarde-heart:before,
+.Avantgarde-home:before,
+.Avantgarde-leaf:before,
+.Avantgarde-lock:before,
+.Avantgarde-map:before,
+.Avantgarde-map-marker:before,
+.Avantgarde-marquee-minus:before,
+.Avantgarde-marquee-plus:before,
+.Avantgarde-menu:before,
+.Avantgarde-menu-circle:before,
+.Avantgarde-number-one-circle-25:before,
+.Avantgarde-pinterest:before,
+.Avantgarde-plus:before,
+.Avantgarde-search:before,
+.Avantgarde-settings:before,
+.Avantgarde-thumbs-down:before,
+.Avantgarde-thumbs-up:before,
+.Avantgarde-training:before,
+.Avantgarde-training-person:before,
+.Avantgarde-twitter:before,
+.Avantgarde-weightlist:before {
+        display: inline-block;
+  font-family: "Avantgarde";
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  line-height: 1;
+  text-decoration: inherit;
+  text-rendering: optimizeLegibility;
+  text-transform: none;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+      }
+
+      .Avantgarde-Create:before { content: "\f100"; }
+.Avantgarde-Filter:before { content: "\f101"; }
+.Avantgarde-List-menu:before { content: "\f102"; }
+.Avantgarde-List-tiles:before { content: "\f103"; }
+.Avantgarde-Live:before { content: "\f104"; }
+.Avantgarde-Menu-texticon:before { content: "\f105"; }
+.Avantgarde-Wall:before { content: "\f106"; }
+.Avantgarde-Work:before { content: "\f107"; }
+.Avantgarde-add-weight:before { content: "\f108"; }
+.Avantgarde-back-button:before { content: "\f109"; }
+.Avantgarde-calculate:before { content: "\f10a"; }
+.Avantgarde-check:before { content: "\f137"; }
+.Avantgarde-checkmark-circle:before { content: "\f10b"; }
+.Avantgarde-checkmark-unchecked:before { content: "\f10c"; }
+.Avantgarde-chevron-down:before { content: "\f10d"; }
+.Avantgarde-chevron-down-circle:before { content: "\f10e"; }
+.Avantgarde-chevron-left:before { content: "\f10f"; }
+.Avantgarde-chevron-left-circle:before { content: "\f110"; }
+.Avantgarde-chevron-right:before { content: "\f111"; }
+.Avantgarde-chevron-right-circle:before { content: "\f112"; }
+.Avantgarde-chevron-up:before { content: "\f113"; }
+.Avantgarde-chevron-up-circle:before { content: "\f114"; }
+.Avantgarde-circle-minus:before { content: "\f115"; }
+.Avantgarde-cog:before { content: "\f116"; }
+.Avantgarde-cross:before { content: "\f117"; }
+.Avantgarde-cross-circle:before { content: "\f118"; }
+.Avantgarde-dashboard:before { content: "\f119"; }
+.Avantgarde-dashboard-square:before { content: "\f11a"; }
+.Avantgarde-facebook:before { content: "\f11b"; }
+.Avantgarde-food-produce:before { content: "\f11c"; }
+.Avantgarde-heart:before { content: "\f11d"; }
+.Avantgarde-home:before { content: "\f11e"; }
+.Avantgarde-leaf:before { content: "\f11f"; }
+.Avantgarde-lock:before { content: "\f120"; }
+.Avantgarde-map:before { content: "\f121"; }
+.Avantgarde-map-marker:before { content: "\f122"; }
+.Avantgarde-marquee-minus:before { content: "\f12f"; }
+.Avantgarde-marquee-plus:before { content: "\f133"; }
+.Avantgarde-menu:before { content: "\f123"; }
+.Avantgarde-menu-circle:before { content: "\f124"; }
+.Avantgarde-number-one-circle-25:before { content: "\f138"; }
+.Avantgarde-pinterest:before { content: "\f125"; }
+.Avantgarde-plus:before { content: "\f132"; }
+.Avantgarde-search:before { content: "\f126"; }
+.Avantgarde-settings:before { content: "\f127"; }
+.Avantgarde-thumbs-down:before { content: "\f128"; }
+.Avantgarde-thumbs-up:before { content: "\f129"; }
+.Avantgarde-training:before { content: "\f12a"; }
+.Avantgarde-training-person:before { content: "\f12b"; }
+.Avantgarde-twitter:before { content: "\f12c"; }
+.Avantgarde-weightlist:before { content: "\f12d"; }
+    </style>
+
+    <!--[if lte IE 8]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+    <script>
+      function toggleCharacters() {
+        var body = document.getElementsByTagName('body')[0];
+        body.className = body.className === 'characters-off' ? '' : 'characters-off';
+      }
+    </script>
+  </head>
+
+  <body class="characters-off">
+    <div id="page" class="container">
+      <header>
+        <h1>Avantgarde contains 51 glyphs:</h1>
+        <a onclick="toggleCharacters(); return false;" href="#">Toggle Preview Characters</a>
+      </header>
+
+      
+      <div class="glyph">
+        <div class="preview-glyphs">
+          <span class="step size-12"><span class="letters">Pp</span><i id="Avantgarde-Create" class="Avantgarde-Create"></i></span><span class="step size-14"><span class="letters">Pp</span><i id="Avantgarde-Create" class="Avantgarde-Create"></i></span><span class="step size-16"><span class="letters">Pp</span><i id="Avantgarde-Create" class="Avantgarde-Create"></i></span><span class="step size-18"><span class="letters">Pp</span><i id="Avantgarde-Create" class="Avantgarde-Create"></i></span><span class="step size-21"><span class="letters">Pp</span><i id="Avantgarde-Create" class="Avantgarde-Create"></i></span><span class="step size-24"><span class="letters">Pp</span><i id="Avantgarde-Create" class="Avantgarde-Create"></i></span><span class="step size-36"><span class="letters">Pp</span><i id="Avantgarde-Create" class="Avantgarde-Create"></i></span><span class="step size-48"><span class="letters">Pp</span><i id="Avantgarde-Create" class="Avantgarde-Create"></i></span><span class="step size-60"><span class="letters">Pp</span><i id="Avantgarde-Create" class="Avantgarde-Create"></i></span><span class="step size-72"><span class="letters">Pp</span><i id="Avantgarde-Create" class="Avantgarde-Create"></i></span>
+        </div>
+        <div class="preview-scale">
+          <span class="step">12</span><span class="step">14</span><span class="step">16</span><span class="step">18</span><span class="step">21</span><span class="step">24</span><span class="step">36</span><span class="step">48</span><span class="step">60</span><span class="step">72</span>
+        </div>
+        <div class="usage">
+          <input class="class" type="text" readonly="readonly" onClick="this.select();" value=".Avantgarde-Create" />
+          <input class="point" type="text" readonly="readonly" onClick="this.select();" value="&amp;#xf100;" />
+        </div>
+      </div>
+      
+      <div class="glyph">
+        <div class="preview-glyphs">
+          <span class="step size-12"><span class="letters">Pp</span><i id="Avantgarde-Filter" class="Avantgarde-Filter"></i></span><span class="step size-14"><span class="letters">Pp</span><i id="Avantgarde-Filter" class="Avantgarde-Filter"></i></span><span class="step size-16"><span class="letters">Pp</span><i id="Avantgarde-Filter" class="Avantgarde-Filter"></i></span><span class="step size-18"><span class="letters">Pp</span><i id="Avantgarde-Filter" class="Avantgarde-Filter"></i></span><span class="step size-21"><span class="letters">Pp</span><i id="Avantgarde-Filter" class="Avantgarde-Filter"></i></span><span class="step size-24"><span class="letters">Pp</span><i id="Avantgarde-Filter" class="Avantgarde-Filter"></i></span><span class="step size-36"><span class="letters">Pp</span><i id="Avantgarde-Filter" class="Avantgarde-Filter"></i></span><span class="step size-48"><span class="letters">Pp</span><i id="Avantgarde-Filter" class="Avantgarde-Filter"></i></span><span class="step size-60"><span class="letters">Pp</span><i id="Avantgarde-Filter" class="Avantgarde-Filter"></i></span><span class="step size-72"><span class="letters">Pp</span><i id="Avantgarde-Filter" class="Avantgarde-Filter"></i></span>
+        </div>
+        <div class="preview-scale">
+          <span class="step">12</span><span class="step">14</span><span class="step">16</span><span class="step">18</span><span class="step">21</span><span class="step">24</span><span class="step">36</span><span class="step">48</span><span class="step">60</span><span class="step">72</span>
+        </div>
+        <div class="usage">
+          <input class="class" type="text" readonly="readonly" onClick="this.select();" value=".Avantgarde-Filter" />
+          <input class="point" type="text" readonly="readonly" onClick="this.select();" value="&amp;#xf101;" />
+        </div>
+      </div>
+      
+      <div class="glyph">
+        <div class="preview-glyphs">
+          <span class="step size-12"><span class="letters">Pp</span><i id="Avantgarde-List-menu" class="Avantgarde-List-menu"></i></span><span class="step size-14"><span class="letters">Pp</span><i id="Avantgarde-List-menu" class="Avantgarde-List-menu"></i></span><span class="step size-16"><span class="letters">Pp</span><i id="Avantgarde-List-menu" class="Avantgarde-List-menu"></i></span><span class="step size-18"><span class="letters">Pp</span><i id="Avantgarde-List-menu" class="Avantgarde-List-menu"></i></span><span class="step size-21"><span class="letters">Pp</span><i id="Avantgarde-List-menu" class="Avantgarde-List-menu"></i></span><span class="step size-24"><span class="letters">Pp</span><i id="Avantgarde-List-menu" class="Avantgarde-List-menu"></i></span><span class="step size-36"><span class="letters">Pp</span><i id="Avantgarde-List-menu" class="Avantgarde-List-menu"></i></span><span class="step size-48"><span class="letters">Pp</span><i id="Avantgarde-List-menu" class="Avantgarde-List-menu"></i></span><span class="step size-60"><span class="letters">Pp</span><i id="Avantgarde-List-menu" class="Avantgarde-List-menu"></i></span><span class="step size-72"><span class="letters">Pp</span><i id="Avantgarde-List-menu" class="Avantgarde-List-menu"></i></span>
+        </div>
+        <div class="preview-scale">
+          <span class="step">12</span><span class="step">14</span><span class="step">16</span><span class="step">18</span><span class="step">21</span><span class="step">24</span><span class="step">36</span><span class="step">48</span><span class="step">60</span><span class="step">72</span>
+        </div>
+        <div class="usage">
+          <input class="class" type="text" readonly="readonly" onClick="this.select();" value=".Avantgarde-List-menu" />
+          <input class="point" type="text" readonly="readonly" onClick="this.select();" value="&amp;#xf102;" />
+        </div>
+      </div>
+      
+      <div class="glyph">
+        <div class="preview-glyphs">
+          <span class="step size-12"><span class="letters">Pp</span><i id="Avantgarde-List-tiles" class="Avantgarde-List-tiles"></i></span><span class="step size-14"><span class="letters">Pp</span><i id="Avantgarde-List-tiles" class="Avantgarde-List-tiles"></i></span><span class="step size-16"><span class="letters">Pp</span><i id="Avantgarde-List-tiles" class="Avantgarde-List-tiles"></i></span><span class="step size-18"><span class="letters">Pp</span><i id="Avantgarde-List-tiles" class="Avantgarde-List-tiles"></i></span><span class="step size-21"><span class="letters">Pp</span><i id="Avantgarde-List-tiles" class="Avantgarde-List-tiles"></i></span><span class="step size-24"><span class="letters">Pp</span><i id="Avantgarde-List-tiles" class="Avantgarde-List-tiles"></i></span><span class="step size-36"><span class="letters">Pp</span><i id="Avantgarde-List-tiles" class="Avantgarde-List-tiles"></i></span><span class="step size-48"><span class="letters">Pp</span><i id="Avantgarde-List-tiles" class="Avantgarde-List-tiles"></i></span><span class="step size-60"><span class="letters">Pp</span><i id="Avantgarde-List-tiles" class="Avantgarde-List-tiles"></i></span><span class="step size-72"><span class="letters">Pp</span><i id="Avantgarde-List-tiles" class="Avantgarde-List-tiles"></i></span>
+        </div>
+        <div class="preview-scale">
+          <span class="step">12</span><span class="step">14</span><span class="step">16</span><span class="step">18</span><span class="step">21</span><span class="step">24</span><span class="step">36</span><span class="step">48</span><span class="step">60</span><span class="step">72</span>
+        </div>
+        <div class="usage">
+          <input class="class" type="text" readonly="readonly" onClick="this.select();" value=".Avantgarde-List-tiles" />
+          <input class="point" type="text" readonly="readonly" onClick="this.select();" value="&amp;#xf103;" />
+        </div>
+      </div>
+      
+      <div class="glyph">
+        <div class="preview-glyphs">
+          <span class="step size-12"><span class="letters">Pp</span><i id="Avantgarde-Live" class="Avantgarde-Live"></i></span><span class="step size-14"><span class="letters">Pp</span><i id="Avantgarde-Live" class="Avantgarde-Live"></i></span><span class="step size-16"><span class="letters">Pp</span><i id="Avantgarde-Live" class="Avantgarde-Live"></i></span><span class="step size-18"><span class="letters">Pp</span><i id="Avantgarde-Live" class="Avantgarde-Live"></i></span><span class="step size-21"><span class="letters">Pp</span><i id="Avantgarde-Live" class="Avantgarde-Live"></i></span><span class="step size-24"><span class="letters">Pp</span><i id="Avantgarde-Live" class="Avantgarde-Live"></i></span><span class="step size-36"><span class="letters">Pp</span><i id="Avantgarde-Live" class="Avantgarde-Live"></i></span><span class="step size-48"><span class="letters">Pp</span><i id="Avantgarde-Live" class="Avantgarde-Live"></i></span><span class="step size-60"><span class="letters">Pp</span><i id="Avantgarde-Live" class="Avantgarde-Live"></i></span><span class="step size-72"><span class="letters">Pp</span><i id="Avantgarde-Live" class="Avantgarde-Live"></i></span>
+        </div>
+        <div class="preview-scale">
+          <span class="step">12</span><span class="step">14</span><span class="step">16</span><span class="step">18</span><span class="step">21</span><span class="step">24</span><span class="step">36</span><span class="step">48</span><span class="step">60</span><span class="step">72</span>
+        </div>
+        <div class="usage">
+          <input class="class" type="text" readonly="readonly" onClick="this.select();" value=".Avantgarde-Live" />
+          <input class="point" type="text" readonly="readonly" onClick="this.select();" value="&amp;#xf104;" />
+        </div>
+      </div>
+      
+      <div class="glyph">
+        <div class="preview-glyphs">
+          <span class="step size-12"><span class="letters">Pp</span><i id="Avantgarde-Menu-texticon" class="Avantgarde-Menu-texticon"></i></span><span class="step size-14"><span class="letters">Pp</span><i id="Avantgarde-Menu-texticon" class="Avantgarde-Menu-texticon"></i></span><span class="step size-16"><span class="letters">Pp</span><i id="Avantgarde-Menu-texticon" class="Avantgarde-Menu-texticon"></i></span><span class="step size-18"><span class="letters">Pp</span><i id="Avantgarde-Menu-texticon" class="Avantgarde-Menu-texticon"></i></span><span class="step size-21"><span class="letters">Pp</span><i id="Avantgarde-Menu-texticon" class="Avantgarde-Menu-texticon"></i></span><span class="step size-24"><span class="letters">Pp</span><i id="Avantgarde-Menu-texticon" class="Avantgarde-Menu-texticon"></i></span><span class="step size-36"><span class="letters">Pp</span><i id="Avantgarde-Menu-texticon" class="Avantgarde-Menu-texticon"></i></span><span class="step size-48"><span class="letters">Pp</span><i id="Avantgarde-Menu-texticon" class="Avantgarde-Menu-texticon"></i></span><span class="step size-60"><span class="letters">Pp</span><i id="Avantgarde-Menu-texticon" class="Avantgarde-Menu-texticon"></i></span><span class="step size-72"><span class="letters">Pp</span><i id="Avantgarde-Menu-texticon" class="Avantgarde-Menu-texticon"></i></span>
+        </div>
+        <div class="preview-scale">
+          <span class="step">12</span><span class="step">14</span><span class="step">16</span><span class="step">18</span><span class="step">21</span><span class="step">24</span><span class="step">36</span><span class="step">48</span><span class="step">60</span><span class="step">72</span>
+        </div>
+        <div class="usage">
+          <input class="class" type="text" readonly="readonly" onClick="this.select();" value=".Avantgarde-Menu-texticon" />
+          <input class="point" type="text" readonly="readonly" onClick="this.select();" value="&amp;#xf105;" />
+        </div>
+      </div>
+      
+      <div class="glyph">
+        <div class="preview-glyphs">
+          <span class="step size-12"><span class="letters">Pp</span><i id="Avantgarde-Wall" class="Avantgarde-Wall"></i></span><span class="step size-14"><span class="letters">Pp</span><i id="Avantgarde-Wall" class="Avantgarde-Wall"></i></span><span class="step size-16"><span class="letters">Pp</span><i id="Avantgarde-Wall" class="Avantgarde-Wall"></i></span><span class="step size-18"><span class="letters">Pp</span><i id="Avantgarde-Wall" class="Avantgarde-Wall"></i></span><span class="step size-21"><span class="letters">Pp</span><i id="Avantgarde-Wall" class="Avantgarde-Wall"></i></span><span class="step size-24"><span class="letters">Pp</span><i id="Avantgarde-Wall" class="Avantgarde-Wall"></i></span><span class="step size-36"><span class="letters">Pp</span><i id="Avantgarde-Wall" class="Avantgarde-Wall"></i></span><span class="step size-48"><span class="letters">Pp</span><i id="Avantgarde-Wall" class="Avantgarde-Wall"></i></span><span class="step size-60"><span class="letters">Pp</span><i id="Avantgarde-Wall" class="Avantgarde-Wall"></i></span><span class="step size-72"><span class="letters">Pp</span><i id="Avantgarde-Wall" class="Avantgarde-Wall"></i></span>
+        </div>
+        <div class="preview-scale">
+          <span class="step">12</span><span class="step">14</span><span class="step">16</span><span class="step">18</span><span class="step">21</span><span class="step">24</span><span class="step">36</span><span class="step">48</span><span class="step">60</span><span class="step">72</span>
+        </div>
+        <div class="usage">
+          <input class="class" type="text" readonly="readonly" onClick="this.select();" value=".Avantgarde-Wall" />
+          <input class="point" type="text" readonly="readonly" onClick="this.select();" value="&amp;#xf106;" />
+        </div>
+      </div>
+      
+      <div class="glyph">
+        <div class="preview-glyphs">
+          <span class="step size-12"><span class="letters">Pp</span><i id="Avantgarde-Work" class="Avantgarde-Work"></i></span><span class="step size-14"><span class="letters">Pp</span><i id="Avantgarde-Work" class="Avantgarde-Work"></i></span><span class="step size-16"><span class="letters">Pp</span><i id="Avantgarde-Work" class="Avantgarde-Work"></i></span><span class="step size-18"><span class="letters">Pp</span><i id="Avantgarde-Work" class="Avantgarde-Work"></i></span><span class="step size-21"><span class="letters">Pp</span><i id="Avantgarde-Work" class="Avantgarde-Work"></i></span><span class="step size-24"><span class="letters">Pp</span><i id="Avantgarde-Work" class="Avantgarde-Work"></i></span><span class="step size-36"><span class="letters">Pp</span><i id="Avantgarde-Work" class="Avantgarde-Work"></i></span><span class="step size-48"><span class="letters">Pp</span><i id="Avantgarde-Work" class="Avantgarde-Work"></i></span><span class="step size-60"><span class="letters">Pp</span><i id="Avantgarde-Work" class="Avantgarde-Work"></i></span><span class="step size-72"><span class="letters">Pp</span><i id="Avantgarde-Work" class="Avantgarde-Work"></i></span>
+        </div>
+        <div class="preview-scale">
+          <span class="step">12</span><span class="step">14</span><span class="step">16</span><span class="step">18</span><span class="step">21</span><span class="step">24</span><span class="step">36</span><span class="step">48</span><span class="step">60</span><span class="step">72</span>
+        </div>
+        <div class="usage">
+          <input class="class" type="text" readonly="readonly" onClick="this.select();" value=".Avantgarde-Work" />
+          <input class="point" type="text" readonly="readonly" onClick="this.select();" value="&amp;#xf107;" />
+        </div>
+      </div>
+      
+      <div class="glyph">
+        <div class="preview-glyphs">
+          <span class="step size-12"><span class="letters">Pp</span><i id="Avantgarde-add-weight" class="Avantgarde-add-weight"></i></span><span class="step size-14"><span class="letters">Pp</span><i id="Avantgarde-add-weight" class="Avantgarde-add-weight"></i></span><span class="step size-16"><span class="letters">Pp</span><i id="Avantgarde-add-weight" class="Avantgarde-add-weight"></i></span><span class="step size-18"><span class="letters">Pp</span><i id="Avantgarde-add-weight" class="Avantgarde-add-weight"></i></span><span class="step size-21"><span class="letters">Pp</span><i id="Avantgarde-add-weight" class="Avantgarde-add-weight"></i></span><span class="step size-24"><span class="letters">Pp</span><i id="Avantgarde-add-weight" class="Avantgarde-add-weight"></i></span><span class="step size-36"><span class="letters">Pp</span><i id="Avantgarde-add-weight" class="Avantgarde-add-weight"></i></span><span class="step size-48"><span class="letters">Pp</span><i id="Avantgarde-add-weight" class="Avantgarde-add-weight"></i></span><span class="step size-60"><span class="letters">Pp</span><i id="Avantgarde-add-weight" class="Avantgarde-add-weight"></i></span><span class="step size-72"><span class="letters">Pp</span><i id="Avantgarde-add-weight" class="Avantgarde-add-weight"></i></span>
+        </div>
+        <div class="preview-scale">
+          <span class="step">12</span><span class="step">14</span><span class="step">16</span><span class="step">18</span><span class="step">21</span><span class="step">24</span><span class="step">36</span><span class="step">48</span><span class="step">60</span><span class="step">72</span>
+        </div>
+        <div class="usage">
+          <input class="class" type="text" readonly="readonly" onClick="this.select();" value=".Avantgarde-add-weight" />
+          <input class="point" type="text" readonly="readonly" onClick="this.select();" value="&amp;#xf108;" />
+        </div>
+      </div>
+      
+      <div class="glyph">
+        <div class="preview-glyphs">
+          <span class="step size-12"><span class="letters">Pp</span><i id="Avantgarde-back-button" class="Avantgarde-back-button"></i></span><span class="step size-14"><span class="letters">Pp</span><i id="Avantgarde-back-button" class="Avantgarde-back-button"></i></span><span class="step size-16"><span class="letters">Pp</span><i id="Avantgarde-back-button" class="Avantgarde-back-button"></i></span><span class="step size-18"><span class="letters">Pp</span><i id="Avantgarde-back-button" class="Avantgarde-back-button"></i></span><span class="step size-21"><span class="letters">Pp</span><i id="Avantgarde-back-button" class="Avantgarde-back-button"></i></span><span class="step size-24"><span class="letters">Pp</span><i id="Avantgarde-back-button" class="Avantgarde-back-button"></i></span><span class="step size-36"><span class="letters">Pp</span><i id="Avantgarde-back-button" class="Avantgarde-back-button"></i></span><span class="step size-48"><span class="letters">Pp</span><i id="Avantgarde-back-button" class="Avantgarde-back-button"></i></span><span class="step size-60"><span class="letters">Pp</span><i id="Avantgarde-back-button" class="Avantgarde-back-button"></i></span><span class="step size-72"><span class="letters">Pp</span><i id="Avantgarde-back-button" class="Avantgarde-back-button"></i></span>
+        </div>
+        <div class="preview-scale">
+          <span class="step">12</span><span class="step">14</span><span class="step">16</span><span class="step">18</span><span class="step">21</span><span class="step">24</span><span class="step">36</span><span class="step">48</span><span class="step">60</span><span class="step">72</span>
+        </div>
+        <div class="usage">
+          <input class="class" type="text" readonly="readonly" onClick="this.select();" value=".Avantgarde-back-button" />
+          <input class="point" type="text" readonly="readonly" onClick="this.select();" value="&amp;#xf109;" />
+        </div>
+      </div>
+      
+      <div class="glyph">
+        <div class="preview-glyphs">
+          <span class="step size-12"><span class="letters">Pp</span><i id="Avantgarde-calculate" class="Avantgarde-calculate"></i></span><span class="step size-14"><span class="letters">Pp</span><i id="Avantgarde-calculate" class="Avantgarde-calculate"></i></span><span class="step size-16"><span class="letters">Pp</span><i id="Avantgarde-calculate" class="Avantgarde-calculate"></i></span><span class="step size-18"><span class="letters">Pp</span><i id="Avantgarde-calculate" class="Avantgarde-calculate"></i></span><span class="step size-21"><span class="letters">Pp</span><i id="Avantgarde-calculate" class="Avantgarde-calculate"></i></span><span class="step size-24"><span class="letters">Pp</span><i id="Avantgarde-calculate" class="Avantgarde-calculate"></i></span><span class="step size-36"><span class="letters">Pp</span><i id="Avantgarde-calculate" class="Avantgarde-calculate"></i></span><span class="step size-48"><span class="letters">Pp</span><i id="Avantgarde-calculate" class="Avantgarde-calculate"></i></span><span class="step size-60"><span class="letters">Pp</span><i id="Avantgarde-calculate" class="Avantgarde-calculate"></i></span><span class="step size-72"><span class="letters">Pp</span><i id="Avantgarde-calculate" class="Avantgarde-calculate"></i></span>
+        </div>
+        <div class="preview-scale">
+          <span class="step">12</span><span class="step">14</span><span class="step">16</span><span class="step">18</span><span class="step">21</span><span class="step">24</span><span class="step">36</span><span class="step">48</span><span class="step">60</span><span class="step">72</span>
+        </div>
+        <div class="usage">
+          <input class="class" type="text" readonly="readonly" onClick="this.select();" value=".Avantgarde-calculate" />
+          <input class="point" type="text" readonly="readonly" onClick="this.select();" value="&amp;#xf10a;" />
+        </div>
+      </div>
+      
+      <div class="glyph">
+        <div class="preview-glyphs">
+          <span class="step size-12"><span class="letters">Pp</span><i id="Avantgarde-check" class="Avantgarde-check"></i></span><span class="step size-14"><span class="letters">Pp</span><i id="Avantgarde-check" class="Avantgarde-check"></i></span><span class="step size-16"><span class="letters">Pp</span><i id="Avantgarde-check" class="Avantgarde-check"></i></span><span class="step size-18"><span class="letters">Pp</span><i id="Avantgarde-check" class="Avantgarde-check"></i></span><span class="step size-21"><span class="letters">Pp</span><i id="Avantgarde-check" class="Avantgarde-check"></i></span><span class="step size-24"><span class="letters">Pp</span><i id="Avantgarde-check" class="Avantgarde-check"></i></span><span class="step size-36"><span class="letters">Pp</span><i id="Avantgarde-check" class="Avantgarde-check"></i></span><span class="step size-48"><span class="letters">Pp</span><i id="Avantgarde-check" class="Avantgarde-check"></i></span><span class="step size-60"><span class="letters">Pp</span><i id="Avantgarde-check" class="Avantgarde-check"></i></span><span class="step size-72"><span class="letters">Pp</span><i id="Avantgarde-check" class="Avantgarde-check"></i></span>
+        </div>
+        <div class="preview-scale">
+          <span class="step">12</span><span class="step">14</span><span class="step">16</span><span class="step">18</span><span class="step">21</span><span class="step">24</span><span class="step">36</span><span class="step">48</span><span class="step">60</span><span class="step">72</span>
+        </div>
+        <div class="usage">
+          <input class="class" type="text" readonly="readonly" onClick="this.select();" value=".Avantgarde-check" />
+          <input class="point" type="text" readonly="readonly" onClick="this.select();" value="&amp;#xf137;" />
+        </div>
+      </div>
+      
+      <div class="glyph">
+        <div class="preview-glyphs">
+          <span class="step size-12"><span class="letters">Pp</span><i id="Avantgarde-checkmark-circle" class="Avantgarde-checkmark-circle"></i></span><span class="step size-14"><span class="letters">Pp</span><i id="Avantgarde-checkmark-circle" class="Avantgarde-checkmark-circle"></i></span><span class="step size-16"><span class="letters">Pp</span><i id="Avantgarde-checkmark-circle" class="Avantgarde-checkmark-circle"></i></span><span class="step size-18"><span class="letters">Pp</span><i id="Avantgarde-checkmark-circle" class="Avantgarde-checkmark-circle"></i></span><span class="step size-21"><span class="letters">Pp</span><i id="Avantgarde-checkmark-circle" class="Avantgarde-checkmark-circle"></i></span><span class="step size-24"><span class="letters">Pp</span><i id="Avantgarde-checkmark-circle" class="Avantgarde-checkmark-circle"></i></span><span class="step size-36"><span class="letters">Pp</span><i id="Avantgarde-checkmark-circle" class="Avantgarde-checkmark-circle"></i></span><span class="step size-48"><span class="letters">Pp</span><i id="Avantgarde-checkmark-circle" class="Avantgarde-checkmark-circle"></i></span><span class="step size-60"><span class="letters">Pp</span><i id="Avantgarde-checkmark-circle" class="Avantgarde-checkmark-circle"></i></span><span class="step size-72"><span class="letters">Pp</span><i id="Avantgarde-checkmark-circle" class="Avantgarde-checkmark-circle"></i></span>
+        </div>
+        <div class="preview-scale">
+          <span class="step">12</span><span class="step">14</span><span class="step">16</span><span class="step">18</span><span class="step">21</span><span class="step">24</span><span class="step">36</span><span class="step">48</span><span class="step">60</span><span class="step">72</span>
+        </div>
+        <div class="usage">
+          <input class="class" type="text" readonly="readonly" onClick="this.select();" value=".Avantgarde-checkmark-circle" />
+          <input class="point" type="text" readonly="readonly" onClick="this.select();" value="&amp;#xf10b;" />
+        </div>
+      </div>
+      
+      <div class="glyph">
+        <div class="preview-glyphs">
+          <span class="step size-12"><span class="letters">Pp</span><i id="Avantgarde-checkmark-unchecked" class="Avantgarde-checkmark-unchecked"></i></span><span class="step size-14"><span class="letters">Pp</span><i id="Avantgarde-checkmark-unchecked" class="Avantgarde-checkmark-unchecked"></i></span><span class="step size-16"><span class="letters">Pp</span><i id="Avantgarde-checkmark-unchecked" class="Avantgarde-checkmark-unchecked"></i></span><span class="step size-18"><span class="letters">Pp</span><i id="Avantgarde-checkmark-unchecked" class="Avantgarde-checkmark-unchecked"></i></span><span class="step size-21"><span class="letters">Pp</span><i id="Avantgarde-checkmark-unchecked" class="Avantgarde-checkmark-unchecked"></i></span><span class="step size-24"><span class="letters">Pp</span><i id="Avantgarde-checkmark-unchecked" class="Avantgarde-checkmark-unchecked"></i></span><span class="step size-36"><span class="letters">Pp</span><i id="Avantgarde-checkmark-unchecked" class="Avantgarde-checkmark-unchecked"></i></span><span class="step size-48"><span class="letters">Pp</span><i id="Avantgarde-checkmark-unchecked" class="Avantgarde-checkmark-unchecked"></i></span><span class="step size-60"><span class="letters">Pp</span><i id="Avantgarde-checkmark-unchecked" class="Avantgarde-checkmark-unchecked"></i></span><span class="step size-72"><span class="letters">Pp</span><i id="Avantgarde-checkmark-unchecked" class="Avantgarde-checkmark-unchecked"></i></span>
+        </div>
+        <div class="preview-scale">
+          <span class="step">12</span><span class="step">14</span><span class="step">16</span><span class="step">18</span><span class="step">21</span><span class="step">24</span><span class="step">36</span><span class="step">48</span><span class="step">60</span><span class="step">72</span>
+        </div>
+        <div class="usage">
+          <input class="class" type="text" readonly="readonly" onClick="this.select();" value=".Avantgarde-checkmark-unchecked" />
+          <input class="point" type="text" readonly="readonly" onClick="this.select();" value="&amp;#xf10c;" />
+        </div>
+      </div>
+      
+      <div class="glyph">
+        <div class="preview-glyphs">
+          <span class="step size-12"><span class="letters">Pp</span><i id="Avantgarde-chevron-down" class="Avantgarde-chevron-down"></i></span><span class="step size-14"><span class="letters">Pp</span><i id="Avantgarde-chevron-down" class="Avantgarde-chevron-down"></i></span><span class="step size-16"><span class="letters">Pp</span><i id="Avantgarde-chevron-down" class="Avantgarde-chevron-down"></i></span><span class="step size-18"><span class="letters">Pp</span><i id="Avantgarde-chevron-down" class="Avantgarde-chevron-down"></i></span><span class="step size-21"><span class="letters">Pp</span><i id="Avantgarde-chevron-down" class="Avantgarde-chevron-down"></i></span><span class="step size-24"><span class="letters">Pp</span><i id="Avantgarde-chevron-down" class="Avantgarde-chevron-down"></i></span><span class="step size-36"><span class="letters">Pp</span><i id="Avantgarde-chevron-down" class="Avantgarde-chevron-down"></i></span><span class="step size-48"><span class="letters">Pp</span><i id="Avantgarde-chevron-down" class="Avantgarde-chevron-down"></i></span><span class="step size-60"><span class="letters">Pp</span><i id="Avantgarde-chevron-down" class="Avantgarde-chevron-down"></i></span><span class="step size-72"><span class="letters">Pp</span><i id="Avantgarde-chevron-down" class="Avantgarde-chevron-down"></i></span>
+        </div>
+        <div class="preview-scale">
+          <span class="step">12</span><span class="step">14</span><span class="step">16</span><span class="step">18</span><span class="step">21</span><span class="step">24</span><span class="step">36</span><span class="step">48</span><span class="step">60</span><span class="step">72</span>
+        </div>
+        <div class="usage">
+          <input class="class" type="text" readonly="readonly" onClick="this.select();" value=".Avantgarde-chevron-down" />
+          <input class="point" type="text" readonly="readonly" onClick="this.select();" value="&amp;#xf10d;" />
+        </div>
+      </div>
+      
+      <div class="glyph">
+        <div class="preview-glyphs">
+          <span class="step size-12"><span class="letters">Pp</span><i id="Avantgarde-chevron-down-circle" class="Avantgarde-chevron-down-circle"></i></span><span class="step size-14"><span class="letters">Pp</span><i id="Avantgarde-chevron-down-circle" class="Avantgarde-chevron-down-circle"></i></span><span class="step size-16"><span class="letters">Pp</span><i id="Avantgarde-chevron-down-circle" class="Avantgarde-chevron-down-circle"></i></span><span class="step size-18"><span class="letters">Pp</span><i id="Avantgarde-chevron-down-circle" class="Avantgarde-chevron-down-circle"></i></span><span class="step size-21"><span class="letters">Pp</span><i id="Avantgarde-chevron-down-circle" class="Avantgarde-chevron-down-circle"></i></span><span class="step size-24"><span class="letters">Pp</span><i id="Avantgarde-chevron-down-circle" class="Avantgarde-chevron-down-circle"></i></span><span class="step size-36"><span class="letters">Pp</span><i id="Avantgarde-chevron-down-circle" class="Avantgarde-chevron-down-circle"></i></span><span class="step size-48"><span class="letters">Pp</span><i id="Avantgarde-chevron-down-circle" class="Avantgarde-chevron-down-circle"></i></span><span class="step size-60"><span class="letters">Pp</span><i id="Avantgarde-chevron-down-circle" class="Avantgarde-chevron-down-circle"></i></span><span class="step size-72"><span class="letters">Pp</span><i id="Avantgarde-chevron-down-circle" class="Avantgarde-chevron-down-circle"></i></span>
+        </div>
+        <div class="preview-scale">
+          <span class="step">12</span><span class="step">14</span><span class="step">16</span><span class="step">18</span><span class="step">21</span><span class="step">24</span><span class="step">36</span><span class="step">48</span><span class="step">60</span><span class="step">72</span>
+        </div>
+        <div class="usage">
+          <input class="class" type="text" readonly="readonly" onClick="this.select();" value=".Avantgarde-chevron-down-circle" />
+          <input class="point" type="text" readonly="readonly" onClick="this.select();" value="&amp;#xf10e;" />
+        </div>
+      </div>
+      
+      <div class="glyph">
+        <div class="preview-glyphs">
+          <span class="step size-12"><span class="letters">Pp</span><i id="Avantgarde-chevron-left" class="Avantgarde-chevron-left"></i></span><span class="step size-14"><span class="letters">Pp</span><i id="Avantgarde-chevron-left" class="Avantgarde-chevron-left"></i></span><span class="step size-16"><span class="letters">Pp</span><i id="Avantgarde-chevron-left" class="Avantgarde-chevron-left"></i></span><span class="step size-18"><span class="letters">Pp</span><i id="Avantgarde-chevron-left" class="Avantgarde-chevron-left"></i></span><span class="step size-21"><span class="letters">Pp</span><i id="Avantgarde-chevron-left" class="Avantgarde-chevron-left"></i></span><span class="step size-24"><span class="letters">Pp</span><i id="Avantgarde-chevron-left" class="Avantgarde-chevron-left"></i></span><span class="step size-36"><span class="letters">Pp</span><i id="Avantgarde-chevron-left" class="Avantgarde-chevron-left"></i></span><span class="step size-48"><span class="letters">Pp</span><i id="Avantgarde-chevron-left" class="Avantgarde-chevron-left"></i></span><span class="step size-60"><span class="letters">Pp</span><i id="Avantgarde-chevron-left" class="Avantgarde-chevron-left"></i></span><span class="step size-72"><span class="letters">Pp</span><i id="Avantgarde-chevron-left" class="Avantgarde-chevron-left"></i></span>
+        </div>
+        <div class="preview-scale">
+          <span class="step">12</span><span class="step">14</span><span class="step">16</span><span class="step">18</span><span class="step">21</span><span class="step">24</span><span class="step">36</span><span class="step">48</span><span class="step">60</span><span class="step">72</span>
+        </div>
+        <div class="usage">
+          <input class="class" type="text" readonly="readonly" onClick="this.select();" value=".Avantgarde-chevron-left" />
+          <input class="point" type="text" readonly="readonly" onClick="this.select();" value="&amp;#xf10f;" />
+        </div>
+      </div>
+      
+      <div class="glyph">
+        <div class="preview-glyphs">
+          <span class="step size-12"><span class="letters">Pp</span><i id="Avantgarde-chevron-left-circle" class="Avantgarde-chevron-left-circle"></i></span><span class="step size-14"><span class="letters">Pp</span><i id="Avantgarde-chevron-left-circle" class="Avantgarde-chevron-left-circle"></i></span><span class="step size-16"><span class="letters">Pp</span><i id="Avantgarde-chevron-left-circle" class="Avantgarde-chevron-left-circle"></i></span><span class="step size-18"><span class="letters">Pp</span><i id="Avantgarde-chevron-left-circle" class="Avantgarde-chevron-left-circle"></i></span><span class="step size-21"><span class="letters">Pp</span><i id="Avantgarde-chevron-left-circle" class="Avantgarde-chevron-left-circle"></i></span><span class="step size-24"><span class="letters">Pp</span><i id="Avantgarde-chevron-left-circle" class="Avantgarde-chevron-left-circle"></i></span><span class="step size-36"><span class="letters">Pp</span><i id="Avantgarde-chevron-left-circle" class="Avantgarde-chevron-left-circle"></i></span><span class="step size-48"><span class="letters">Pp</span><i id="Avantgarde-chevron-left-circle" class="Avantgarde-chevron-left-circle"></i></span><span class="step size-60"><span class="letters">Pp</span><i id="Avantgarde-chevron-left-circle" class="Avantgarde-chevron-left-circle"></i></span><span class="step size-72"><span class="letters">Pp</span><i id="Avantgarde-chevron-left-circle" class="Avantgarde-chevron-left-circle"></i></span>
+        </div>
+        <div class="preview-scale">
+          <span class="step">12</span><span class="step">14</span><span class="step">16</span><span class="step">18</span><span class="step">21</span><span class="step">24</span><span class="step">36</span><span class="step">48</span><span class="step">60</span><span class="step">72</span>
+        </div>
+        <div class="usage">
+          <input class="class" type="text" readonly="readonly" onClick="this.select();" value=".Avantgarde-chevron-left-circle" />
+          <input class="point" type="text" readonly="readonly" onClick="this.select();" value="&amp;#xf110;" />
+        </div>
+      </div>
+      
+      <div class="glyph">
+        <div class="preview-glyphs">
+          <span class="step size-12"><span class="letters">Pp</span><i id="Avantgarde-chevron-right" class="Avantgarde-chevron-right"></i></span><span class="step size-14"><span class="letters">Pp</span><i id="Avantgarde-chevron-right" class="Avantgarde-chevron-right"></i></span><span class="step size-16"><span class="letters">Pp</span><i id="Avantgarde-chevron-right" class="Avantgarde-chevron-right"></i></span><span class="step size-18"><span class="letters">Pp</span><i id="Avantgarde-chevron-right" class="Avantgarde-chevron-right"></i></span><span class="step size-21"><span class="letters">Pp</span><i id="Avantgarde-chevron-right" class="Avantgarde-chevron-right"></i></span><span class="step size-24"><span class="letters">Pp</span><i id="Avantgarde-chevron-right" class="Avantgarde-chevron-right"></i></span><span class="step size-36"><span class="letters">Pp</span><i id="Avantgarde-chevron-right" class="Avantgarde-chevron-right"></i></span><span class="step size-48"><span class="letters">Pp</span><i id="Avantgarde-chevron-right" class="Avantgarde-chevron-right"></i></span><span class="step size-60"><span class="letters">Pp</span><i id="Avantgarde-chevron-right" class="Avantgarde-chevron-right"></i></span><span class="step size-72"><span class="letters">Pp</span><i id="Avantgarde-chevron-right" class="Avantgarde-chevron-right"></i></span>
+        </div>
+        <div class="preview-scale">
+          <span class="step">12</span><span class="step">14</span><span class="step">16</span><span class="step">18</span><span class="step">21</span><span class="step">24</span><span class="step">36</span><span class="step">48</span><span class="step">60</span><span class="step">72</span>
+        </div>
+        <div class="usage">
+          <input class="class" type="text" readonly="readonly" onClick="this.select();" value=".Avantgarde-chevron-right" />
+          <input class="point" type="text" readonly="readonly" onClick="this.select();" value="&amp;#xf111;" />
+        </div>
+      </div>
+      
+      <div class="glyph">
+        <div class="preview-glyphs">
+          <span class="step size-12"><span class="letters">Pp</span><i id="Avantgarde-chevron-right-circle" class="Avantgarde-chevron-right-circle"></i></span><span class="step size-14"><span class="letters">Pp</span><i id="Avantgarde-chevron-right-circle" class="Avantgarde-chevron-right-circle"></i></span><span class="step size-16"><span class="letters">Pp</span><i id="Avantgarde-chevron-right-circle" class="Avantgarde-chevron-right-circle"></i></span><span class="step size-18"><span class="letters">Pp</span><i id="Avantgarde-chevron-right-circle" class="Avantgarde-chevron-right-circle"></i></span><span class="step size-21"><span class="letters">Pp</span><i id="Avantgarde-chevron-right-circle" class="Avantgarde-chevron-right-circle"></i></span><span class="step size-24"><span class="letters">Pp</span><i id="Avantgarde-chevron-right-circle" class="Avantgarde-chevron-right-circle"></i></span><span class="step size-36"><span class="letters">Pp</span><i id="Avantgarde-chevron-right-circle" class="Avantgarde-chevron-right-circle"></i></span><span class="step size-48"><span class="letters">Pp</span><i id="Avantgarde-chevron-right-circle" class="Avantgarde-chevron-right-circle"></i></span><span class="step size-60"><span class="letters">Pp</span><i id="Avantgarde-chevron-right-circle" class="Avantgarde-chevron-right-circle"></i></span><span class="step size-72"><span class="letters">Pp</span><i id="Avantgarde-chevron-right-circle" class="Avantgarde-chevron-right-circle"></i></span>
+        </div>
+        <div class="preview-scale">
+          <span class="step">12</span><span class="step">14</span><span class="step">16</span><span class="step">18</span><span class="step">21</span><span class="step">24</span><span class="step">36</span><span class="step">48</span><span class="step">60</span><span class="step">72</span>
+        </div>
+        <div class="usage">
+          <input class="class" type="text" readonly="readonly" onClick="this.select();" value=".Avantgarde-chevron-right-circle" />
+          <input class="point" type="text" readonly="readonly" onClick="this.select();" value="&amp;#xf112;" />
+        </div>
+      </div>
+      
+      <div class="glyph">
+        <div class="preview-glyphs">
+          <span class="step size-12"><span class="letters">Pp</span><i id="Avantgarde-chevron-up" class="Avantgarde-chevron-up"></i></span><span class="step size-14"><span class="letters">Pp</span><i id="Avantgarde-chevron-up" class="Avantgarde-chevron-up"></i></span><span class="step size-16"><span class="letters">Pp</span><i id="Avantgarde-chevron-up" class="Avantgarde-chevron-up"></i></span><span class="step size-18"><span class="letters">Pp</span><i id="Avantgarde-chevron-up" class="Avantgarde-chevron-up"></i></span><span class="step size-21"><span class="letters">Pp</span><i id="Avantgarde-chevron-up" class="Avantgarde-chevron-up"></i></span><span class="step size-24"><span class="letters">Pp</span><i id="Avantgarde-chevron-up" class="Avantgarde-chevron-up"></i></span><span class="step size-36"><span class="letters">Pp</span><i id="Avantgarde-chevron-up" class="Avantgarde-chevron-up"></i></span><span class="step size-48"><span class="letters">Pp</span><i id="Avantgarde-chevron-up" class="Avantgarde-chevron-up"></i></span><span class="step size-60"><span class="letters">Pp</span><i id="Avantgarde-chevron-up" class="Avantgarde-chevron-up"></i></span><span class="step size-72"><span class="letters">Pp</span><i id="Avantgarde-chevron-up" class="Avantgarde-chevron-up"></i></span>
+        </div>
+        <div class="preview-scale">
+          <span class="step">12</span><span class="step">14</span><span class="step">16</span><span class="step">18</span><span class="step">21</span><span class="step">24</span><span class="step">36</span><span class="step">48</span><span class="step">60</span><span class="step">72</span>
+        </div>
+        <div class="usage">
+          <input class="class" type="text" readonly="readonly" onClick="this.select();" value=".Avantgarde-chevron-up" />
+          <input class="point" type="text" readonly="readonly" onClick="this.select();" value="&amp;#xf113;" />
+        </div>
+      </div>
+      
+      <div class="glyph">
+        <div class="preview-glyphs">
+          <span class="step size-12"><span class="letters">Pp</span><i id="Avantgarde-chevron-up-circle" class="Avantgarde-chevron-up-circle"></i></span><span class="step size-14"><span class="letters">Pp</span><i id="Avantgarde-chevron-up-circle" class="Avantgarde-chevron-up-circle"></i></span><span class="step size-16"><span class="letters">Pp</span><i id="Avantgarde-chevron-up-circle" class="Avantgarde-chevron-up-circle"></i></span><span class="step size-18"><span class="letters">Pp</span><i id="Avantgarde-chevron-up-circle" class="Avantgarde-chevron-up-circle"></i></span><span class="step size-21"><span class="letters">Pp</span><i id="Avantgarde-chevron-up-circle" class="Avantgarde-chevron-up-circle"></i></span><span class="step size-24"><span class="letters">Pp</span><i id="Avantgarde-chevron-up-circle" class="Avantgarde-chevron-up-circle"></i></span><span class="step size-36"><span class="letters">Pp</span><i id="Avantgarde-chevron-up-circle" class="Avantgarde-chevron-up-circle"></i></span><span class="step size-48"><span class="letters">Pp</span><i id="Avantgarde-chevron-up-circle" class="Avantgarde-chevron-up-circle"></i></span><span class="step size-60"><span class="letters">Pp</span><i id="Avantgarde-chevron-up-circle" class="Avantgarde-chevron-up-circle"></i></span><span class="step size-72"><span class="letters">Pp</span><i id="Avantgarde-chevron-up-circle" class="Avantgarde-chevron-up-circle"></i></span>
+        </div>
+        <div class="preview-scale">
+          <span class="step">12</span><span class="step">14</span><span class="step">16</span><span class="step">18</span><span class="step">21</span><span class="step">24</span><span class="step">36</span><span class="step">48</span><span class="step">60</span><span class="step">72</span>
+        </div>
+        <div class="usage">
+          <input class="class" type="text" readonly="readonly" onClick="this.select();" value=".Avantgarde-chevron-up-circle" />
+          <input class="point" type="text" readonly="readonly" onClick="this.select();" value="&amp;#xf114;" />
+        </div>
+      </div>
+      
+      <div class="glyph">
+        <div class="preview-glyphs">
+          <span class="step size-12"><span class="letters">Pp</span><i id="Avantgarde-circle-minus" class="Avantgarde-circle-minus"></i></span><span class="step size-14"><span class="letters">Pp</span><i id="Avantgarde-circle-minus" class="Avantgarde-circle-minus"></i></span><span class="step size-16"><span class="letters">Pp</span><i id="Avantgarde-circle-minus" class="Avantgarde-circle-minus"></i></span><span class="step size-18"><span class="letters">Pp</span><i id="Avantgarde-circle-minus" class="Avantgarde-circle-minus"></i></span><span class="step size-21"><span class="letters">Pp</span><i id="Avantgarde-circle-minus" class="Avantgarde-circle-minus"></i></span><span class="step size-24"><span class="letters">Pp</span><i id="Avantgarde-circle-minus" class="Avantgarde-circle-minus"></i></span><span class="step size-36"><span class="letters">Pp</span><i id="Avantgarde-circle-minus" class="Avantgarde-circle-minus"></i></span><span class="step size-48"><span class="letters">Pp</span><i id="Avantgarde-circle-minus" class="Avantgarde-circle-minus"></i></span><span class="step size-60"><span class="letters">Pp</span><i id="Avantgarde-circle-minus" class="Avantgarde-circle-minus"></i></span><span class="step size-72"><span class="letters">Pp</span><i id="Avantgarde-circle-minus" class="Avantgarde-circle-minus"></i></span>
+        </div>
+        <div class="preview-scale">
+          <span class="step">12</span><span class="step">14</span><span class="step">16</span><span class="step">18</span><span class="step">21</span><span class="step">24</span><span class="step">36</span><span class="step">48</span><span class="step">60</span><span class="step">72</span>
+        </div>
+        <div class="usage">
+          <input class="class" type="text" readonly="readonly" onClick="this.select();" value=".Avantgarde-circle-minus" />
+          <input class="point" type="text" readonly="readonly" onClick="this.select();" value="&amp;#xf115;" />
+        </div>
+      </div>
+      
+      <div class="glyph">
+        <div class="preview-glyphs">
+          <span class="step size-12"><span class="letters">Pp</span><i id="Avantgarde-cog" class="Avantgarde-cog"></i></span><span class="step size-14"><span class="letters">Pp</span><i id="Avantgarde-cog" class="Avantgarde-cog"></i></span><span class="step size-16"><span class="letters">Pp</span><i id="Avantgarde-cog" class="Avantgarde-cog"></i></span><span class="step size-18"><span class="letters">Pp</span><i id="Avantgarde-cog" class="Avantgarde-cog"></i></span><span class="step size-21"><span class="letters">Pp</span><i id="Avantgarde-cog" class="Avantgarde-cog"></i></span><span class="step size-24"><span class="letters">Pp</span><i id="Avantgarde-cog" class="Avantgarde-cog"></i></span><span class="step size-36"><span class="letters">Pp</span><i id="Avantgarde-cog" class="Avantgarde-cog"></i></span><span class="step size-48"><span class="letters">Pp</span><i id="Avantgarde-cog" class="Avantgarde-cog"></i></span><span class="step size-60"><span class="letters">Pp</span><i id="Avantgarde-cog" class="Avantgarde-cog"></i></span><span class="step size-72"><span class="letters">Pp</span><i id="Avantgarde-cog" class="Avantgarde-cog"></i></span>
+        </div>
+        <div class="preview-scale">
+          <span class="step">12</span><span class="step">14</span><span class="step">16</span><span class="step">18</span><span class="step">21</span><span class="step">24</span><span class="step">36</span><span class="step">48</span><span class="step">60</span><span class="step">72</span>
+        </div>
+        <div class="usage">
+          <input class="class" type="text" readonly="readonly" onClick="this.select();" value=".Avantgarde-cog" />
+          <input class="point" type="text" readonly="readonly" onClick="this.select();" value="&amp;#xf116;" />
+        </div>
+      </div>
+      
+      <div class="glyph">
+        <div class="preview-glyphs">
+          <span class="step size-12"><span class="letters">Pp</span><i id="Avantgarde-cross" class="Avantgarde-cross"></i></span><span class="step size-14"><span class="letters">Pp</span><i id="Avantgarde-cross" class="Avantgarde-cross"></i></span><span class="step size-16"><span class="letters">Pp</span><i id="Avantgarde-cross" class="Avantgarde-cross"></i></span><span class="step size-18"><span class="letters">Pp</span><i id="Avantgarde-cross" class="Avantgarde-cross"></i></span><span class="step size-21"><span class="letters">Pp</span><i id="Avantgarde-cross" class="Avantgarde-cross"></i></span><span class="step size-24"><span class="letters">Pp</span><i id="Avantgarde-cross" class="Avantgarde-cross"></i></span><span class="step size-36"><span class="letters">Pp</span><i id="Avantgarde-cross" class="Avantgarde-cross"></i></span><span class="step size-48"><span class="letters">Pp</span><i id="Avantgarde-cross" class="Avantgarde-cross"></i></span><span class="step size-60"><span class="letters">Pp</span><i id="Avantgarde-cross" class="Avantgarde-cross"></i></span><span class="step size-72"><span class="letters">Pp</span><i id="Avantgarde-cross" class="Avantgarde-cross"></i></span>
+        </div>
+        <div class="preview-scale">
+          <span class="step">12</span><span class="step">14</span><span class="step">16</span><span class="step">18</span><span class="step">21</span><span class="step">24</span><span class="step">36</span><span class="step">48</span><span class="step">60</span><span class="step">72</span>
+        </div>
+        <div class="usage">
+          <input class="class" type="text" readonly="readonly" onClick="this.select();" value=".Avantgarde-cross" />
+          <input class="point" type="text" readonly="readonly" onClick="this.select();" value="&amp;#xf117;" />
+        </div>
+      </div>
+      
+      <div class="glyph">
+        <div class="preview-glyphs">
+          <span class="step size-12"><span class="letters">Pp</span><i id="Avantgarde-cross-circle" class="Avantgarde-cross-circle"></i></span><span class="step size-14"><span class="letters">Pp</span><i id="Avantgarde-cross-circle" class="Avantgarde-cross-circle"></i></span><span class="step size-16"><span class="letters">Pp</span><i id="Avantgarde-cross-circle" class="Avantgarde-cross-circle"></i></span><span class="step size-18"><span class="letters">Pp</span><i id="Avantgarde-cross-circle" class="Avantgarde-cross-circle"></i></span><span class="step size-21"><span class="letters">Pp</span><i id="Avantgarde-cross-circle" class="Avantgarde-cross-circle"></i></span><span class="step size-24"><span class="letters">Pp</span><i id="Avantgarde-cross-circle" class="Avantgarde-cross-circle"></i></span><span class="step size-36"><span class="letters">Pp</span><i id="Avantgarde-cross-circle" class="Avantgarde-cross-circle"></i></span><span class="step size-48"><span class="letters">Pp</span><i id="Avantgarde-cross-circle" class="Avantgarde-cross-circle"></i></span><span class="step size-60"><span class="letters">Pp</span><i id="Avantgarde-cross-circle" class="Avantgarde-cross-circle"></i></span><span class="step size-72"><span class="letters">Pp</span><i id="Avantgarde-cross-circle" class="Avantgarde-cross-circle"></i></span>
+        </div>
+        <div class="preview-scale">
+          <span class="step">12</span><span class="step">14</span><span class="step">16</span><span class="step">18</span><span class="step">21</span><span class="step">24</span><span class="step">36</span><span class="step">48</span><span class="step">60</span><span class="step">72</span>
+        </div>
+        <div class="usage">
+          <input class="class" type="text" readonly="readonly" onClick="this.select();" value=".Avantgarde-cross-circle" />
+          <input class="point" type="text" readonly="readonly" onClick="this.select();" value="&amp;#xf118;" />
+        </div>
+      </div>
+      
+      <div class="glyph">
+        <div class="preview-glyphs">
+          <span class="step size-12"><span class="letters">Pp</span><i id="Avantgarde-dashboard" class="Avantgarde-dashboard"></i></span><span class="step size-14"><span class="letters">Pp</span><i id="Avantgarde-dashboard" class="Avantgarde-dashboard"></i></span><span class="step size-16"><span class="letters">Pp</span><i id="Avantgarde-dashboard" class="Avantgarde-dashboard"></i></span><span class="step size-18"><span class="letters">Pp</span><i id="Avantgarde-dashboard" class="Avantgarde-dashboard"></i></span><span class="step size-21"><span class="letters">Pp</span><i id="Avantgarde-dashboard" class="Avantgarde-dashboard"></i></span><span class="step size-24"><span class="letters">Pp</span><i id="Avantgarde-dashboard" class="Avantgarde-dashboard"></i></span><span class="step size-36"><span class="letters">Pp</span><i id="Avantgarde-dashboard" class="Avantgarde-dashboard"></i></span><span class="step size-48"><span class="letters">Pp</span><i id="Avantgarde-dashboard" class="Avantgarde-dashboard"></i></span><span class="step size-60"><span class="letters">Pp</span><i id="Avantgarde-dashboard" class="Avantgarde-dashboard"></i></span><span class="step size-72"><span class="letters">Pp</span><i id="Avantgarde-dashboard" class="Avantgarde-dashboard"></i></span>
+        </div>
+        <div class="preview-scale">
+          <span class="step">12</span><span class="step">14</span><span class="step">16</span><span class="step">18</span><span class="step">21</span><span class="step">24</span><span class="step">36</span><span class="step">48</span><span class="step">60</span><span class="step">72</span>
+        </div>
+        <div class="usage">
+          <input class="class" type="text" readonly="readonly" onClick="this.select();" value=".Avantgarde-dashboard" />
+          <input class="point" type="text" readonly="readonly" onClick="this.select();" value="&amp;#xf119;" />
+        </div>
+      </div>
+      
+      <div class="glyph">
+        <div class="preview-glyphs">
+          <span class="step size-12"><span class="letters">Pp</span><i id="Avantgarde-dashboard-square" class="Avantgarde-dashboard-square"></i></span><span class="step size-14"><span class="letters">Pp</span><i id="Avantgarde-dashboard-square" class="Avantgarde-dashboard-square"></i></span><span class="step size-16"><span class="letters">Pp</span><i id="Avantgarde-dashboard-square" class="Avantgarde-dashboard-square"></i></span><span class="step size-18"><span class="letters">Pp</span><i id="Avantgarde-dashboard-square" class="Avantgarde-dashboard-square"></i></span><span class="step size-21"><span class="letters">Pp</span><i id="Avantgarde-dashboard-square" class="Avantgarde-dashboard-square"></i></span><span class="step size-24"><span class="letters">Pp</span><i id="Avantgarde-dashboard-square" class="Avantgarde-dashboard-square"></i></span><span class="step size-36"><span class="letters">Pp</span><i id="Avantgarde-dashboard-square" class="Avantgarde-dashboard-square"></i></span><span class="step size-48"><span class="letters">Pp</span><i id="Avantgarde-dashboard-square" class="Avantgarde-dashboard-square"></i></span><span class="step size-60"><span class="letters">Pp</span><i id="Avantgarde-dashboard-square" class="Avantgarde-dashboard-square"></i></span><span class="step size-72"><span class="letters">Pp</span><i id="Avantgarde-dashboard-square" class="Avantgarde-dashboard-square"></i></span>
+        </div>
+        <div class="preview-scale">
+          <span class="step">12</span><span class="step">14</span><span class="step">16</span><span class="step">18</span><span class="step">21</span><span class="step">24</span><span class="step">36</span><span class="step">48</span><span class="step">60</span><span class="step">72</span>
+        </div>
+        <div class="usage">
+          <input class="class" type="text" readonly="readonly" onClick="this.select();" value=".Avantgarde-dashboard-square" />
+          <input class="point" type="text" readonly="readonly" onClick="this.select();" value="&amp;#xf11a;" />
+        </div>
+      </div>
+      
+      <div class="glyph">
+        <div class="preview-glyphs">
+          <span class="step size-12"><span class="letters">Pp</span><i id="Avantgarde-facebook" class="Avantgarde-facebook"></i></span><span class="step size-14"><span class="letters">Pp</span><i id="Avantgarde-facebook" class="Avantgarde-facebook"></i></span><span class="step size-16"><span class="letters">Pp</span><i id="Avantgarde-facebook" class="Avantgarde-facebook"></i></span><span class="step size-18"><span class="letters">Pp</span><i id="Avantgarde-facebook" class="Avantgarde-facebook"></i></span><span class="step size-21"><span class="letters">Pp</span><i id="Avantgarde-facebook" class="Avantgarde-facebook"></i></span><span class="step size-24"><span class="letters">Pp</span><i id="Avantgarde-facebook" class="Avantgarde-facebook"></i></span><span class="step size-36"><span class="letters">Pp</span><i id="Avantgarde-facebook" class="Avantgarde-facebook"></i></span><span class="step size-48"><span class="letters">Pp</span><i id="Avantgarde-facebook" class="Avantgarde-facebook"></i></span><span class="step size-60"><span class="letters">Pp</span><i id="Avantgarde-facebook" class="Avantgarde-facebook"></i></span><span class="step size-72"><span class="letters">Pp</span><i id="Avantgarde-facebook" class="Avantgarde-facebook"></i></span>
+        </div>
+        <div class="preview-scale">
+          <span class="step">12</span><span class="step">14</span><span class="step">16</span><span class="step">18</span><span class="step">21</span><span class="step">24</span><span class="step">36</span><span class="step">48</span><span class="step">60</span><span class="step">72</span>
+        </div>
+        <div class="usage">
+          <input class="class" type="text" readonly="readonly" onClick="this.select();" value=".Avantgarde-facebook" />
+          <input class="point" type="text" readonly="readonly" onClick="this.select();" value="&amp;#xf11b;" />
+        </div>
+      </div>
+      
+      <div class="glyph">
+        <div class="preview-glyphs">
+          <span class="step size-12"><span class="letters">Pp</span><i id="Avantgarde-food-produce" class="Avantgarde-food-produce"></i></span><span class="step size-14"><span class="letters">Pp</span><i id="Avantgarde-food-produce" class="Avantgarde-food-produce"></i></span><span class="step size-16"><span class="letters">Pp</span><i id="Avantgarde-food-produce" class="Avantgarde-food-produce"></i></span><span class="step size-18"><span class="letters">Pp</span><i id="Avantgarde-food-produce" class="Avantgarde-food-produce"></i></span><span class="step size-21"><span class="letters">Pp</span><i id="Avantgarde-food-produce" class="Avantgarde-food-produce"></i></span><span class="step size-24"><span class="letters">Pp</span><i id="Avantgarde-food-produce" class="Avantgarde-food-produce"></i></span><span class="step size-36"><span class="letters">Pp</span><i id="Avantgarde-food-produce" class="Avantgarde-food-produce"></i></span><span class="step size-48"><span class="letters">Pp</span><i id="Avantgarde-food-produce" class="Avantgarde-food-produce"></i></span><span class="step size-60"><span class="letters">Pp</span><i id="Avantgarde-food-produce" class="Avantgarde-food-produce"></i></span><span class="step size-72"><span class="letters">Pp</span><i id="Avantgarde-food-produce" class="Avantgarde-food-produce"></i></span>
+        </div>
+        <div class="preview-scale">
+          <span class="step">12</span><span class="step">14</span><span class="step">16</span><span class="step">18</span><span class="step">21</span><span class="step">24</span><span class="step">36</span><span class="step">48</span><span class="step">60</span><span class="step">72</span>
+        </div>
+        <div class="usage">
+          <input class="class" type="text" readonly="readonly" onClick="this.select();" value=".Avantgarde-food-produce" />
+          <input class="point" type="text" readonly="readonly" onClick="this.select();" value="&amp;#xf11c;" />
+        </div>
+      </div>
+      
+      <div class="glyph">
+        <div class="preview-glyphs">
+          <span class="step size-12"><span class="letters">Pp</span><i id="Avantgarde-heart" class="Avantgarde-heart"></i></span><span class="step size-14"><span class="letters">Pp</span><i id="Avantgarde-heart" class="Avantgarde-heart"></i></span><span class="step size-16"><span class="letters">Pp</span><i id="Avantgarde-heart" class="Avantgarde-heart"></i></span><span class="step size-18"><span class="letters">Pp</span><i id="Avantgarde-heart" class="Avantgarde-heart"></i></span><span class="step size-21"><span class="letters">Pp</span><i id="Avantgarde-heart" class="Avantgarde-heart"></i></span><span class="step size-24"><span class="letters">Pp</span><i id="Avantgarde-heart" class="Avantgarde-heart"></i></span><span class="step size-36"><span class="letters">Pp</span><i id="Avantgarde-heart" class="Avantgarde-heart"></i></span><span class="step size-48"><span class="letters">Pp</span><i id="Avantgarde-heart" class="Avantgarde-heart"></i></span><span class="step size-60"><span class="letters">Pp</span><i id="Avantgarde-heart" class="Avantgarde-heart"></i></span><span class="step size-72"><span class="letters">Pp</span><i id="Avantgarde-heart" class="Avantgarde-heart"></i></span>
+        </div>
+        <div class="preview-scale">
+          <span class="step">12</span><span class="step">14</span><span class="step">16</span><span class="step">18</span><span class="step">21</span><span class="step">24</span><span class="step">36</span><span class="step">48</span><span class="step">60</span><span class="step">72</span>
+        </div>
+        <div class="usage">
+          <input class="class" type="text" readonly="readonly" onClick="this.select();" value=".Avantgarde-heart" />
+          <input class="point" type="text" readonly="readonly" onClick="this.select();" value="&amp;#xf11d;" />
+        </div>
+      </div>
+      
+      <div class="glyph">
+        <div class="preview-glyphs">
+          <span class="step size-12"><span class="letters">Pp</span><i id="Avantgarde-home" class="Avantgarde-home"></i></span><span class="step size-14"><span class="letters">Pp</span><i id="Avantgarde-home" class="Avantgarde-home"></i></span><span class="step size-16"><span class="letters">Pp</span><i id="Avantgarde-home" class="Avantgarde-home"></i></span><span class="step size-18"><span class="letters">Pp</span><i id="Avantgarde-home" class="Avantgarde-home"></i></span><span class="step size-21"><span class="letters">Pp</span><i id="Avantgarde-home" class="Avantgarde-home"></i></span><span class="step size-24"><span class="letters">Pp</span><i id="Avantgarde-home" class="Avantgarde-home"></i></span><span class="step size-36"><span class="letters">Pp</span><i id="Avantgarde-home" class="Avantgarde-home"></i></span><span class="step size-48"><span class="letters">Pp</span><i id="Avantgarde-home" class="Avantgarde-home"></i></span><span class="step size-60"><span class="letters">Pp</span><i id="Avantgarde-home" class="Avantgarde-home"></i></span><span class="step size-72"><span class="letters">Pp</span><i id="Avantgarde-home" class="Avantgarde-home"></i></span>
+        </div>
+        <div class="preview-scale">
+          <span class="step">12</span><span class="step">14</span><span class="step">16</span><span class="step">18</span><span class="step">21</span><span class="step">24</span><span class="step">36</span><span class="step">48</span><span class="step">60</span><span class="step">72</span>
+        </div>
+        <div class="usage">
+          <input class="class" type="text" readonly="readonly" onClick="this.select();" value=".Avantgarde-home" />
+          <input class="point" type="text" readonly="readonly" onClick="this.select();" value="&amp;#xf11e;" />
+        </div>
+      </div>
+      
+      <div class="glyph">
+        <div class="preview-glyphs">
+          <span class="step size-12"><span class="letters">Pp</span><i id="Avantgarde-leaf" class="Avantgarde-leaf"></i></span><span class="step size-14"><span class="letters">Pp</span><i id="Avantgarde-leaf" class="Avantgarde-leaf"></i></span><span class="step size-16"><span class="letters">Pp</span><i id="Avantgarde-leaf" class="Avantgarde-leaf"></i></span><span class="step size-18"><span class="letters">Pp</span><i id="Avantgarde-leaf" class="Avantgarde-leaf"></i></span><span class="step size-21"><span class="letters">Pp</span><i id="Avantgarde-leaf" class="Avantgarde-leaf"></i></span><span class="step size-24"><span class="letters">Pp</span><i id="Avantgarde-leaf" class="Avantgarde-leaf"></i></span><span class="step size-36"><span class="letters">Pp</span><i id="Avantgarde-leaf" class="Avantgarde-leaf"></i></span><span class="step size-48"><span class="letters">Pp</span><i id="Avantgarde-leaf" class="Avantgarde-leaf"></i></span><span class="step size-60"><span class="letters">Pp</span><i id="Avantgarde-leaf" class="Avantgarde-leaf"></i></span><span class="step size-72"><span class="letters">Pp</span><i id="Avantgarde-leaf" class="Avantgarde-leaf"></i></span>
+        </div>
+        <div class="preview-scale">
+          <span class="step">12</span><span class="step">14</span><span class="step">16</span><span class="step">18</span><span class="step">21</span><span class="step">24</span><span class="step">36</span><span class="step">48</span><span class="step">60</span><span class="step">72</span>
+        </div>
+        <div class="usage">
+          <input class="class" type="text" readonly="readonly" onClick="this.select();" value=".Avantgarde-leaf" />
+          <input class="point" type="text" readonly="readonly" onClick="this.select();" value="&amp;#xf11f;" />
+        </div>
+      </div>
+      
+      <div class="glyph">
+        <div class="preview-glyphs">
+          <span class="step size-12"><span class="letters">Pp</span><i id="Avantgarde-lock" class="Avantgarde-lock"></i></span><span class="step size-14"><span class="letters">Pp</span><i id="Avantgarde-lock" class="Avantgarde-lock"></i></span><span class="step size-16"><span class="letters">Pp</span><i id="Avantgarde-lock" class="Avantgarde-lock"></i></span><span class="step size-18"><span class="letters">Pp</span><i id="Avantgarde-lock" class="Avantgarde-lock"></i></span><span class="step size-21"><span class="letters">Pp</span><i id="Avantgarde-lock" class="Avantgarde-lock"></i></span><span class="step size-24"><span class="letters">Pp</span><i id="Avantgarde-lock" class="Avantgarde-lock"></i></span><span class="step size-36"><span class="letters">Pp</span><i id="Avantgarde-lock" class="Avantgarde-lock"></i></span><span class="step size-48"><span class="letters">Pp</span><i id="Avantgarde-lock" class="Avantgarde-lock"></i></span><span class="step size-60"><span class="letters">Pp</span><i id="Avantgarde-lock" class="Avantgarde-lock"></i></span><span class="step size-72"><span class="letters">Pp</span><i id="Avantgarde-lock" class="Avantgarde-lock"></i></span>
+        </div>
+        <div class="preview-scale">
+          <span class="step">12</span><span class="step">14</span><span class="step">16</span><span class="step">18</span><span class="step">21</span><span class="step">24</span><span class="step">36</span><span class="step">48</span><span class="step">60</span><span class="step">72</span>
+        </div>
+        <div class="usage">
+          <input class="class" type="text" readonly="readonly" onClick="this.select();" value=".Avantgarde-lock" />
+          <input class="point" type="text" readonly="readonly" onClick="this.select();" value="&amp;#xf120;" />
+        </div>
+      </div>
+      
+      <div class="glyph">
+        <div class="preview-glyphs">
+          <span class="step size-12"><span class="letters">Pp</span><i id="Avantgarde-map" class="Avantgarde-map"></i></span><span class="step size-14"><span class="letters">Pp</span><i id="Avantgarde-map" class="Avantgarde-map"></i></span><span class="step size-16"><span class="letters">Pp</span><i id="Avantgarde-map" class="Avantgarde-map"></i></span><span class="step size-18"><span class="letters">Pp</span><i id="Avantgarde-map" class="Avantgarde-map"></i></span><span class="step size-21"><span class="letters">Pp</span><i id="Avantgarde-map" class="Avantgarde-map"></i></span><span class="step size-24"><span class="letters">Pp</span><i id="Avantgarde-map" class="Avantgarde-map"></i></span><span class="step size-36"><span class="letters">Pp</span><i id="Avantgarde-map" class="Avantgarde-map"></i></span><span class="step size-48"><span class="letters">Pp</span><i id="Avantgarde-map" class="Avantgarde-map"></i></span><span class="step size-60"><span class="letters">Pp</span><i id="Avantgarde-map" class="Avantgarde-map"></i></span><span class="step size-72"><span class="letters">Pp</span><i id="Avantgarde-map" class="Avantgarde-map"></i></span>
+        </div>
+        <div class="preview-scale">
+          <span class="step">12</span><span class="step">14</span><span class="step">16</span><span class="step">18</span><span class="step">21</span><span class="step">24</span><span class="step">36</span><span class="step">48</span><span class="step">60</span><span class="step">72</span>
+        </div>
+        <div class="usage">
+          <input class="class" type="text" readonly="readonly" onClick="this.select();" value=".Avantgarde-map" />
+          <input class="point" type="text" readonly="readonly" onClick="this.select();" value="&amp;#xf121;" />
+        </div>
+      </div>
+      
+      <div class="glyph">
+        <div class="preview-glyphs">
+          <span class="step size-12"><span class="letters">Pp</span><i id="Avantgarde-map-marker" class="Avantgarde-map-marker"></i></span><span class="step size-14"><span class="letters">Pp</span><i id="Avantgarde-map-marker" class="Avantgarde-map-marker"></i></span><span class="step size-16"><span class="letters">Pp</span><i id="Avantgarde-map-marker" class="Avantgarde-map-marker"></i></span><span class="step size-18"><span class="letters">Pp</span><i id="Avantgarde-map-marker" class="Avantgarde-map-marker"></i></span><span class="step size-21"><span class="letters">Pp</span><i id="Avantgarde-map-marker" class="Avantgarde-map-marker"></i></span><span class="step size-24"><span class="letters">Pp</span><i id="Avantgarde-map-marker" class="Avantgarde-map-marker"></i></span><span class="step size-36"><span class="letters">Pp</span><i id="Avantgarde-map-marker" class="Avantgarde-map-marker"></i></span><span class="step size-48"><span class="letters">Pp</span><i id="Avantgarde-map-marker" class="Avantgarde-map-marker"></i></span><span class="step size-60"><span class="letters">Pp</span><i id="Avantgarde-map-marker" class="Avantgarde-map-marker"></i></span><span class="step size-72"><span class="letters">Pp</span><i id="Avantgarde-map-marker" class="Avantgarde-map-marker"></i></span>
+        </div>
+        <div class="preview-scale">
+          <span class="step">12</span><span class="step">14</span><span class="step">16</span><span class="step">18</span><span class="step">21</span><span class="step">24</span><span class="step">36</span><span class="step">48</span><span class="step">60</span><span class="step">72</span>
+        </div>
+        <div class="usage">
+          <input class="class" type="text" readonly="readonly" onClick="this.select();" value=".Avantgarde-map-marker" />
+          <input class="point" type="text" readonly="readonly" onClick="this.select();" value="&amp;#xf122;" />
+        </div>
+      </div>
+      
+      <div class="glyph">
+        <div class="preview-glyphs">
+          <span class="step size-12"><span class="letters">Pp</span><i id="Avantgarde-marquee-minus" class="Avantgarde-marquee-minus"></i></span><span class="step size-14"><span class="letters">Pp</span><i id="Avantgarde-marquee-minus" class="Avantgarde-marquee-minus"></i></span><span class="step size-16"><span class="letters">Pp</span><i id="Avantgarde-marquee-minus" class="Avantgarde-marquee-minus"></i></span><span class="step size-18"><span class="letters">Pp</span><i id="Avantgarde-marquee-minus" class="Avantgarde-marquee-minus"></i></span><span class="step size-21"><span class="letters">Pp</span><i id="Avantgarde-marquee-minus" class="Avantgarde-marquee-minus"></i></span><span class="step size-24"><span class="letters">Pp</span><i id="Avantgarde-marquee-minus" class="Avantgarde-marquee-minus"></i></span><span class="step size-36"><span class="letters">Pp</span><i id="Avantgarde-marquee-minus" class="Avantgarde-marquee-minus"></i></span><span class="step size-48"><span class="letters">Pp</span><i id="Avantgarde-marquee-minus" class="Avantgarde-marquee-minus"></i></span><span class="step size-60"><span class="letters">Pp</span><i id="Avantgarde-marquee-minus" class="Avantgarde-marquee-minus"></i></span><span class="step size-72"><span class="letters">Pp</span><i id="Avantgarde-marquee-minus" class="Avantgarde-marquee-minus"></i></span>
+        </div>
+        <div class="preview-scale">
+          <span class="step">12</span><span class="step">14</span><span class="step">16</span><span class="step">18</span><span class="step">21</span><span class="step">24</span><span class="step">36</span><span class="step">48</span><span class="step">60</span><span class="step">72</span>
+        </div>
+        <div class="usage">
+          <input class="class" type="text" readonly="readonly" onClick="this.select();" value=".Avantgarde-marquee-minus" />
+          <input class="point" type="text" readonly="readonly" onClick="this.select();" value="&amp;#xf12f;" />
+        </div>
+      </div>
+      
+      <div class="glyph">
+        <div class="preview-glyphs">
+          <span class="step size-12"><span class="letters">Pp</span><i id="Avantgarde-marquee-plus" class="Avantgarde-marquee-plus"></i></span><span class="step size-14"><span class="letters">Pp</span><i id="Avantgarde-marquee-plus" class="Avantgarde-marquee-plus"></i></span><span class="step size-16"><span class="letters">Pp</span><i id="Avantgarde-marquee-plus" class="Avantgarde-marquee-plus"></i></span><span class="step size-18"><span class="letters">Pp</span><i id="Avantgarde-marquee-plus" class="Avantgarde-marquee-plus"></i></span><span class="step size-21"><span class="letters">Pp</span><i id="Avantgarde-marquee-plus" class="Avantgarde-marquee-plus"></i></span><span class="step size-24"><span class="letters">Pp</span><i id="Avantgarde-marquee-plus" class="Avantgarde-marquee-plus"></i></span><span class="step size-36"><span class="letters">Pp</span><i id="Avantgarde-marquee-plus" class="Avantgarde-marquee-plus"></i></span><span class="step size-48"><span class="letters">Pp</span><i id="Avantgarde-marquee-plus" class="Avantgarde-marquee-plus"></i></span><span class="step size-60"><span class="letters">Pp</span><i id="Avantgarde-marquee-plus" class="Avantgarde-marquee-plus"></i></span><span class="step size-72"><span class="letters">Pp</span><i id="Avantgarde-marquee-plus" class="Avantgarde-marquee-plus"></i></span>
+        </div>
+        <div class="preview-scale">
+          <span class="step">12</span><span class="step">14</span><span class="step">16</span><span class="step">18</span><span class="step">21</span><span class="step">24</span><span class="step">36</span><span class="step">48</span><span class="step">60</span><span class="step">72</span>
+        </div>
+        <div class="usage">
+          <input class="class" type="text" readonly="readonly" onClick="this.select();" value=".Avantgarde-marquee-plus" />
+          <input class="point" type="text" readonly="readonly" onClick="this.select();" value="&amp;#xf133;" />
+        </div>
+      </div>
+      
+      <div class="glyph">
+        <div class="preview-glyphs">
+          <span class="step size-12"><span class="letters">Pp</span><i id="Avantgarde-menu" class="Avantgarde-menu"></i></span><span class="step size-14"><span class="letters">Pp</span><i id="Avantgarde-menu" class="Avantgarde-menu"></i></span><span class="step size-16"><span class="letters">Pp</span><i id="Avantgarde-menu" class="Avantgarde-menu"></i></span><span class="step size-18"><span class="letters">Pp</span><i id="Avantgarde-menu" class="Avantgarde-menu"></i></span><span class="step size-21"><span class="letters">Pp</span><i id="Avantgarde-menu" class="Avantgarde-menu"></i></span><span class="step size-24"><span class="letters">Pp</span><i id="Avantgarde-menu" class="Avantgarde-menu"></i></span><span class="step size-36"><span class="letters">Pp</span><i id="Avantgarde-menu" class="Avantgarde-menu"></i></span><span class="step size-48"><span class="letters">Pp</span><i id="Avantgarde-menu" class="Avantgarde-menu"></i></span><span class="step size-60"><span class="letters">Pp</span><i id="Avantgarde-menu" class="Avantgarde-menu"></i></span><span class="step size-72"><span class="letters">Pp</span><i id="Avantgarde-menu" class="Avantgarde-menu"></i></span>
+        </div>
+        <div class="preview-scale">
+          <span class="step">12</span><span class="step">14</span><span class="step">16</span><span class="step">18</span><span class="step">21</span><span class="step">24</span><span class="step">36</span><span class="step">48</span><span class="step">60</span><span class="step">72</span>
+        </div>
+        <div class="usage">
+          <input class="class" type="text" readonly="readonly" onClick="this.select();" value=".Avantgarde-menu" />
+          <input class="point" type="text" readonly="readonly" onClick="this.select();" value="&amp;#xf123;" />
+        </div>
+      </div>
+      
+      <div class="glyph">
+        <div class="preview-glyphs">
+          <span class="step size-12"><span class="letters">Pp</span><i id="Avantgarde-menu-circle" class="Avantgarde-menu-circle"></i></span><span class="step size-14"><span class="letters">Pp</span><i id="Avantgarde-menu-circle" class="Avantgarde-menu-circle"></i></span><span class="step size-16"><span class="letters">Pp</span><i id="Avantgarde-menu-circle" class="Avantgarde-menu-circle"></i></span><span class="step size-18"><span class="letters">Pp</span><i id="Avantgarde-menu-circle" class="Avantgarde-menu-circle"></i></span><span class="step size-21"><span class="letters">Pp</span><i id="Avantgarde-menu-circle" class="Avantgarde-menu-circle"></i></span><span class="step size-24"><span class="letters">Pp</span><i id="Avantgarde-menu-circle" class="Avantgarde-menu-circle"></i></span><span class="step size-36"><span class="letters">Pp</span><i id="Avantgarde-menu-circle" class="Avantgarde-menu-circle"></i></span><span class="step size-48"><span class="letters">Pp</span><i id="Avantgarde-menu-circle" class="Avantgarde-menu-circle"></i></span><span class="step size-60"><span class="letters">Pp</span><i id="Avantgarde-menu-circle" class="Avantgarde-menu-circle"></i></span><span class="step size-72"><span class="letters">Pp</span><i id="Avantgarde-menu-circle" class="Avantgarde-menu-circle"></i></span>
+        </div>
+        <div class="preview-scale">
+          <span class="step">12</span><span class="step">14</span><span class="step">16</span><span class="step">18</span><span class="step">21</span><span class="step">24</span><span class="step">36</span><span class="step">48</span><span class="step">60</span><span class="step">72</span>
+        </div>
+        <div class="usage">
+          <input class="class" type="text" readonly="readonly" onClick="this.select();" value=".Avantgarde-menu-circle" />
+          <input class="point" type="text" readonly="readonly" onClick="this.select();" value="&amp;#xf124;" />
+        </div>
+      </div>
+      
+      <div class="glyph">
+        <div class="preview-glyphs">
+          <span class="step size-12"><span class="letters">Pp</span><i id="Avantgarde-number-one-circle-25" class="Avantgarde-number-one-circle-25"></i></span><span class="step size-14"><span class="letters">Pp</span><i id="Avantgarde-number-one-circle-25" class="Avantgarde-number-one-circle-25"></i></span><span class="step size-16"><span class="letters">Pp</span><i id="Avantgarde-number-one-circle-25" class="Avantgarde-number-one-circle-25"></i></span><span class="step size-18"><span class="letters">Pp</span><i id="Avantgarde-number-one-circle-25" class="Avantgarde-number-one-circle-25"></i></span><span class="step size-21"><span class="letters">Pp</span><i id="Avantgarde-number-one-circle-25" class="Avantgarde-number-one-circle-25"></i></span><span class="step size-24"><span class="letters">Pp</span><i id="Avantgarde-number-one-circle-25" class="Avantgarde-number-one-circle-25"></i></span><span class="step size-36"><span class="letters">Pp</span><i id="Avantgarde-number-one-circle-25" class="Avantgarde-number-one-circle-25"></i></span><span class="step size-48"><span class="letters">Pp</span><i id="Avantgarde-number-one-circle-25" class="Avantgarde-number-one-circle-25"></i></span><span class="step size-60"><span class="letters">Pp</span><i id="Avantgarde-number-one-circle-25" class="Avantgarde-number-one-circle-25"></i></span><span class="step size-72"><span class="letters">Pp</span><i id="Avantgarde-number-one-circle-25" class="Avantgarde-number-one-circle-25"></i></span>
+        </div>
+        <div class="preview-scale">
+          <span class="step">12</span><span class="step">14</span><span class="step">16</span><span class="step">18</span><span class="step">21</span><span class="step">24</span><span class="step">36</span><span class="step">48</span><span class="step">60</span><span class="step">72</span>
+        </div>
+        <div class="usage">
+          <input class="class" type="text" readonly="readonly" onClick="this.select();" value=".Avantgarde-number-one-circle-25" />
+          <input class="point" type="text" readonly="readonly" onClick="this.select();" value="&amp;#xf138;" />
+        </div>
+      </div>
+      
+      <div class="glyph">
+        <div class="preview-glyphs">
+          <span class="step size-12"><span class="letters">Pp</span><i id="Avantgarde-pinterest" class="Avantgarde-pinterest"></i></span><span class="step size-14"><span class="letters">Pp</span><i id="Avantgarde-pinterest" class="Avantgarde-pinterest"></i></span><span class="step size-16"><span class="letters">Pp</span><i id="Avantgarde-pinterest" class="Avantgarde-pinterest"></i></span><span class="step size-18"><span class="letters">Pp</span><i id="Avantgarde-pinterest" class="Avantgarde-pinterest"></i></span><span class="step size-21"><span class="letters">Pp</span><i id="Avantgarde-pinterest" class="Avantgarde-pinterest"></i></span><span class="step size-24"><span class="letters">Pp</span><i id="Avantgarde-pinterest" class="Avantgarde-pinterest"></i></span><span class="step size-36"><span class="letters">Pp</span><i id="Avantgarde-pinterest" class="Avantgarde-pinterest"></i></span><span class="step size-48"><span class="letters">Pp</span><i id="Avantgarde-pinterest" class="Avantgarde-pinterest"></i></span><span class="step size-60"><span class="letters">Pp</span><i id="Avantgarde-pinterest" class="Avantgarde-pinterest"></i></span><span class="step size-72"><span class="letters">Pp</span><i id="Avantgarde-pinterest" class="Avantgarde-pinterest"></i></span>
+        </div>
+        <div class="preview-scale">
+          <span class="step">12</span><span class="step">14</span><span class="step">16</span><span class="step">18</span><span class="step">21</span><span class="step">24</span><span class="step">36</span><span class="step">48</span><span class="step">60</span><span class="step">72</span>
+        </div>
+        <div class="usage">
+          <input class="class" type="text" readonly="readonly" onClick="this.select();" value=".Avantgarde-pinterest" />
+          <input class="point" type="text" readonly="readonly" onClick="this.select();" value="&amp;#xf125;" />
+        </div>
+      </div>
+      
+      <div class="glyph">
+        <div class="preview-glyphs">
+          <span class="step size-12"><span class="letters">Pp</span><i id="Avantgarde-plus" class="Avantgarde-plus"></i></span><span class="step size-14"><span class="letters">Pp</span><i id="Avantgarde-plus" class="Avantgarde-plus"></i></span><span class="step size-16"><span class="letters">Pp</span><i id="Avantgarde-plus" class="Avantgarde-plus"></i></span><span class="step size-18"><span class="letters">Pp</span><i id="Avantgarde-plus" class="Avantgarde-plus"></i></span><span class="step size-21"><span class="letters">Pp</span><i id="Avantgarde-plus" class="Avantgarde-plus"></i></span><span class="step size-24"><span class="letters">Pp</span><i id="Avantgarde-plus" class="Avantgarde-plus"></i></span><span class="step size-36"><span class="letters">Pp</span><i id="Avantgarde-plus" class="Avantgarde-plus"></i></span><span class="step size-48"><span class="letters">Pp</span><i id="Avantgarde-plus" class="Avantgarde-plus"></i></span><span class="step size-60"><span class="letters">Pp</span><i id="Avantgarde-plus" class="Avantgarde-plus"></i></span><span class="step size-72"><span class="letters">Pp</span><i id="Avantgarde-plus" class="Avantgarde-plus"></i></span>
+        </div>
+        <div class="preview-scale">
+          <span class="step">12</span><span class="step">14</span><span class="step">16</span><span class="step">18</span><span class="step">21</span><span class="step">24</span><span class="step">36</span><span class="step">48</span><span class="step">60</span><span class="step">72</span>
+        </div>
+        <div class="usage">
+          <input class="class" type="text" readonly="readonly" onClick="this.select();" value=".Avantgarde-plus" />
+          <input class="point" type="text" readonly="readonly" onClick="this.select();" value="&amp;#xf132;" />
+        </div>
+      </div>
+      
+      <div class="glyph">
+        <div class="preview-glyphs">
+          <span class="step size-12"><span class="letters">Pp</span><i id="Avantgarde-search" class="Avantgarde-search"></i></span><span class="step size-14"><span class="letters">Pp</span><i id="Avantgarde-search" class="Avantgarde-search"></i></span><span class="step size-16"><span class="letters">Pp</span><i id="Avantgarde-search" class="Avantgarde-search"></i></span><span class="step size-18"><span class="letters">Pp</span><i id="Avantgarde-search" class="Avantgarde-search"></i></span><span class="step size-21"><span class="letters">Pp</span><i id="Avantgarde-search" class="Avantgarde-search"></i></span><span class="step size-24"><span class="letters">Pp</span><i id="Avantgarde-search" class="Avantgarde-search"></i></span><span class="step size-36"><span class="letters">Pp</span><i id="Avantgarde-search" class="Avantgarde-search"></i></span><span class="step size-48"><span class="letters">Pp</span><i id="Avantgarde-search" class="Avantgarde-search"></i></span><span class="step size-60"><span class="letters">Pp</span><i id="Avantgarde-search" class="Avantgarde-search"></i></span><span class="step size-72"><span class="letters">Pp</span><i id="Avantgarde-search" class="Avantgarde-search"></i></span>
+        </div>
+        <div class="preview-scale">
+          <span class="step">12</span><span class="step">14</span><span class="step">16</span><span class="step">18</span><span class="step">21</span><span class="step">24</span><span class="step">36</span><span class="step">48</span><span class="step">60</span><span class="step">72</span>
+        </div>
+        <div class="usage">
+          <input class="class" type="text" readonly="readonly" onClick="this.select();" value=".Avantgarde-search" />
+          <input class="point" type="text" readonly="readonly" onClick="this.select();" value="&amp;#xf126;" />
+        </div>
+      </div>
+      
+      <div class="glyph">
+        <div class="preview-glyphs">
+          <span class="step size-12"><span class="letters">Pp</span><i id="Avantgarde-settings" class="Avantgarde-settings"></i></span><span class="step size-14"><span class="letters">Pp</span><i id="Avantgarde-settings" class="Avantgarde-settings"></i></span><span class="step size-16"><span class="letters">Pp</span><i id="Avantgarde-settings" class="Avantgarde-settings"></i></span><span class="step size-18"><span class="letters">Pp</span><i id="Avantgarde-settings" class="Avantgarde-settings"></i></span><span class="step size-21"><span class="letters">Pp</span><i id="Avantgarde-settings" class="Avantgarde-settings"></i></span><span class="step size-24"><span class="letters">Pp</span><i id="Avantgarde-settings" class="Avantgarde-settings"></i></span><span class="step size-36"><span class="letters">Pp</span><i id="Avantgarde-settings" class="Avantgarde-settings"></i></span><span class="step size-48"><span class="letters">Pp</span><i id="Avantgarde-settings" class="Avantgarde-settings"></i></span><span class="step size-60"><span class="letters">Pp</span><i id="Avantgarde-settings" class="Avantgarde-settings"></i></span><span class="step size-72"><span class="letters">Pp</span><i id="Avantgarde-settings" class="Avantgarde-settings"></i></span>
+        </div>
+        <div class="preview-scale">
+          <span class="step">12</span><span class="step">14</span><span class="step">16</span><span class="step">18</span><span class="step">21</span><span class="step">24</span><span class="step">36</span><span class="step">48</span><span class="step">60</span><span class="step">72</span>
+        </div>
+        <div class="usage">
+          <input class="class" type="text" readonly="readonly" onClick="this.select();" value=".Avantgarde-settings" />
+          <input class="point" type="text" readonly="readonly" onClick="this.select();" value="&amp;#xf127;" />
+        </div>
+      </div>
+      
+      <div class="glyph">
+        <div class="preview-glyphs">
+          <span class="step size-12"><span class="letters">Pp</span><i id="Avantgarde-thumbs-down" class="Avantgarde-thumbs-down"></i></span><span class="step size-14"><span class="letters">Pp</span><i id="Avantgarde-thumbs-down" class="Avantgarde-thumbs-down"></i></span><span class="step size-16"><span class="letters">Pp</span><i id="Avantgarde-thumbs-down" class="Avantgarde-thumbs-down"></i></span><span class="step size-18"><span class="letters">Pp</span><i id="Avantgarde-thumbs-down" class="Avantgarde-thumbs-down"></i></span><span class="step size-21"><span class="letters">Pp</span><i id="Avantgarde-thumbs-down" class="Avantgarde-thumbs-down"></i></span><span class="step size-24"><span class="letters">Pp</span><i id="Avantgarde-thumbs-down" class="Avantgarde-thumbs-down"></i></span><span class="step size-36"><span class="letters">Pp</span><i id="Avantgarde-thumbs-down" class="Avantgarde-thumbs-down"></i></span><span class="step size-48"><span class="letters">Pp</span><i id="Avantgarde-thumbs-down" class="Avantgarde-thumbs-down"></i></span><span class="step size-60"><span class="letters">Pp</span><i id="Avantgarde-thumbs-down" class="Avantgarde-thumbs-down"></i></span><span class="step size-72"><span class="letters">Pp</span><i id="Avantgarde-thumbs-down" class="Avantgarde-thumbs-down"></i></span>
+        </div>
+        <div class="preview-scale">
+          <span class="step">12</span><span class="step">14</span><span class="step">16</span><span class="step">18</span><span class="step">21</span><span class="step">24</span><span class="step">36</span><span class="step">48</span><span class="step">60</span><span class="step">72</span>
+        </div>
+        <div class="usage">
+          <input class="class" type="text" readonly="readonly" onClick="this.select();" value=".Avantgarde-thumbs-down" />
+          <input class="point" type="text" readonly="readonly" onClick="this.select();" value="&amp;#xf128;" />
+        </div>
+      </div>
+      
+      <div class="glyph">
+        <div class="preview-glyphs">
+          <span class="step size-12"><span class="letters">Pp</span><i id="Avantgarde-thumbs-up" class="Avantgarde-thumbs-up"></i></span><span class="step size-14"><span class="letters">Pp</span><i id="Avantgarde-thumbs-up" class="Avantgarde-thumbs-up"></i></span><span class="step size-16"><span class="letters">Pp</span><i id="Avantgarde-thumbs-up" class="Avantgarde-thumbs-up"></i></span><span class="step size-18"><span class="letters">Pp</span><i id="Avantgarde-thumbs-up" class="Avantgarde-thumbs-up"></i></span><span class="step size-21"><span class="letters">Pp</span><i id="Avantgarde-thumbs-up" class="Avantgarde-thumbs-up"></i></span><span class="step size-24"><span class="letters">Pp</span><i id="Avantgarde-thumbs-up" class="Avantgarde-thumbs-up"></i></span><span class="step size-36"><span class="letters">Pp</span><i id="Avantgarde-thumbs-up" class="Avantgarde-thumbs-up"></i></span><span class="step size-48"><span class="letters">Pp</span><i id="Avantgarde-thumbs-up" class="Avantgarde-thumbs-up"></i></span><span class="step size-60"><span class="letters">Pp</span><i id="Avantgarde-thumbs-up" class="Avantgarde-thumbs-up"></i></span><span class="step size-72"><span class="letters">Pp</span><i id="Avantgarde-thumbs-up" class="Avantgarde-thumbs-up"></i></span>
+        </div>
+        <div class="preview-scale">
+          <span class="step">12</span><span class="step">14</span><span class="step">16</span><span class="step">18</span><span class="step">21</span><span class="step">24</span><span class="step">36</span><span class="step">48</span><span class="step">60</span><span class="step">72</span>
+        </div>
+        <div class="usage">
+          <input class="class" type="text" readonly="readonly" onClick="this.select();" value=".Avantgarde-thumbs-up" />
+          <input class="point" type="text" readonly="readonly" onClick="this.select();" value="&amp;#xf129;" />
+        </div>
+      </div>
+      
+      <div class="glyph">
+        <div class="preview-glyphs">
+          <span class="step size-12"><span class="letters">Pp</span><i id="Avantgarde-training" class="Avantgarde-training"></i></span><span class="step size-14"><span class="letters">Pp</span><i id="Avantgarde-training" class="Avantgarde-training"></i></span><span class="step size-16"><span class="letters">Pp</span><i id="Avantgarde-training" class="Avantgarde-training"></i></span><span class="step size-18"><span class="letters">Pp</span><i id="Avantgarde-training" class="Avantgarde-training"></i></span><span class="step size-21"><span class="letters">Pp</span><i id="Avantgarde-training" class="Avantgarde-training"></i></span><span class="step size-24"><span class="letters">Pp</span><i id="Avantgarde-training" class="Avantgarde-training"></i></span><span class="step size-36"><span class="letters">Pp</span><i id="Avantgarde-training" class="Avantgarde-training"></i></span><span class="step size-48"><span class="letters">Pp</span><i id="Avantgarde-training" class="Avantgarde-training"></i></span><span class="step size-60"><span class="letters">Pp</span><i id="Avantgarde-training" class="Avantgarde-training"></i></span><span class="step size-72"><span class="letters">Pp</span><i id="Avantgarde-training" class="Avantgarde-training"></i></span>
+        </div>
+        <div class="preview-scale">
+          <span class="step">12</span><span class="step">14</span><span class="step">16</span><span class="step">18</span><span class="step">21</span><span class="step">24</span><span class="step">36</span><span class="step">48</span><span class="step">60</span><span class="step">72</span>
+        </div>
+        <div class="usage">
+          <input class="class" type="text" readonly="readonly" onClick="this.select();" value=".Avantgarde-training" />
+          <input class="point" type="text" readonly="readonly" onClick="this.select();" value="&amp;#xf12a;" />
+        </div>
+      </div>
+      
+      <div class="glyph">
+        <div class="preview-glyphs">
+          <span class="step size-12"><span class="letters">Pp</span><i id="Avantgarde-training-person" class="Avantgarde-training-person"></i></span><span class="step size-14"><span class="letters">Pp</span><i id="Avantgarde-training-person" class="Avantgarde-training-person"></i></span><span class="step size-16"><span class="letters">Pp</span><i id="Avantgarde-training-person" class="Avantgarde-training-person"></i></span><span class="step size-18"><span class="letters">Pp</span><i id="Avantgarde-training-person" class="Avantgarde-training-person"></i></span><span class="step size-21"><span class="letters">Pp</span><i id="Avantgarde-training-person" class="Avantgarde-training-person"></i></span><span class="step size-24"><span class="letters">Pp</span><i id="Avantgarde-training-person" class="Avantgarde-training-person"></i></span><span class="step size-36"><span class="letters">Pp</span><i id="Avantgarde-training-person" class="Avantgarde-training-person"></i></span><span class="step size-48"><span class="letters">Pp</span><i id="Avantgarde-training-person" class="Avantgarde-training-person"></i></span><span class="step size-60"><span class="letters">Pp</span><i id="Avantgarde-training-person" class="Avantgarde-training-person"></i></span><span class="step size-72"><span class="letters">Pp</span><i id="Avantgarde-training-person" class="Avantgarde-training-person"></i></span>
+        </div>
+        <div class="preview-scale">
+          <span class="step">12</span><span class="step">14</span><span class="step">16</span><span class="step">18</span><span class="step">21</span><span class="step">24</span><span class="step">36</span><span class="step">48</span><span class="step">60</span><span class="step">72</span>
+        </div>
+        <div class="usage">
+          <input class="class" type="text" readonly="readonly" onClick="this.select();" value=".Avantgarde-training-person" />
+          <input class="point" type="text" readonly="readonly" onClick="this.select();" value="&amp;#xf12b;" />
+        </div>
+      </div>
+      
+      <div class="glyph">
+        <div class="preview-glyphs">
+          <span class="step size-12"><span class="letters">Pp</span><i id="Avantgarde-twitter" class="Avantgarde-twitter"></i></span><span class="step size-14"><span class="letters">Pp</span><i id="Avantgarde-twitter" class="Avantgarde-twitter"></i></span><span class="step size-16"><span class="letters">Pp</span><i id="Avantgarde-twitter" class="Avantgarde-twitter"></i></span><span class="step size-18"><span class="letters">Pp</span><i id="Avantgarde-twitter" class="Avantgarde-twitter"></i></span><span class="step size-21"><span class="letters">Pp</span><i id="Avantgarde-twitter" class="Avantgarde-twitter"></i></span><span class="step size-24"><span class="letters">Pp</span><i id="Avantgarde-twitter" class="Avantgarde-twitter"></i></span><span class="step size-36"><span class="letters">Pp</span><i id="Avantgarde-twitter" class="Avantgarde-twitter"></i></span><span class="step size-48"><span class="letters">Pp</span><i id="Avantgarde-twitter" class="Avantgarde-twitter"></i></span><span class="step size-60"><span class="letters">Pp</span><i id="Avantgarde-twitter" class="Avantgarde-twitter"></i></span><span class="step size-72"><span class="letters">Pp</span><i id="Avantgarde-twitter" class="Avantgarde-twitter"></i></span>
+        </div>
+        <div class="preview-scale">
+          <span class="step">12</span><span class="step">14</span><span class="step">16</span><span class="step">18</span><span class="step">21</span><span class="step">24</span><span class="step">36</span><span class="step">48</span><span class="step">60</span><span class="step">72</span>
+        </div>
+        <div class="usage">
+          <input class="class" type="text" readonly="readonly" onClick="this.select();" value=".Avantgarde-twitter" />
+          <input class="point" type="text" readonly="readonly" onClick="this.select();" value="&amp;#xf12c;" />
+        </div>
+      </div>
+      
+      <div class="glyph">
+        <div class="preview-glyphs">
+          <span class="step size-12"><span class="letters">Pp</span><i id="Avantgarde-weightlist" class="Avantgarde-weightlist"></i></span><span class="step size-14"><span class="letters">Pp</span><i id="Avantgarde-weightlist" class="Avantgarde-weightlist"></i></span><span class="step size-16"><span class="letters">Pp</span><i id="Avantgarde-weightlist" class="Avantgarde-weightlist"></i></span><span class="step size-18"><span class="letters">Pp</span><i id="Avantgarde-weightlist" class="Avantgarde-weightlist"></i></span><span class="step size-21"><span class="letters">Pp</span><i id="Avantgarde-weightlist" class="Avantgarde-weightlist"></i></span><span class="step size-24"><span class="letters">Pp</span><i id="Avantgarde-weightlist" class="Avantgarde-weightlist"></i></span><span class="step size-36"><span class="letters">Pp</span><i id="Avantgarde-weightlist" class="Avantgarde-weightlist"></i></span><span class="step size-48"><span class="letters">Pp</span><i id="Avantgarde-weightlist" class="Avantgarde-weightlist"></i></span><span class="step size-60"><span class="letters">Pp</span><i id="Avantgarde-weightlist" class="Avantgarde-weightlist"></i></span><span class="step size-72"><span class="letters">Pp</span><i id="Avantgarde-weightlist" class="Avantgarde-weightlist"></i></span>
+        </div>
+        <div class="preview-scale">
+          <span class="step">12</span><span class="step">14</span><span class="step">16</span><span class="step">18</span><span class="step">21</span><span class="step">24</span><span class="step">36</span><span class="step">48</span><span class="step">60</span><span class="step">72</span>
+        </div>
+        <div class="usage">
+          <input class="class" type="text" readonly="readonly" onClick="this.select();" value=".Avantgarde-weightlist" />
+          <input class="point" type="text" readonly="readonly" onClick="this.select();" value="&amp;#xf12d;" />
+        </div>
+      </div>
+      
+
+      <footer>
+        Made with love using <a href="http://fontcustom.com">Font Custom</a>.
+      </footer>
+    </div>
+  </body>
+</html>

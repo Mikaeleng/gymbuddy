@@ -1,0 +1,122 @@
+@import "../../assets/less/_mixin";
+
+#content, #main{
+  height:100%;
+  position: relative;
+}
+// elements in the time panel watch and buttons
+#timer-panel{
+  height: 30%;
+  padding-top: @line-height;
+
+  #timer{
+    height: 70%;
+    font-size: 6rem;
+    div:first-of-type{
+      text-align: right;
+    }
+    div:nth-child(2){
+      text-align: center;
+    }
+    div:last-of-type{
+      text-align: left;
+    }
+
+  }
+  #timer-controls{
+    height: @line-height-large;
+    line-height: @line-height-large;
+    div[aria-label="timer-play-button"], div[aria-label="timer-stop-button"]{
+      display: none;
+    }
+    div{
+      text-align: center;
+      line-height: inherit;
+      vertical-align: middle;
+    }
+  }
+}
+
+#set-tab-panel{
+  min-height: @line-height-large;
+  font-size: @line-height;
+  text-align: center;
+  line-height: @line-height-large;
+  cursor: pointer;
+
+  div{
+    line-height: inherit;
+    vertical-align: middle;
+    span{
+      line-height: inherit;
+      vertical-align: middle;
+    }
+    span[class*="Avantgarde"]{
+      font-size: 1rem;
+      line-height: inherit;
+      vertical-align: middle;
+    }
+  }
+  .active-set-tab{
+    background: @leaf;
+    color: @kalk;
+  }
+}
+
+#set-content-panel{
+  background: @leaf;
+  color: @kalk;
+  margin-bottom:2rem;
+
+  .set-panel{
+    .set-weight, .set-count {
+      font-size: 2rem;
+      text-align: center;
+      vertical-align: middle;
+    }
+    input{
+      display: table-cell;
+      text-align: center;
+      border: none;
+      background: transparent;
+      height:auto;
+    }
+    input:focus{
+      outline-offset:0;
+      padding:0;
+      outline: none;
+    }
+    input:hover{
+      padding:0;
+    }
+    .set-finished{
+      font-size: @line-height;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      .Avantgarde-checkmark-unchecked.Avantgarde-checkmark-circle{
+        line-height: inherit;
+        font-size: inherit;
+        vertical-align: middle;
+      }
+    }
+    div:last-child{
+      div{text-align: center;}
+    }
+  }
+}
+#pre-set-result-list{
+  background: @kalk;
+  .pre-set-result{
+    background: @kalk;
+    div:first-child{
+      padding-left: @h-padding;
+    }
+    div:last-of-type{
+      padding-right: @h-padding;
+      text-align: right;
+    }
+  }
+}

@@ -1,0 +1,251 @@
+{
+  "checksum": {
+    "previous": "6fb1be89de282f59af705e925f8b64e90d2b0b7dfd8bf267a1248ef3bb746901",
+    "current": "6fb1be89de282f59af705e925f8b64e90d2b0b7dfd8bf267a1248ef3bb746901"
+  },
+  "fonts": [
+    "/Applications/AMPPS/www/dev/gymbuddy/fonts/Avantgarde/Avantgarde.ttf",
+    "/Applications/AMPPS/www/dev/gymbuddy/fonts/Avantgarde/Avantgarde.svg",
+    "/Applications/AMPPS/www/dev/gymbuddy/fonts/Avantgarde/Avantgarde.woff",
+    "/Applications/AMPPS/www/dev/gymbuddy/fonts/Avantgarde/Avantgarde.eot"
+  ],
+  "glyphs": {
+    "Create": {
+      "codepoint": 61696,
+      "source": "/Applications/AMPPS/www/dev/gymbuddy/fonts/Avantgarde/vectors/Create.svg"
+    },
+    "Filter": {
+      "codepoint": 61697,
+      "source": "/Applications/AMPPS/www/dev/gymbuddy/fonts/Avantgarde/vectors/Filter.svg"
+    },
+    "List-menu": {
+      "codepoint": 61698,
+      "source": "/Applications/AMPPS/www/dev/gymbuddy/fonts/Avantgarde/vectors/List-menu.svg"
+    },
+    "List-tiles": {
+      "codepoint": 61699,
+      "source": "/Applications/AMPPS/www/dev/gymbuddy/fonts/Avantgarde/vectors/List-tiles.svg"
+    },
+    "Live": {
+      "codepoint": 61700,
+      "source": "/Applications/AMPPS/www/dev/gymbuddy/fonts/Avantgarde/vectors/Live.svg"
+    },
+    "Menu-texticon": {
+      "codepoint": 61701,
+      "source": "/Applications/AMPPS/www/dev/gymbuddy/fonts/Avantgarde/vectors/Menu-texticon.svg"
+    },
+    "Wall": {
+      "codepoint": 61702,
+      "source": "/Applications/AMPPS/www/dev/gymbuddy/fonts/Avantgarde/vectors/Wall.svg"
+    },
+    "Work": {
+      "codepoint": 61703,
+      "source": "/Applications/AMPPS/www/dev/gymbuddy/fonts/Avantgarde/vectors/Work.svg"
+    },
+    "add-weight": {
+      "codepoint": 61704,
+      "source": "/Applications/AMPPS/www/dev/gymbuddy/fonts/Avantgarde/vectors/add-weight.svg"
+    },
+    "back-button": {
+      "codepoint": 61705,
+      "source": "/Applications/AMPPS/www/dev/gymbuddy/fonts/Avantgarde/vectors/back-button.svg"
+    },
+    "calculate": {
+      "codepoint": 61706,
+      "source": "/Applications/AMPPS/www/dev/gymbuddy/fonts/Avantgarde/vectors/calculate.svg"
+    },
+    "check": {
+      "codepoint": 61751,
+      "source": "/Applications/AMPPS/www/dev/gymbuddy/fonts/Avantgarde/vectors/check.svg"
+    },
+    "checkmark-circle": {
+      "codepoint": 61707,
+      "source": "/Applications/AMPPS/www/dev/gymbuddy/fonts/Avantgarde/vectors/checkmark-circle.svg"
+    },
+    "checkmark-unchecked": {
+      "codepoint": 61708,
+      "source": "/Applications/AMPPS/www/dev/gymbuddy/fonts/Avantgarde/vectors/checkmark-unchecked.svg"
+    },
+    "chevron-down": {
+      "codepoint": 61709,
+      "source": "/Applications/AMPPS/www/dev/gymbuddy/fonts/Avantgarde/vectors/chevron-down.svg"
+    },
+    "chevron-down-circle": {
+      "codepoint": 61710,
+      "source": "/Applications/AMPPS/www/dev/gymbuddy/fonts/Avantgarde/vectors/chevron-down-circle.svg"
+    },
+    "chevron-left": {
+      "codepoint": 61711,
+      "source": "/Applications/AMPPS/www/dev/gymbuddy/fonts/Avantgarde/vectors/chevron-left.svg"
+    },
+    "chevron-left-circle": {
+      "codepoint": 61712,
+      "source": "/Applications/AMPPS/www/dev/gymbuddy/fonts/Avantgarde/vectors/chevron-left-circle.svg"
+    },
+    "chevron-right": {
+      "codepoint": 61713,
+      "source": "/Applications/AMPPS/www/dev/gymbuddy/fonts/Avantgarde/vectors/chevron-right.svg"
+    },
+    "chevron-right-circle": {
+      "codepoint": 61714,
+      "source": "/Applications/AMPPS/www/dev/gymbuddy/fonts/Avantgarde/vectors/chevron-right-circle.svg"
+    },
+    "chevron-up": {
+      "codepoint": 61715,
+      "source": "/Applications/AMPPS/www/dev/gymbuddy/fonts/Avantgarde/vectors/chevron-up.svg"
+    },
+    "chevron-up-circle": {
+      "codepoint": 61716,
+      "source": "/Applications/AMPPS/www/dev/gymbuddy/fonts/Avantgarde/vectors/chevron-up-circle.svg"
+    },
+    "circle-minus": {
+      "codepoint": 61717,
+      "source": "/Applications/AMPPS/www/dev/gymbuddy/fonts/Avantgarde/vectors/circle-minus.svg"
+    },
+    "cog": {
+      "codepoint": 61718,
+      "source": "/Applications/AMPPS/www/dev/gymbuddy/fonts/Avantgarde/vectors/cog.svg"
+    },
+    "cross": {
+      "codepoint": 61719,
+      "source": "/Applications/AMPPS/www/dev/gymbuddy/fonts/Avantgarde/vectors/cross.svg"
+    },
+    "cross-circle": {
+      "codepoint": 61720,
+      "source": "/Applications/AMPPS/www/dev/gymbuddy/fonts/Avantgarde/vectors/cross-circle.svg"
+    },
+    "dashboard": {
+      "codepoint": 61721,
+      "source": "/Applications/AMPPS/www/dev/gymbuddy/fonts/Avantgarde/vectors/dashboard.svg"
+    },
+    "dashboard-square": {
+      "codepoint": 61722,
+      "source": "/Applications/AMPPS/www/dev/gymbuddy/fonts/Avantgarde/vectors/dashboard-square.svg"
+    },
+    "facebook": {
+      "codepoint": 61723,
+      "source": "/Applications/AMPPS/www/dev/gymbuddy/fonts/Avantgarde/vectors/facebook.svg"
+    },
+    "food-produce": {
+      "codepoint": 61724,
+      "source": "/Applications/AMPPS/www/dev/gymbuddy/fonts/Avantgarde/vectors/food-produce.svg"
+    },
+    "heart": {
+      "codepoint": 61725,
+      "source": "/Applications/AMPPS/www/dev/gymbuddy/fonts/Avantgarde/vectors/heart.svg"
+    },
+    "home": {
+      "codepoint": 61726,
+      "source": "/Applications/AMPPS/www/dev/gymbuddy/fonts/Avantgarde/vectors/home.svg"
+    },
+    "leaf": {
+      "codepoint": 61727,
+      "source": "/Applications/AMPPS/www/dev/gymbuddy/fonts/Avantgarde/vectors/leaf.svg"
+    },
+    "lock": {
+      "codepoint": 61728,
+      "source": "/Applications/AMPPS/www/dev/gymbuddy/fonts/Avantgarde/vectors/lock.svg"
+    },
+    "map": {
+      "codepoint": 61729,
+      "source": "/Applications/AMPPS/www/dev/gymbuddy/fonts/Avantgarde/vectors/map.svg"
+    },
+    "map-marker": {
+      "codepoint": 61730,
+      "source": "/Applications/AMPPS/www/dev/gymbuddy/fonts/Avantgarde/vectors/map-marker.svg"
+    },
+    "marquee-minus": {
+      "codepoint": 61743,
+      "source": "/Applications/AMPPS/www/dev/gymbuddy/fonts/Avantgarde/vectors/marquee-minus.svg"
+    },
+    "marquee-plus": {
+      "codepoint": 61747,
+      "source": "/Applications/AMPPS/www/dev/gymbuddy/fonts/Avantgarde/vectors/marquee-plus.svg"
+    },
+    "menu": {
+      "codepoint": 61731,
+      "source": "/Applications/AMPPS/www/dev/gymbuddy/fonts/Avantgarde/vectors/menu.svg"
+    },
+    "menu-circle": {
+      "codepoint": 61732,
+      "source": "/Applications/AMPPS/www/dev/gymbuddy/fonts/Avantgarde/vectors/menu-circle.svg"
+    },
+    "number-one-circle-25": {
+      "codepoint": 61752,
+      "source": "/Applications/AMPPS/www/dev/gymbuddy/fonts/Avantgarde/vectors/number-one-circle-25.svg"
+    },
+    "pinterest": {
+      "codepoint": 61733,
+      "source": "/Applications/AMPPS/www/dev/gymbuddy/fonts/Avantgarde/vectors/pinterest.svg"
+    },
+    "plus": {
+      "codepoint": 61746,
+      "source": "/Applications/AMPPS/www/dev/gymbuddy/fonts/Avantgarde/vectors/plus.svg"
+    },
+    "search": {
+      "codepoint": 61734,
+      "source": "/Applications/AMPPS/www/dev/gymbuddy/fonts/Avantgarde/vectors/search.svg"
+    },
+    "settings": {
+      "codepoint": 61735,
+      "source": "/Applications/AMPPS/www/dev/gymbuddy/fonts/Avantgarde/vectors/settings.svg"
+    },
+    "thumbs-down": {
+      "codepoint": 61736,
+      "source": "/Applications/AMPPS/www/dev/gymbuddy/fonts/Avantgarde/vectors/thumbs-down.svg"
+    },
+    "thumbs-up": {
+      "codepoint": 61737,
+      "source": "/Applications/AMPPS/www/dev/gymbuddy/fonts/Avantgarde/vectors/thumbs-up.svg"
+    },
+    "training": {
+      "codepoint": 61738,
+      "source": "/Applications/AMPPS/www/dev/gymbuddy/fonts/Avantgarde/vectors/training.svg"
+    },
+    "training-person": {
+      "codepoint": 61739,
+      "source": "/Applications/AMPPS/www/dev/gymbuddy/fonts/Avantgarde/vectors/training-person.svg"
+    },
+    "twitter": {
+      "codepoint": 61740,
+      "source": "/Applications/AMPPS/www/dev/gymbuddy/fonts/Avantgarde/vectors/twitter.svg"
+    },
+    "weightlist": {
+      "codepoint": 61741,
+      "source": "/Applications/AMPPS/www/dev/gymbuddy/fonts/Avantgarde/vectors/weightlist.svg"
+    }
+  },
+  "options": {
+    "autowidth": false,
+    "config": "fontcustom.yml",
+    "css_selector": ".Avantgarde-{{glyph}}",
+    "debug": false,
+    "font_ascent": 448,
+    "font_descent": 64,
+    "font_design_size": 16,
+    "font_em": 512,
+    "font_name": "Avantgarde",
+    "force": true,
+    "input": {
+      "templates": "/Applications/AMPPS/www/dev/gymbuddy/fonts/Avantgarde/vectors",
+      "vectors": "/Applications/AMPPS/www/dev/gymbuddy/fonts/Avantgarde/vectors"
+    },
+    "no_hash": true,
+    "output": {
+      "css": "/Applications/AMPPS/www/dev/gymbuddy/fonts/Avantgarde",
+      "fonts": "/Applications/AMPPS/www/dev/gymbuddy/fonts/Avantgarde",
+      "preview": "/Applications/AMPPS/www/dev/gymbuddy/fonts/Avantgarde"
+    },
+    "preprocessor_path": "",
+    "quiet": false,
+    "skip_first": false,
+    "templates": [
+      "scss",
+      "preview"
+    ]
+  },
+  "templates": [
+    "/Applications/AMPPS/www/dev/gymbuddy/fonts/Avantgarde/_Avantgarde.scss",
+    "/Applications/AMPPS/www/dev/gymbuddy/fonts/Avantgarde/Avantgarde-preview.html"
+  ]
+}

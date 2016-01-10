@@ -1,0 +1,138 @@
+{
+  "checksum": {
+    "previous": "0e08577f4ecb20c7e047f2a724550740bf163f394a8204565f2f423a02a68324",
+    "current": "0e08577f4ecb20c7e047f2a724550740bf163f394a8204565f2f423a02a68324"
+  },
+  "fonts": [
+    "/Users/mikaelen/Dropbox/Mikaeleng/Designskisser/fonts/Avantgarde/Avantgarde.ttf",
+    "/Users/mikaelen/Dropbox/Mikaeleng/Designskisser/fonts/Avantgarde/Avantgarde.svg",
+    "/Users/mikaelen/Dropbox/Mikaeleng/Designskisser/fonts/Avantgarde/Avantgarde.woff",
+    "/Users/mikaelen/Dropbox/Mikaeleng/Designskisser/fonts/Avantgarde/Avantgarde.eot"
+  ],
+  "glyphs": {
+    "Create": {
+      "codepoint": 61696,
+      "source": "/Users/mikaelen/Dropbox/Mikaeleng/Designskisser/fonts/Avantgarde/vectors/Create.svg"
+    },
+    "Filter": {
+      "codepoint": 61697,
+      "source": "/Users/mikaelen/Dropbox/Mikaeleng/Designskisser/fonts/Avantgarde/vectors/Filter.svg"
+    },
+    "List-menu": {
+      "codepoint": 61698,
+      "source": "/Users/mikaelen/Dropbox/Mikaeleng/Designskisser/fonts/Avantgarde/vectors/List-menu.svg"
+    },
+    "List-tiles": {
+      "codepoint": 61699,
+      "source": "/Users/mikaelen/Dropbox/Mikaeleng/Designskisser/fonts/Avantgarde/vectors/List-tiles.svg"
+    },
+    "Live": {
+      "codepoint": 61700,
+      "source": "/Users/mikaelen/Dropbox/Mikaeleng/Designskisser/fonts/Avantgarde/vectors/Live.svg"
+    },
+    "Menu-texticon": {
+      "codepoint": 61701,
+      "source": "/Users/mikaelen/Dropbox/Mikaeleng/Designskisser/fonts/Avantgarde/vectors/Menu-texticon.svg"
+    },
+    "Wall": {
+      "codepoint": 61702,
+      "source": "/Users/mikaelen/Dropbox/Mikaeleng/Designskisser/fonts/Avantgarde/vectors/Wall.svg"
+    },
+    "Work": {
+      "codepoint": 61703,
+      "source": "/Users/mikaelen/Dropbox/Mikaeleng/Designskisser/fonts/Avantgarde/vectors/Work.svg"
+    },
+    "add-weight": {
+      "codepoint": 61716,
+      "source": "/Users/mikaelen/Dropbox/Mikaeleng/Designskisser/fonts/Avantgarde/vectors/add-weight.svg"
+    },
+    "back-button": {
+      "codepoint": 61722,
+      "source": "/Users/mikaelen/Dropbox/Mikaeleng/Designskisser/fonts/Avantgarde/vectors/back-button.svg"
+    },
+    "calculate": {
+      "codepoint": 61713,
+      "source": "/Users/mikaelen/Dropbox/Mikaeleng/Designskisser/fonts/Avantgarde/vectors/calculate.svg"
+    },
+    "dashboard": {
+      "codepoint": 61711,
+      "source": "/Users/mikaelen/Dropbox/Mikaeleng/Designskisser/fonts/Avantgarde/vectors/dashboard.svg"
+    },
+    "dashboard-square": {
+      "codepoint": 61724,
+      "source": "/Users/mikaelen/Dropbox/Mikaeleng/Designskisser/fonts/Avantgarde/vectors/dashboard-square.svg"
+    },
+    "facebook": {
+      "codepoint": 61705,
+      "source": "/Users/mikaelen/Dropbox/Mikaeleng/Designskisser/fonts/Avantgarde/vectors/facebook.svg"
+    },
+    "food-produce": {
+      "codepoint": 61719,
+      "source": "/Users/mikaelen/Dropbox/Mikaeleng/Designskisser/fonts/Avantgarde/vectors/food-produce.svg"
+    },
+    "home": {
+      "codepoint": 61720,
+      "source": "/Users/mikaelen/Dropbox/Mikaeleng/Designskisser/fonts/Avantgarde/vectors/home.svg"
+    },
+    "pinterest": {
+      "codepoint": 61706,
+      "source": "/Users/mikaelen/Dropbox/Mikaeleng/Designskisser/fonts/Avantgarde/vectors/pinterest.svg"
+    },
+    "search": {
+      "codepoint": 61707,
+      "source": "/Users/mikaelen/Dropbox/Mikaeleng/Designskisser/fonts/Avantgarde/vectors/search.svg"
+    },
+    "settings": {
+      "codepoint": 61717,
+      "source": "/Users/mikaelen/Dropbox/Mikaeleng/Designskisser/fonts/Avantgarde/vectors/settings.svg"
+    },
+    "training": {
+      "codepoint": 61712,
+      "source": "/Users/mikaelen/Dropbox/Mikaeleng/Designskisser/fonts/Avantgarde/vectors/training.svg"
+    },
+    "training-person": {
+      "codepoint": 61714,
+      "source": "/Users/mikaelen/Dropbox/Mikaeleng/Designskisser/fonts/Avantgarde/vectors/training-person.svg"
+    },
+    "twitter": {
+      "codepoint": 61708,
+      "source": "/Users/mikaelen/Dropbox/Mikaeleng/Designskisser/fonts/Avantgarde/vectors/twitter.svg"
+    },
+    "weightlist": {
+      "codepoint": 61715,
+      "source": "/Users/mikaelen/Dropbox/Mikaeleng/Designskisser/fonts/Avantgarde/vectors/weightlist.svg"
+    }
+  },
+  "options": {
+    "autowidth": false,
+    "config": "fontcustom.yml",
+    "css_selector": ".Avantgarde-{{glyph}}",
+    "debug": false,
+    "font_ascent": 448,
+    "font_descent": 64,
+    "font_design_size": 16,
+    "font_em": 512,
+    "font_name": "Avantgarde",
+    "force": true,
+    "input": {
+      "templates": "/Users/mikaelen/Dropbox/Mikaeleng/Designskisser/fonts/Avantgarde/vectors",
+      "vectors": "/Users/mikaelen/Dropbox/Mikaeleng/Designskisser/fonts/Avantgarde/vectors"
+    },
+    "no_hash": true,
+    "output": {
+      "css": "/Users/mikaelen/Dropbox/Mikaeleng/Designskisser/fonts/Avantgarde",
+      "fonts": "/Users/mikaelen/Dropbox/Mikaeleng/Designskisser/fonts/Avantgarde",
+      "preview": "/Users/mikaelen/Dropbox/Mikaeleng/Designskisser/fonts/Avantgarde"
+    },
+    "preprocessor_path": "",
+    "quiet": false,
+    "templates": [
+      "scss",
+      "preview"
+    ]
+  },
+  "templates": [
+    "/Users/mikaelen/Dropbox/Mikaeleng/Designskisser/fonts/Avantgarde/_Avantgarde.scss",
+    "/Users/mikaelen/Dropbox/Mikaeleng/Designskisser/fonts/Avantgarde/Avantgarde-preview.html"
+  ]
+}
