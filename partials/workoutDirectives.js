@@ -24,12 +24,11 @@ angular.module('workoutDirectives', [])
                     $(".set-panel").removeClass('active-set-panel').addClass('inactive-set-panel');
                     $(".set-panel-" + tabNum).addClass('active-set-panel');
 
-
                 });
 
             },
             link: function (scope, el, attrs) {
-                $(".repsPicker").dpNumberPicker({
+               /* $(".repsPicker").dpNumberPicker({
                     value: 5,
                     min: 1,
                     max: 20,
@@ -43,7 +42,7 @@ angular.module('workoutDirectives', [])
                     formatter: function(val){
                         return val;
                     }
-                })
+                })*/
 
 
 
@@ -68,8 +67,12 @@ angular.module('workoutDirectives', [])
             controller: function($scope, $element, $log){
                 $scope.excerciseData = $scope.currentExcercise[$scope.$index];
                 $scope.workoutItems = $scope.currentExcercise;
-
                 $scope.tabNum = $scope.workoutItems[$scope.$index].sets;
+
+                $scope.weight = 42;
+                $scope.weightStep = 1.25;
+                $scope.reps = 6;
+                $scope.repsStep = 1;
 
                 $scope.range = function(count){
 
