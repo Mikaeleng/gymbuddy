@@ -146,6 +146,12 @@ TOOLS
 .x-ng-cloak {
   display: none !important;
 }
+.excercise-header {
+  text-align: center;
+  background: #ffffff;
+  border-top: 1px #74786d solid;
+  height: 2rem;
+}
 #content,
 #main {
   height: 100%;
@@ -210,6 +216,9 @@ TOOLS
   color: #ffffff;
   margin-bottom: 2rem;
 }
+#set-content-panel .set-panel {
+  display: none;
+}
 #set-content-panel .set-panel .set-weight,
 #set-content-panel .set-panel .set-count {
   font-size: 2rem;
@@ -245,6 +254,15 @@ TOOLS
 }
 #set-content-panel .set-panel div:last-child div {
   text-align: center;
+}
+#set-content-panel .active-set-panel {
+  -ms-box-orient: horizontal;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -moz-flex;
+  display: -webkit-flex;
+  display: flex;
 }
 #pre-set-result-list {
   background: #ffffff;

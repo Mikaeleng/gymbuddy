@@ -1,7 +1,7 @@
 var addWorkout = {
 
     css:['add-workout/add-workout.css'],
-    index: function ($scope, $location,$rootScope, $routeParams, $log, restApi, jsonRequest) {
+    index: function ($scope, $location,$rootScope, $routeParams, SETTINGS, $log, restApi, jsonRequest) {
        /* var weightID = ($routeParams.id) ? parseInt($routeParams.id) : 0;
         $rootScope.title = (weightID > 0) ? 'Edit weight' : 'Add weight';
         $scope.buttonText = (weightID > 0) ? 'Update weight' : 'Add New weight';
@@ -11,20 +11,21 @@ var addWorkout = {
         $scope.weight.id = weightID;*/
 
         $scope.currentExcercise = false;
+        $scope.currentWorkout = ($routeParams.workoutname) ? $routeParams.workoutname : false;
 
-        jsonRequest.getData('assets/json/workouts.json').then(function(d) {
-            $scope.workoutData = d;
-            $log.info($scope.workoutData.chest[0].label);
-            $scope.currentSet          = 1;
-            $scope.currentWorkout      = ($routeParams.workoutname) ? $routeParams.workoutname : false;
-            $scope.currentExcercise    = $scope.workoutData[$scope.currentWorkout][0].label;
-            $log.info($scope.currentExcercise);
+        jsonRequest.getData (SETTINGS.JSON + 'workouts.json').then(function(d) {
+            if($scope.currentWorkout) {
+                $scope.workoutData = d;
+                $scope.currentSet = 1;
+                $scope.currentExcercise = $scope.workoutData[$scope.currentWorkout];
+
+            }
         });
         //$scope.workoutData = jsonRequest.getData("http://localhost:8080/workouts");
         // workout variables --
 
 
-        $scope.$watch($scope.workoutData, function() {
+        $scope.$watch($scope.currentWorkout, function() {
 
         });
 

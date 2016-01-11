@@ -35,7 +35,8 @@ var gymbuddy = angular.module('gymbuddy', ['ngRoute','frameworkDirectives', 'not
         SERVICES: 'vendors/',
         PARTIALS: 'partials/',
         NAVIGATION:'navigation/',
-        CSS: 'views/'
+        CSS: 'views/',
+        JSON: 'assets/json/'
     }
 })());
 

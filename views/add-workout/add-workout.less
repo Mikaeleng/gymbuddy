@@ -1,5 +1,11 @@
 @import "../../assets/less/_mixin";
 
+.excercise-header {
+  text-align: center;
+  background: @kalk;
+  border-top: 1px @granit solid;
+  height: 2rem;
+}
 #content, #main{
   height:100%;
   position: relative;
@@ -69,6 +75,8 @@
   margin-bottom:2rem;
 
   .set-panel{
+    display: none;
+
     .set-weight, .set-count {
       font-size: 2rem;
       text-align: center;
@@ -106,7 +114,11 @@
       div{text-align: center;}
     }
   }
+  .active-set-panel{
+    .flex-box();
+  }
 }
+
 #pre-set-result-list{
   background: @kalk;
   .pre-set-result{

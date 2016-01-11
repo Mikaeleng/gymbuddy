@@ -12,6 +12,20 @@ angular.module('workoutDirectives', [])
             replace: true,
             controller: function($scope, $element, $log){
 
+                $(".set-tab-1, .set-tab-2, .set-tab-3").click(function (event) {
+                    // handle tab class switches
+
+                    $(".set-tab").removeClass("active-set-tab");
+                    $(event.currentTarget).addClass("active-set-tab");
+                    var tabNum = $(this).find('.itemIndex').text();
+
+                    $scope.currentSet = tabNum;
+                    $log.info($scope.currentSet , $scope.currentWorkout);
+                    $(".set-panel").removeClass('active-set-panel').addClass('inactive-set-panel');
+                    $(".set-panel-" + tabNum).addClass('active-set-panel');
+
+
+                });
 
             },
             link: function (scope, el, attrs) {
@@ -31,26 +45,7 @@ angular.module('workoutDirectives', [])
                     }
                 })
 
-                $("#set-one-tab").click(function (event) {
-                    $("#set-one-panel").removeClass("hidden");
-                    $("#set-one-tab").addClass("active-set-tab");
-                    $("#set-two-tab, #set-three-tab").removeClass("active-set-tab");
-                    $("#set-two-panel, #set-three-panel").addClass("hidden");
-                });
 
-                $("#set-two-tab").click(function (event) {
-                    $("#set-two-panel").removeClass("hidden");
-                    $("#set-two-tab").addClass("active-set-tab");
-                    $("#set-one-tab, #set-three-tab").removeClass("active-set-tab");
-                    $("#set-one-panel, #set-three-panel").addClass("hidden");
-                });
-
-                $("#set-three-tab").click(function (event) {
-                    $("#set-three-panel").removeClass("hidden");
-                    $("#set-three-tab").addClass("active-set-tab");
-                    $("#set-one-tab, #set-two-tab").removeClass("active-set-tab");
-                    $("#set-one-panel, #set-two-panel").addClass("hidden");
-                });
 
                 $(".set-finished").click(function (event) {
                     if($(event.target).hasClass("Avantgarde-checkmark-unchecked")){
@@ -61,6 +56,34 @@ angular.module('workoutDirectives', [])
                         $(event.target).removeClass("Avantgarde-checkmark-circle");
                     }
                 });
+            }
+        };
+    })
+    .directive('excerciseDirective', function(){
+
+        return {
+            restrict: 'E',
+            templateUrl: 'partials/setExcercise.html',
+            replace: true,
+            controller: function($scope, $element, $log){
+                $scope.excerciseData = $scope.currentExcercise[$scope.$index];
+                $scope.workoutItems = $scope.currentExcercise;
+
+                $scope.tabNum = $scope.workoutItems[$scope.$index].sets;
+
+                $scope.range = function(count){
+
+                    var sets = [];
+
+                    for (var i = 0; i < count; i++) {
+                        sets.push(i)
+                    }
+
+                    return sets;
+                }
+            },
+            link: function (scope, el, attrs, $log) {
+               // $log.info(scope.currentExcercise[scope.$index]);
             }
         };
     })
