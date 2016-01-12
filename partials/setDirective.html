@@ -7,5 +7,6 @@
             <div numeric-stepper step-by="repsStep" min="minScore" max="maxScore" ng-model="reps"></div>
         </div>
     </div>
-    <div class="pure-u-1-2 set-finished"><span class="Avantgarde-checkmark-unchecked"></span></div>
+    <div class="pure-u-1-2 set-finished set-finished-{{$index+1}}"
+            ng-click="setCompletedButton($index+1, $event)"><span class="Avantgarde-checkmark-unchecked"></span></div>
 </div>

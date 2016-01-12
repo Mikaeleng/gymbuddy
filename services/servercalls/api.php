@@ -7,7 +7,7 @@
 		
 		const DB_SERVER = "localhost";
 		const DB_USER = "root";
-		const DB_PASSWORD = "a11nilen!";
+		const DB_PASSWORD = "a11nilen!	";
 		const DB = "gymbuddy";
 
 
@@ -60,7 +60,38 @@
 			$error = array('status' => "Failed", "msg" => "Invalid Email address or Password");
 			$this->response($this->json($error), 400);
 		}
-		
+
+
+		private function insertSet(){
+			/*if($this->get_request_method() != "POST"){
+				$this->response('',406);
+			}
+
+			$data = json_decode(file_get_contents("php://input"),true);
+			$column_names = array('id', 'time', 'weight', 'user_id');
+			$keys = array_keys($data);
+			$columns = '';
+			$values = '';
+			foreach($column_names as $desired_key){ // Check the customer received. If blank insert blank into the array.
+				if(!in_array($desired_key, $keys)) {
+					$$desired_key = '';
+				}else{
+					$$desired_key = $data[$desired_key];
+				}
+				$columns = $columns.$desired_key.',';
+				$values = $values."'".$$desired_key."',";
+			}
+			$query = "INSERT INTO weights(".trim($columns,',').") VALUES(".trim($values,',').")";
+			if(!empty($data)){
+				$r = $this->mysqli->query($query) or die($this->mysqli->error.__LINE__);
+				$success = array('status' => "Success", "msg" => "Customer Created Successfully.", "data" => $data);
+				$this->response($this->json($success),200);
+			}else
+				$this->response('',204);	//"No Content" status
+			*/
+		}
+
+
 		private function weights(){	
 			if($this->get_request_method() != "GET"){
 				$this->response('',406);
