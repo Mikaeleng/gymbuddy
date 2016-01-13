@@ -7,7 +7,7 @@
 		
 		const DB_SERVER = "localhost";
 		const DB_USER = "root";
-		const DB_PASSWORD = "a11nilen!	";
+		const DB_PASSWORD = "a11nilen!";
 		const DB = "gymbuddy";
 
 

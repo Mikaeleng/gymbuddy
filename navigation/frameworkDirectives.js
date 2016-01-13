@@ -24,7 +24,7 @@ angular.module('frameworkDirectives', [])
                         // defines the retrived main navigation:
                         $scope.navElements = event.data;
                         // build navigation:
-                       // buildNavigation.initBuild($scope.navElements,0);
+                        buildNavigation.initBuild($scope.navElements,0);
                     })
                     .catch(function(response) {
                         console.error('Tell notification framework that something went wrong: ->', response.status, response.data);
