@@ -1,7 +1,7 @@
 <div class="pure-g set-panel set-panel-{{$index+1}}">
     <div class="pure-u-1-2">
         <div class="pure-u-1 set-weight">
-            <div numeric-stepper step-by="weightStep" min="minScore" max="maxScore" ng-model="weight"></div>
+            <div numeric-stepper step-by="weightStep" ng-click="setNotSelected($event)" min="minScore" max="maxScore" ng-model="weights"></div>
         </div>
         <div class="pure-u-1 set-count">
             <div numeric-stepper step-by="repsStep" min="minScore" max="maxScore" ng-model="reps"></div>

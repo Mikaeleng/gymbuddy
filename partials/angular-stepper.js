@@ -10,7 +10,9 @@ angular.module('revolunet.stepper', [])
             stepBy: '='
         },
         template:
-            '<div class="num-stepper"><a class="pure-u-1-6" ng-disabled="isOverMin()" ng-click="decrement()">-</a>' + '<span  class="pure-u-4-6"></span>' +'<a  class="pure-u-1-6" ng-disabled="isOverMax()" ng-click="increment()">+</a></div>'
+            '<div class="num-stepper">' +
+            '<a class="pure-u-1-6" ng-disabled="isOverMin()" ng-click="decrement()">-</a>' +
+            '<span  class="pure-u-4-6"></span>' +'<a  class="pure-u-1-6" ng-disabled="isOverMax()" ng-click="increment()">+</a></div>'
                     ,
         link: function(scope, iElement, iAttrs, ngModelController) {
 

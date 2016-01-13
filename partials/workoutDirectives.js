@@ -5,17 +5,35 @@
 
 angular.module('workoutDirectives', [])
     .directive('setDirective', function(){
+        var parDir;
 
         return {
             restrict: 'E',
             templateUrl: 'partials/setDirective.html',
             replace: true,
+            require:'^excerciseDirective',
             controller: function($scope, $element, $log){
 
+                // vars for each set in an excercise
+                $scope.weights = 40;
+                $scope.reps = 6;
 
+                $scope.setNotSelected = function($event){
+                    var span = $($event.currentTarget).parents('set-panel').find("span");
+                    $log.info(span)
+                }
+
+                $scope.setCompletedButton = function(set, $event){
+                    var span = $($event.currentTarget).find("span");
+
+                    $(span).toggleClass("Avantgarde-checkmark-circle");
+                    $(span).toggleClass("Avantgarde-checkmark-unchecked");
+
+                    $scope.$parent.setCompleted(set, $scope.weights,$scope.reps, $event);
+                }
 
             },
-            link: function (scope, el, attrs) {
+            link: function (scope, el, attrs, parentDirCtrl) {
 
 
             }
@@ -30,18 +48,20 @@ angular.module('workoutDirectives', [])
             controller: function($scope, $element, $log, restApi){
                 // date variable for session id
                 $scope.sessionID = new Date($.now());
-                // excerciseData = the specific excercise and all it's metadata ex: {label: "Chest", sets: "3", order: "1", $$hashKey: "object:7"}
-                $scope.excerciseData = $scope.currentExcercise[$scope.$index];
 
+                // excerciseData = the specific excercise and all it's metadata ex: {label: "Chest", sets: "3", order: "1", $$hashKey: "object:7"}
+                $scope.excerciseData = $scope.workout[$scope.$index];
+                //$log.info($scope.workout[$scope.$index]);
+
+                $scope.excercise = $scope.workout[$scope.$index];
                 // Each sets meta data of every excercise ex: {label: "Chest", order: "1", sets: "3"}
-                $scope.workoutItems = $scope.currentExcercise;
-                $scope.tabNum = $scope.workoutItems[$scope.$index].sets;
+                $scope.setData = $scope.workout[$scope.$index];
+                $scope.setNum = $scope.excercise.sets;
 
                 //excercise scope vars for each excercise
-                $scope.currentSetSaved = "gunnar";
-                $scope.weight = 42;
-                $scope.weightStep = 1.25;
-                $scope.reps = 6;
+                $scope.currentSetSaved = false;
+
+                $scope.weightStep = 2.5;
                 $scope.repsStep = 1;
 
                 $scope.setTab = function(num, $event){
@@ -51,14 +71,14 @@ angular.module('workoutDirectives', [])
                     var tabNum = $($event.currentTarget).find('.itemIndex').text();
 
                     $scope.currentSet = tabNum;
-                    $log.info("rest: " , $scope.workoutData[$scope.currentWorkout], $scope.excerciseData)
+
                     $(".set-panel").removeClass('active-set-panel').addClass('inactive-set-panel');
                     $(".set-panel-" + tabNum).addClass('active-set-panel');
                 }
-
-                $scope.setCurrentSetSaved = function(value){
+                /*this.setCurrentSetSaved = function(value){
                     $scope.currentSetSaved = value;
-                }
+                        $log.info($scope.currentSetSaved);
+                }*/
 
                 $scope.range = function(count){
 
@@ -69,27 +89,31 @@ angular.module('workoutDirectives', [])
                     return sets;
                 }
 
-                $scope.setCompletedButton = function(num, $event){
-                    var span = $($event.currentTarget).find("span");
-
-                    $(span).toggleClass("Avantgarde-checkmark-circle");
-                    $(span).toggleClass("Avantgarde-checkmark-unchecked");
-
-                    $scope.setCompleted(num);
-                }
-
-                $scope.setCompleted = function(num, $event){
+                $scope.setCompleted = function(set, weights, reps, $event){
                     // function call for saving the completed set
                     if($(event.currentTarget).find("span").hasClass("Avantgarde-checkmark-circle")) {
 
-                        var apiObj = {
-                            workout: $scope.workoutData,
-                            set: $scope.currentSet,
+                        $scope.apiObj = {
+                            workout: $scope.setData['label'],
                             session_id: $scope.sessionID,
-
+                            user_id:$scope.user_id,
+                            user_name:$scope.user_name,
+                            excercise:$scope.excerciseData['label'],
+                            set: set,
+                            weights:weights,
+                            reps: reps
                         }
-                        $log.info(apiObj);
-                        $scope.saveSet(num);
+                        $log.info($scope.apiObj);
+
+                        restApi.insertSet($scope.apiObj).then(function(data){
+                            $scope.savedData = data.data;
+                        })
+                            .catch(function(response) {
+                                console.error('Tell notification framework that something went wrong: ->', response.status, response.data);
+                            })
+                            .finally(function() {
+                                console.log("Tell notification framework you are finished");
+                            });
                     }
                     // function call fo updating the modified set
 
@@ -103,8 +127,6 @@ angular.module('workoutDirectives', [])
                      $scope.$parent.setCurrentSetSaved("troy");
                      $log.info(parent);*/
 
-
-                    $log.info("rest: " , $scope.currentSet, $scope.excerciseData)
 
                     //$log.info($scope.currentExcercise[$scope.currentSet-1]);
                     restApi.insertSet(num);

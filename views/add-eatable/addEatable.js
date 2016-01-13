@@ -12,7 +12,7 @@ var addEatable = {
         original.id = eatableID;
         $scope._eatable = angular.copy(original);
         $scope._eatable.id = eatableID;
-
+        $log.info($scope._eatable)
         $scope.isClean = function() {
             return angular.equals(original, $scope.eatable);
 

@@ -1,21 +1,21 @@
 <div class="view add-workout">
-    <div class="pure-g ng-hidden" ng-if="currentWorkout==false">
+    <div class="pure-g ng-hidden" ng-if="workoutParam==false">
         <div class="pure-u-1 excercise-header">
             <ul>
-                <li><a href="#/add-workout/index/?workoutname=upperbodychest">Chest workout</a></li>
+                <li><a href="#/add-workout/index/?workoutname=upperbodychest&user_name=Mikael&nbsp;Eng">Chest workout</a></li>
                 <li><a href="#/add-workout/index/?workoutname=upperbodyshoulders">Deadlift</a></li>
                 <li><a href="#/add-workout/index/?workoutname=lowerbodysquats">Squats workout</a></li>
             </ul>
         </div>
     </div>
-    <div class="view-content ng-hidden" ng-show="currentExcercise" id="currentExcerciseName">
+    <div class="view-content ng-hidden"  id="currentExcerciseName">
         <div class="pure-g">
             <div class="pure-u-1">
                 <!-- repeats dynamicly from the json file the amout of excercises labels in the excercise json object. -->
-                <div ng-repeat="excercise in currentExcercise" ng-show="excercise.order==1" class="excercise-header"> {{excercise.label}}</div>
+                <div ng-repeat="excercise in workout" ng-show="excercise.order==1" class="excercise-header"> {{excerciseLabel}}</div>
             </div>
         </div>
         <!-- repeats dynamicly from the json file the amout of excercises views in the excercise json object. -->
-            <excercise-directive ng-repeat="set in currentExcercise" class="{{set.label}}-excercise" ng-show="set.order==1"></excercise-directive>
+            <excercise-directive ng-repeat="set in excercise" class="{{set.label}}-excercise" ng-show="set.order==1"></excercise-directive>
     </div>
 </div>

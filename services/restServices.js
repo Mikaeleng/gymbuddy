@@ -14,10 +14,10 @@ gymbuddy.factory("restApi", ['$http', "$log", function($http, $log) {
 	var obj = {};
 
 	obj.insertSet = function(excercise){
-		//$log.info("333")
-		/*return $http.post(serviceBase + 'insertSet', excercise).then(function (results) {
+
+		return $http.post(serviceBase + 'insertSet', excercise).then(function (results) {
 			return results;
-		});*/
+		});
 	}
 
 

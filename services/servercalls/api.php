@@ -63,12 +63,12 @@
 
 
 		private function insertSet(){
-			/*if($this->get_request_method() != "POST"){
+			if($this->get_request_method() != "POST"){
 				$this->response('',406);
 			}
 
 			$data = json_decode(file_get_contents("php://input"),true);
-			$column_names = array('id', 'time', 'weight', 'user_id');
+			$column_names = array('workout', 'session_id', 'user_id', 'user_name','excercise', 'set', 'weights', 'reps');
 			$keys = array_keys($data);
 			$columns = '';
 			$values = '';
@@ -81,14 +81,14 @@
 				$columns = $columns.$desired_key.',';
 				$values = $values."'".$$desired_key."',";
 			}
-			$query = "INSERT INTO weights(".trim($columns,',').") VALUES(".trim($values,',').")";
+			$query = "INSERT INTO workouts(".trim($columns,',').") VALUES(".trim($values,',').")";
 			if(!empty($data)){
 				$r = $this->mysqli->query($query) or die($this->mysqli->error.__LINE__);
 				$success = array('status' => "Success", "msg" => "Customer Created Successfully.", "data" => $data);
 				$this->response($this->json($success),200);
 			}else
 				$this->response('',204);	//"No Content" status
-			*/
+
 		}
 
 
