@@ -35,7 +35,7 @@ var addEatable = {
 
 
         $scope.saveEatable = function(eatable) {
-            console.log(eatableID);
+            console.log(eatable);
             if (eatableID <= 0) {
                 $scope._eatable.editable = (eatableEdit==null) ? 1 : eatableEdit;
                 restApi.insertEatable(eatable);

@@ -93,9 +93,9 @@ angular.module('workoutDirectives', [])
                     // function call for saving the completed set
                     if($(event.currentTarget).find("span").hasClass("Avantgarde-checkmark-circle")) {
 
-                        $scope.apiObj = {
+                        var apiObj = {
                             workout: $scope.setData['label'],
-                            session_id: $scope.sessionID,
+                            session_id: $scope.sessionID.toUTCString(),
                             user_id:$scope.user_id,
                             user_name:$scope.user_name,
                             excercise:$scope.excerciseData['label'],
@@ -103,17 +103,9 @@ angular.module('workoutDirectives', [])
                             weights:weights,
                             reps: reps
                         }
-                        $log.info($scope.apiObj);
+                        $log.info(apiObj);
 
-                        restApi.insertSet($scope.apiObj).then(function(data){
-                            $scope.savedData = data.data;
-                        })
-                            .catch(function(response) {
-                                console.error('Tell notification framework that something went wrong: ->', response.status, response.data);
-                            })
-                            .finally(function() {
-                                console.log("Tell notification framework you are finished");
-                            });
+                        restApi.insertSet(apiObj);
                     }
                     // function call fo updating the modified set
 
