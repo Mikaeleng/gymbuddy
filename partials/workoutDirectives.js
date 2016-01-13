@@ -51,12 +51,21 @@ angular.module('workoutDirectives', [])
 
                 // excerciseData = the specific excercise and all it's metadata ex: {label: "Chest", sets: "3", order: "1", $$hashKey: "object:7"}
                 $scope.excerciseData = $scope.workout[$scope.$index];
-                //$log.info($scope.workout[$scope.$index]);
+                $scope.excercise    = $scope.workout[$scope.$index];
 
-                $scope.excercise = $scope.workout[$scope.$index];
+                // simulate a range with objects/array to use for ng-repeat to loop through
+                $scope.range = function(count){
+
+                    var sets = [];
+                    for (var i = 0; i < count; i++) {
+                        sets.push(i)
+                    }
+                    return sets;
+                }
+
                 // Each sets meta data of every excercise ex: {label: "Chest", order: "1", sets: "3"}
-                $scope.setData = $scope.workout[$scope.$index];
-                $scope.setNum = $scope.excercise.sets;
+                $scope.setData      = $scope.workout[$scope.$index];
+                $scope.setNum       = $scope.excercise.sets;
 
                 //excercise scope vars for each excercise
                 $scope.currentSetSaved = false;
@@ -80,14 +89,7 @@ angular.module('workoutDirectives', [])
                         $log.info($scope.currentSetSaved);
                 }*/
 
-                $scope.range = function(count){
 
-                    var sets = [];
-                    for (var i = 0; i < count; i++) {
-                        sets.push(i)
-                    }
-                    return sets;
-                }
 
                 $scope.setCompleted = function(set, weights, reps, $event){
                     // function call for saving the completed set
@@ -113,16 +115,6 @@ angular.module('workoutDirectives', [])
 
                 }
 
-                $scope.saveSet = function(num){
-                    /*var parent =  $scope.$parent.currentSetSaved;
-                     $log.info(parent);
-                     $scope.$parent.setCurrentSetSaved("troy");
-                     $log.info(parent);*/
-
-
-                    //$log.info($scope.currentExcercise[$scope.currentSet-1]);
-                    restApi.insertSet(num);
-                }
             },
             link: function (scope, el, attrs, $log) {
 

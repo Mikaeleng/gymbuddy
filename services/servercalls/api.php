@@ -23,7 +23,7 @@
 		*/
 		private function dbConnect(){
 			$this->mysqli = new mysqli(self::DB_SERVER, self::DB_USER, self::DB_PASSWORD, self::DB);
-			$this->mysqli->set_charset('utf8');
+			$this->mysqli->set_charset('utf8_swedish_ci');
 		}
 		
 		/*
@@ -79,7 +79,7 @@
 			$keys = array_keys($data);
 			$columns = '';
 			$values = '';
-			foreach($column_names as $desired_key){ // Check the customer received. If blank insert blank into the array.
+			foreach($column_names as $desired_key){
 				if(!in_array($desired_key, $keys)) {
 					$$desired_key = '';
 				}else{

@@ -29,7 +29,7 @@
 <!-- set content section -->
 <div id="set-content-panel" aria-label="set-content-panel">
 
-    <set-directive ng-repeat="panel in range(setNum)" class=" set-panel set-panel-{{$index+1}}" ng-class="setNum==$index+1 ? 'active-set-panel' : 'inactive-set-panel'"></set-directive>
+    <set-directive ng-repeat="panel in range(setNum)" class=" set-panel set-panel-{{$index+1}}" ng-class="{{$index+1}}==1 ? 'active-set-panel' : 'inactive-set-panel'"></set-directive>
 
 </div>
 <!-- END set content section -->

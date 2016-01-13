@@ -38,6 +38,7 @@
 
 gymbuddy.factory('buildNavigation', function($http, $log, $q){
     return {
+
         initBuild: function(json,level){
             $log.info(json);
             var nav = [];

@@ -182,7 +182,8 @@ body {
 .view-content .form-buttons {
   margin-top: 2rem;
 }
-.footer {
+.footer,
+.workout-footer {
   position: fixed;
   bottom: 0;
   right: 0;
@@ -192,7 +193,8 @@ body {
   z-index: 9999;
   border-top: 1px solid rgba(92, 92, 92, 0.2);
 }
-.footer .pure-button {
+.footer .pure-button,
+.workout-footer .pure-button {
   height: 3.1rem;
   background-image: none;
   font-size: 2rem;
@@ -200,6 +202,9 @@ body {
   border-radius: 0;
   padding: 0 2%;
   float: right;
+}
+.workout-footer .pure-button {
+  float: left;
 }
 .footer .pure-button p {
   margin: 0;

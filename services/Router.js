@@ -1,4 +1,4 @@
-gymbuddy.controller("Router", function ($scope, $route, $http, $routeParams, $filter, $injector, $location, SETTINGS) {
+gymbuddy.controller("Router", function ($scope, $route, $http, $routeParams, $filter, $injector, $location, SETTINGS, $rootScope) {
     var a = window.location.hash.replace("#/","").split("/"), b = a[0].replace("-","_"), c = '', d, e = '', f, g = {}, h, i;
     /*
     a = array with controller name and page/template name
@@ -8,8 +8,12 @@ gymbuddy.controller("Router", function ($scope, $route, $http, $routeParams, $fi
     e = page, and name of template
     f = controller function script (function)
     h = page, and name of template
-
     */
+    if(b =="add_workout"){
+        $rootScope.add_workout = true;
+    }else{
+        $rootScope.add_workout = false;
+    }
     c = a[0];
     // makes dynamic controller for template
     d = { $scope: $scope, $http: $http, $routeParams: $routeParams, $filter: $filter, $location: $location };

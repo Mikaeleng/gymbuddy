@@ -79,6 +79,24 @@ angular.module('frameworkDirectives', [])
             templateUrl: 'navigation/footer.html',
             replace: true,
             controller: function($scope, $element, $log){
+                $scope.backButton = function(event){
+
+                }
+            },
+            link: function (scope, el, attrs) {
+                //console.log(el);
+                $(el).find('.back-button').on('click', function(){
+                    window.history.back();
+                })
+            }
+        };
+    }).directive('workoutFooter', function(){
+
+        return {
+            restrict: 'E',
+            templateUrl: 'navigation/workoutFooter.html',
+            replace: true,
+            controller: function($scope, $element, $log){
 
                 $scope.backButton = function(event){
 

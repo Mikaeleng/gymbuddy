@@ -24,9 +24,9 @@ var addWorkout = {
                 $.each($scope.workoutData, function(i, item){
                     if(i.toLowerCase() == $scope.workoutParam) {
                         $scope.workout = item.excercises;
+                        $rootScope.workout = $scope.workout;
                             $scope.excerciseLabel = item.label;
                             $scope.excercise = item.excercises;
-                        $log.info($scope.excercise)
                     }
                 });
             }
