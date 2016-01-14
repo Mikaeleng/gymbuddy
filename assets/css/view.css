@@ -193,6 +193,11 @@ body {
   z-index: 9999;
   border-top: 1px solid rgba(92, 92, 92, 0.2);
 }
+.workout-footer {
+  height: 2.814rem;
+  line-height: 2.814rem;
+  text-align: center;
+}
 .footer .pure-button,
 .workout-footer .pure-button {
   height: 3.1rem;

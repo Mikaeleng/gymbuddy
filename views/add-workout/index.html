@@ -3,19 +3,14 @@
         <div class="pure-u-1 excercise-header">
             <ul>
                 <li><a href="#/add-workout/index/?workoutname=upperbodychest&user_name=Mikael&nbsp;Eng">Chest workout</a></li>
-                <li><a href="#/add-workout/index/?workoutname=upperbodyshoulders">Deadlift</a></li>
-                <li><a href="#/add-workout/index/?workoutname=lowerbodysquats">Squats workout</a></li>
+                <li><a href="#/add-workout/index/?workoutname=upperbodydeadlift&user_name=Mikael&nbsp;Eng">Deadlift</a></li>
+                <li><a href="#/add-workout/index/?workoutname=lowerbodysquats&user_name=Mikael&nbsp;Eng">Squats workout</a></li>
             </ul>
         </div>
     </div>
-    <div class="view-content ng-hidden"  id="currentExcerciseName">
-        <div class="pure-g">
-            <div class="pure-u-1">
-                <!-- repeats dynamicly from the json file the amout of excercises labels in the excercise json object. -->
-                <div ng-repeat="excercise in workout" ng-show="excercise.order==1" class="excercise-header"> {{excerciseLabel}}</div>
-            </div>
-        </div>
-        <!-- repeats dynamicly from the json file the amout of excercises views in the excercise json object. -->
-            <excercise-directive ng-repeat="set in excercise" class="{{set.label}}-excercise" ng-show="set.order==1"></excercise-directive>
-    </div>
+
+
+        <!-- repeats dynamicly from the json file the amout of excercises views in the excercise json object.  ng-show="currentExcerciseNum == set.order" -->
+            <excercise-directive ng-repeat="set in excercise" class="{{set.label}}-excercise workout-excercise" ng-show="currentExcerciseNum == set.order"  ></excercise-directive>
+
 </div>

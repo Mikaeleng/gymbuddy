@@ -1,55 +1,63 @@
-<div id="main">
-<!-- stop-watch section -->
-<div id="timer-panel">
-    <div class="pure-g" id="timer" aria-label="timer">
-        <div class="pure-u-11-24" aria-label="minute">3</div>
-        <div class="pure-u-2-24" aria-label="colon">:</div>
-        <div class="pure-u-11-24" aria-label="seconds">02</div>
+<div class="view-content ng-hidden"  id="{{excerciseName}}">
+    <div class="pure-g">
+        <div class="pure-u-1">
+            <!-- repeats dynamicly from the json file the amout of excercises labels in the excercise json object. -->
+            <div ng-repeat="excercise in workout" ng-show="excercise.order==1" class="excercise-header"> {{workoutLabel}}</div>
+        </div>
     </div>
-    <div class="pure-g" id="timer-controls" aria-label="timer-controls">
-        <div class="pure-u-1-2" aria-label="timer-pause-button">PAUSE</div>
-        <div class="pure-u-1-2" aria-label="timer-play-button">PLAY</div>
-        <div class="pure-u-1-2" aria-label="timer-start-button">START</div>
-        <div class="pure-u-1-2" aria-label="timer-stop-button">STOP</div>
+    <div id="main">
+    <!-- stop-watch section -->
+    <div id="timer-panel">
+        <div class="pure-g" id="timer" aria-label="timer">
+            <div class="pure-u-11-24" aria-label="minute">3</div>
+            <div class="pure-u-2-24" aria-label="colon">:</div>
+            <div class="pure-u-11-24" aria-label="seconds">02</div>
+        </div>
+        <div class="pure-g" id="timer-controls" aria-label="timer-controls">
+            <div class="pure-u-1-2" aria-label="timer-pause-button">PAUSE</div>
+            <div class="pure-u-1-2" aria-label="timer-play-button">PLAY</div>
+            <div class="pure-u-1-2" aria-label="timer-start-button">START</div>
+            <div class="pure-u-1-2" aria-label="timer-stop-button">STOP</div>
+        </div>
     </div>
-</div>
 
-<!-- set tab sections -->
-<div class="pure-g" id="set-tab-panel" aria-label="set-tab-panel"> <!--  -->
-    <div class="pure-u-1-3 set-tab set-tab-{{$index+1}}"
-         ng-class="$index==0 ? 'active-set-tab' : ''"
-         ng-repeat="tab in range(setNum)"
-         ng-click="setTab($index+1, $event)">
-        <span class="itemIndex">{{$index+1}}</span><span ng-show="currentSetSaved" class="Avantgarde-check"></span>
+    <!-- set tab sections -->
+    <div class="pure-g" id="set-tab-panel" aria-label="set-tab-panel"> <!--  -->
+        <div class="pure-u-1-3 set-tab set-tab-{{$index+1}}"
+             ng-class="$index==0 ? 'active-set-tab' : ''"
+             ng-repeat="tab in range(setNum)"
+             ng-click="setTab($index+1, $event)">
+            <span class="itemIndex">{{$index+1}}</span><span ng-show="currentSetSaved" class="Avantgarde-check"></span>
+        </div>
+        <!--<div class="pure-u-1-3" id="set-two-tab"><span>2</span><span class="Avantgarde-check"></span></div>
+        <div class="pure-u-1-3" id="set-three-tab"><span>3</span><span class="Avantgarde-check"></span></div>-->
     </div>
-    <!--<div class="pure-u-1-3" id="set-two-tab"><span>2</span><span class="Avantgarde-check"></span></div>
-    <div class="pure-u-1-3" id="set-three-tab"><span>3</span><span class="Avantgarde-check"></span></div>-->
-</div>
 
-<!-- set content section -->
-<div id="set-content-panel" aria-label="set-content-panel">
+    <!-- set content section -->
+    <div id="set-content-panel" aria-label="set-content-panel">
 
-    <set-directive ng-repeat="panel in range(setNum)" class=" set-panel set-panel-{{$index+1}}" ng-class="{{$index+1}}==1 ? 'active-set-panel' : 'inactive-set-panel'"></set-directive>
+        <set-directive ng-repeat="panel in range(setNum)" class=" set-panel set-panel-{{$index+1}}" ng-class="{{$index+1}}==1 ? 'active-set-panel' : 'inactive-set-panel'"></set-directive>
 
-</div>
-<!-- END set content section -->
+    </div>
+    <!-- END set content section -->
 
-<!-- the previous sets weight and reps are displayed in this list
-<div id="pre-set-result-list" aria-label="result-list">
-    <ul class="" id="set-result-list">
-        <li class="pure-g pre-set-result">
-            <div class="pure-u-1-2 pre-weight">37.5</div>
-            <div class="pure-u-1-2 pre-rep">8</div>
-        </li>
-        <li class="pure-g pre-set-result">
-            <div class="pure-u-1-2 pre-weight">37.5</div>
-            <div class="pure-u-1-2 pre-rep">7</div>
-        </li>
-        <li class="pure-g pre-set-result">
-            <div class="pure-u-1-2 pre-weight">37.5</div>
-            <div class="pure-u-1-2 pre-rep">6</div>
-        </li>
-    </ul>
-</div>
-<!-- End of Main div -->
+    <!-- the previous sets weight and reps are displayed in this list
+    <div id="pre-set-result-list" aria-label="result-list">
+        <ul class="" id="set-result-list">
+            <li class="pure-g pre-set-result">
+                <div class="pure-u-1-2 pre-weight">37.5</div>
+                <div class="pure-u-1-2 pre-rep">8</div>
+            </li>
+            <li class="pure-g pre-set-result">
+                <div class="pure-u-1-2 pre-weight">37.5</div>
+                <div class="pure-u-1-2 pre-rep">7</div>
+            </li>
+            <li class="pure-g pre-set-result">
+                <div class="pure-u-1-2 pre-weight">37.5</div>
+                <div class="pure-u-1-2 pre-rep">6</div>
+            </li>
+        </ul>
+    </div>
+    <!-- End of Main div -->
+    </div>
 </div>

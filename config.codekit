@@ -1091,6 +1091,17 @@
 		"outputStyle": 0,
 		"syntaxCheckerStyle": 1
 		},
+	"\/assets\/vendors\/angular-touch.min.js": {
+		"fileType": 64,
+		"ignore": 1,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/assets\/vendors\/angular-touch.min.js",
+		"outputAbbreviatedPath": "\/assets\/vendors\/angular-touch.min.min.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 0,
+		"syntaxCheckerStyle": 1
+		},
 	"\/assets\/vendors\/angular.min.js": {
 		"fileType": 64,
 		"ignore": 1,
@@ -1228,6 +1239,17 @@
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/assets\/vendors\/slikcalc.min.js",
 		"outputAbbreviatedPath": "\/assets\/vendors\/slikcalc.min.min.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 0,
+		"syntaxCheckerStyle": 1
+		},
+	"\/assets\/vendors\/touch-swipe\/jquery.touchSwipe.min.js": {
+		"fileType": 64,
+		"ignore": 1,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/assets\/vendors\/touch-swipe\/jquery.touchSwipe.min.js",
+		"outputAbbreviatedPath": "\/assets\/vendors\/touch-swipe\/jquery.touchSwipe.min.min.js",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,

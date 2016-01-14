@@ -9,7 +9,13 @@
 		const DB_USER = "root";
 		const DB_PASSWORD = "a11nilen!";
 		const DB = "gymbuddy";
-
+/*
+ * 	Live server :
+  		const DB_SERVER = "mysql13.cliche.se";
+		const DB_USER = "mikaeleng.se";
+		const DB_PASSWORD = "QdAAAeA9";
+		const DB = "mikaeleng_se";
+ */
 
 		private $db = NULL;
 		private $mysqli = NULL;

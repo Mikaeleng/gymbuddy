@@ -49,7 +49,7 @@ angular.module('frameworkDirectives', [])
                 };
             },
             link: function (scope, el, attrs) {
-               // scope.label = attrs.menuTitle;
+
             }
         }
 

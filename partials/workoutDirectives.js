@@ -6,7 +6,14 @@
 angular.module('workoutDirectives', [])
     .directive('setDirective', function(){
         var parDir;
-
+        var getNextExcerciseLabel = function(workout, num){
+            $.each( workout, function( key, value ) {
+                if(value['order']== num) {
+                    console.log(value['label']);
+                    return value['label'];
+                }
+            });
+        }
         return {
             restrict: 'E',
             templateUrl: 'partials/setDirective.html',
@@ -45,13 +52,21 @@ angular.module('workoutDirectives', [])
             restrict: 'E',
             templateUrl: 'partials/setExcercise.html',
             replace: true,
-            controller: function($scope, $element, $log, restApi){
+            controller: function($scope, $element, $log, restApi, $rootScope){
                 // date variable for session id
                 $scope.sessionID = new Date($.now());
-
                 // excerciseData = the specific excercise and all it's metadata ex: {label: "Chest", sets: "3", order: "1", $$hashKey: "object:7"}
-                $scope.excerciseData = $scope.workout[$scope.$index];
-                $scope.excercise    = $scope.workout[$scope.$index];
+                //$scope.excerciseData = $scope.workout[$scope.$index];
+                $scope.excercise        = $scope.workout[$scope.$index];
+                $scope.excerciseName    = $scope.workout[$scope.$index].label;
+
+                $log.info($scope.excercise)
+
+                if($scope.$index==0) {
+                    $rootScope.excerciseLabel = $scope.workout[$scope.$index].label;
+                    $rootScope.currentExcerciseNum = 0;
+
+                }
 
                 // simulate a range with objects/array to use for ng-repeat to loop through
                 $scope.range = function(count){
@@ -84,11 +99,56 @@ angular.module('workoutDirectives', [])
                     $(".set-panel").removeClass('active-set-panel').addClass('inactive-set-panel');
                     $(".set-panel-" + tabNum).addClass('active-set-panel');
                 }
-                /*this.setCurrentSetSaved = function(value){
-                    $scope.currentSetSaved = value;
-                        $log.info($scope.currentSetSaved);
-                }*/
 
+                $(function() {
+                    //Enable swiping...
+
+                    $("#swipe-workout").swipe( {
+                        //Generic swipe handler for all directions
+                        swipe:function(event, direction, distance, duration, fingerCount, fingerData) {
+
+
+                            var appElement = $('.workout-excercise');
+                            var $scope      = angular.element(appElement).scope();
+                            var objNum      = $scope.workout.length;
+
+                            $rootScope.getNextExcerciseLabel = function(workout, num){
+                                $.each( workout, function( key, value ) {
+                                    if(value['order']== num) {
+                                        console.log(value['label']);
+                                        return value['label'];
+                                    }
+                                });
+                            }
+
+                            if($rootScope.currentExcerciseNum>=0 && $rootScope.currentExcerciseNum < objNum && direction=="left") {
+                                $scope.$apply(function () {
+                                    $rootScope.currentExcerciseNum = $rootScope.currentExcerciseNum + 1;
+                                    //$rootScope.excerciseLabel = $rootScope.getNextExcerciseLabel($scope.workout, $rootScope.currentExcerciseNum );
+                                    $.each( $scope.workout, function( key, value ) {
+                                        if(value['order']== $rootScope.currentExcerciseNum) {
+                                            $rootScope.excerciseLabel =  value['label'];
+                                        }
+                                    });
+                                });
+                            }
+                            if($rootScope.currentExcerciseNum>= 1 && $rootScope.currentExcerciseNum<= objNum && direction=="right") {
+                                $scope.$apply(function () {
+                                    $rootScope.currentExcerciseNum = $rootScope.currentExcerciseNum  - 1;
+                                    $.each( $scope.workout, function( key, value ) {
+                                        if(value['order']== $rootScope.currentExcerciseNum) {
+                                            $rootScope.excerciseLabel =  value['label'];
+                                        }
+                                    });
+                                });
+                            }
+
+
+                        },
+                        //Default is 75px, set to 0 for demo so any distance triggers swipe
+                        threshold:0
+                    });
+                });
 
 
                 $scope.setCompleted = function(set, weights, reps, $event){
@@ -100,7 +160,7 @@ angular.module('workoutDirectives', [])
                             session_id: $scope.sessionID.toUTCString(),
                             user_id:$scope.user_id,
                             user_name:$scope.user_name,
-                            excercise:$scope.excerciseData['label'],
+                            excercise:$scope.excercise['label'],
                             set: set,
                             weights:weights,
                             reps: reps
@@ -116,9 +176,8 @@ angular.module('workoutDirectives', [])
                 }
 
             },
-            link: function (scope, el, attrs, $log) {
+            link: function (scope, el, attrs) {
 
-               // $log.info(scope.currentExcercise[scope.$index]);
             }
         };
     })
