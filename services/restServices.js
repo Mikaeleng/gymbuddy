@@ -14,8 +14,8 @@ gymbuddy.factory("restApi", ['$http', "$log", function($http, $log) {
 
 	var obj = {};
 
-	obj.insertSet = function(excercise){
-		return $http.post(serviceBase + 'insertSet', excercise).then(function (results) {
+	obj.insertSet = function(exercise){
+		return $http.post(serviceBase + 'insertSet', exercise).then(function (results) {
 			return results;
 		});
 	}

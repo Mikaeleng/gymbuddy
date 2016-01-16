@@ -1,6 +1,15 @@
+<!--
+    there are two sections in the view:
+    1: The section that shows if the routParams are missing so the user can choose from a list of workouts.
+    2: The user has choosen a workout and it shown dynamicly.
+    The $scope.workout from the view-controller is used as the source for the creation/iteration of the exercise directive
+    The repeater is using currentExerciseNum to Show or hide a specific exercise. This controller has to watch that scope variable
+    The first exercise is display, this is handled in the exercise controller
+
+-->
 <div class="view add-workout">
     <div class="pure-g ng-hidden" ng-if="workoutParam==false">
-        <div class="pure-u-1 excercise-header">
+        <div class="pure-u-1 exercise-header">
             <ul>
                 <li><a href="#/add-workout/index/?workoutname=upperbodychest&user_name=Mikael&nbsp;Eng">Chest workout</a></li>
                 <li><a href="#/add-workout/index/?workoutname=upperbodydeadlift&user_name=Mikael&nbsp;Eng">Deadlift</a></li>
@@ -8,9 +17,18 @@
             </ul>
         </div>
     </div>
+    <div class="pure-g">
+        <div class="pure-u-1">
+            <!-- repeats dynamicly from the json file the amout of exercises labels in the exercise json object. -->
+            <div  ng-show="workoutParam" class="exercise-header"> {{workoutLabel}}</div>
+        </div>
+    </div>
 
-
-        <!-- repeats dynamicly from the json file the amout of excercises views in the excercise json object.  ng-show="currentExcerciseNum == set.order" -->
-            <excercise-directive ng-repeat="set in excercise" class="{{set.label}}-excercise workout-excercise" ng-show="currentExcerciseNum == set.order"  ></excercise-directive>
+        <!-- repeats dynamicly from the json file the amout of exercises views in the exercise json object.
+        ng-show="currentExerciseNum == set.order" -->
+            <exercise-directive ng-repeat="set in exercise"
+                                 class="{{set.label}}-exercise workout-exercise"
+                                 ng-show="currentExerciseNum == set.order" >
+            </exercise-directive>
 
 </div>

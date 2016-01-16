@@ -1,21 +1,22 @@
 <?php
  	require_once("Rest.inc.php");
-	
+
 	class API extends REST {
 	
 		public $data = "";
-		
+
+
 		const DB_SERVER = "localhost";
 		const DB_USER = "root";
 		const DB_PASSWORD = "a11nilen!";
 		const DB = "gymbuddy";
-/*
- * 	Live server :
-  		const DB_SERVER = "mysql13.cliche.se";
+
+ 	/*Live server :
+		const DB_SERVER = "mysql13.cliche.se";
 		const DB_USER = "mikaeleng.se";
 		const DB_PASSWORD = "QdAAAeA9";
 		const DB = "mikaeleng_se";
- */
+	*/
 
 		private $db = NULL;
 		private $mysqli = NULL;
@@ -81,7 +82,7 @@
 			}
 
 			$data = json_decode(file_get_contents("php://input"),true);
-			$column_names = array('workout', 'session_id', 'user_id', 'user_name','excercise', 'set', 'weights', 'reps');
+			$column_names = array('workout', 'session_id', 'user_id', 'user_name','exercise', 'set', 'weights', 'reps');
 			$keys = array_keys($data);
 			$columns = '';
 			$values = '';

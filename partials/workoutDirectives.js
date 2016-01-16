@@ -4,39 +4,45 @@
 'use strict';
 
 angular.module('workoutDirectives', [])
+    /*
+        This directive controller returns the scope and handles all the functions in the exercise.
+        It is important to understand that this is the hub for all the different sets that is created in the html markup.
+        This scope has the ng-repeat that initiates all the sets for each exercises e.i. (chest, broad pull ups, Biceps, Triceps)
+           Each exercise has a dynamically set of sets. This is set in the json file by its [SETS] key/value.
+
+     */
     .directive('setDirective', function(){
-        var parDir;
-        var getNextExcerciseLabel = function(workout, num){
+      /*  var getNextExerciseLabel = function(workout, num){
             $.each( workout, function( key, value ) {
                 if(value['order']== num) {
                     console.log(value['label']);
                     return value['label'];
                 }
             });
-        }
+        }*/
         return {
             restrict: 'E',
             templateUrl: 'partials/setDirective.html',
             replace: true,
-            require:'^excerciseDirective',
+            require:'^exerciseDirective',
             controller: function($scope, $element, $log){
 
-                // vars for each set in an excercise
+                // vars for each set in an exercise
                 $scope.weights = 40;
                 $scope.reps = 6;
 
-                $scope.setNotSelected = function($event){
-                    var span = $($event.currentTarget).parents('set-panel').find("span");
-                    $log.info(span)
-                }
-
+                /*
+                    When a user clicks the complete set button in a set (unchecked character in UI) this event is triggered with ng-click
+                     The function toggles the classes so the button changes appearance.
+                      It sets the $parent scope var
+                 */
                 $scope.setCompletedButton = function(set, $event){
                     var span = $($event.currentTarget).find("span");
 
                     $(span).toggleClass("Avantgarde-checkmark-circle");
                     $(span).toggleClass("Avantgarde-checkmark-unchecked");
 
-                    $scope.$parent.setCompleted(set, $scope.weights,$scope.reps, $event);
+                    $scope.$parent.setCompleted(set, $scope.weights,$scope.reps, $event)
                 }
 
             },
@@ -46,25 +52,26 @@ angular.module('workoutDirectives', [])
             }
         };
     })
-    .directive('excerciseDirective', function(){
+    .directive('exerciseDirective', function(){
 
         return {
             restrict: 'E',
-            templateUrl: 'partials/setExcercise.html',
+            templateUrl: 'partials/setExercise.html',
             replace: true,
             controller: function($scope, $element, $log, restApi, $rootScope){
                 // date variable for session id
                 $scope.sessionID = new Date($.now());
-                // excerciseData = the specific excercise and all it's metadata ex: {label: "Chest", sets: "3", order: "1", $$hashKey: "object:7"}
-                //$scope.excerciseData = $scope.workout[$scope.$index];
-                $scope.excercise        = $scope.workout[$scope.$index];
-                $scope.excerciseName    = $scope.workout[$scope.$index].label;
+                // exerciseData = the specific exercise and all it's metadata ex: {label: "Chest", sets: "3", order: "1", $$hashKey: "object:7"}
+                // initiate the exercise variables on directive load
+                // initate the $rootScope var exerciseLabel to use in the workout footer
+                // initate the current $scope variabpe exerciseLabel to use localy as an id on the div element for each exercise
 
-                $log.info($scope.excercise)
+                $scope.exercise        = $scope.workout[$scope.$index];
+                $scope.exerciseLabel    = $scope.workout[$scope.$index].label;
 
                 if($scope.$index==0) {
-                    $rootScope.excerciseLabel = $scope.workout[$scope.$index].label;
-                    $rootScope.currentExcerciseNum = 0;
+                    $rootScope.exerciseLabel = $scope.workout[$scope.$index].label;
+                    $rootScope.currentExerciseNum = 0;
 
                 }
 
@@ -78,11 +85,11 @@ angular.module('workoutDirectives', [])
                     return sets;
                 }
 
-                // Each sets meta data of every excercise ex: {label: "Chest", order: "1", sets: "3"}
+                // Each sets meta data of every exercise ex: {label: "Chest", order: "1", sets: "3"}
                 $scope.setData      = $scope.workout[$scope.$index];
-                $scope.setNum       = $scope.excercise.sets;
+                $scope.setNum       = $scope.exercise.sets;
 
-                //excercise scope vars for each excercise
+                //exercise scope vars for each exercise
                 $scope.currentSetSaved = false;
 
                 $scope.weightStep = 2.5;
@@ -93,7 +100,6 @@ angular.module('workoutDirectives', [])
                     $(".set-tab").removeClass("active-set-tab");
                     $(event.currentTarget).addClass("active-set-tab");
                     var tabNum = $($event.currentTarget).find('.itemIndex').text();
-
                     $scope.currentSet = tabNum;
 
                     $(".set-panel").removeClass('active-set-panel').addClass('inactive-set-panel');
@@ -103,41 +109,44 @@ angular.module('workoutDirectives', [])
                 $(function() {
                     //Enable swiping...
 
-                    $("#swipe-workout").swipe( {
+                    $("#swipe-workout, .st-content").swipe( {
                         //Generic swipe handler for all directions
                         swipe:function(event, direction, distance, duration, fingerCount, fingerData) {
 
 
-                            var appElement = $('.workout-excercise');
+                            var appElement = $('.view');
                             var $scope      = angular.element(appElement).scope();
                             var objNum      = $scope.workout.length;
+                            $(".set-tab").removeClass('active-set-panel').addClass('inactive-set-panel');
+                            $(".set-tab-1").addClass('active-set-panel');
 
-                            $rootScope.getNextExcerciseLabel = function(workout, num){
+                            $rootScope.getNextExerciseLabel = function(workout, num){
                                 $.each( workout, function( key, value ) {
                                     if(value['order']== num) {
-                                        console.log(value['label']);
                                         return value['label'];
                                     }
                                 });
                             }
 
-                            if($rootScope.currentExcerciseNum>=0 && $rootScope.currentExcerciseNum < objNum && direction=="left") {
+                            if($rootScope.currentExerciseNum>=0 && $rootScope.currentExerciseNum < objNum-1 && direction=="left") {
                                 $scope.$apply(function () {
-                                    $rootScope.currentExcerciseNum = $rootScope.currentExcerciseNum + 1;
-                                    //$rootScope.excerciseLabel = $rootScope.getNextExcerciseLabel($scope.workout, $rootScope.currentExcerciseNum );
+                                    $rootScope.currentExerciseNum = $rootScope.currentExerciseNum + 1;
+                                    //$rootScope.exerciseLabel = $rootScope.getNextExerciseLabel($scope.workout, $rootScope.currentExerciseNum );
                                     $.each( $scope.workout, function( key, value ) {
-                                        if(value['order']== $rootScope.currentExcerciseNum) {
-                                            $rootScope.excerciseLabel =  value['label'];
+                                        $log.info($rootScope.currentExerciseNum)
+                                        if(value['order']== $rootScope.currentExerciseNum) {
+                                            $rootScope.exerciseLabel =  value['label'];
+
                                         }
                                     });
                                 });
                             }
-                            if($rootScope.currentExcerciseNum>= 1 && $rootScope.currentExcerciseNum<= objNum && direction=="right") {
+                            if($rootScope.currentExerciseNum>= 1 && $rootScope.currentExerciseNum<= objNum && direction=="right") {
                                 $scope.$apply(function () {
-                                    $rootScope.currentExcerciseNum = $rootScope.currentExcerciseNum  - 1;
+                                    $rootScope.currentExerciseNum = $rootScope.currentExerciseNum  - 1;
                                     $.each( $scope.workout, function( key, value ) {
-                                        if(value['order']== $rootScope.currentExcerciseNum) {
-                                            $rootScope.excerciseLabel =  value['label'];
+                                        if(value['order']== $rootScope.currentExerciseNum) {
+                                            $rootScope.exerciseLabel =  value['label'];
                                         }
                                     });
                                 });
@@ -160,7 +169,7 @@ angular.module('workoutDirectives', [])
                             session_id: $scope.sessionID.toUTCString(),
                             user_id:$scope.user_id,
                             user_name:$scope.user_name,
-                            excercise:$scope.excercise['label'],
+                            exercise:$scope.exercise['label'],
                             set: set,
                             weights:weights,
                             reps: reps
@@ -171,7 +180,7 @@ angular.module('workoutDirectives', [])
                     }
                     // function call fo updating the modified set
 
-                    // function call for handling UI-navigation to the next set or next excercise
+                    // function call for handling UI-navigation to the next set or next exercise
 
                 }
 

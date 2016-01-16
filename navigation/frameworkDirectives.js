@@ -103,9 +103,16 @@ angular.module('frameworkDirectives', [])
                 }
             },
             link: function (scope, el, attrs) {
-                //console.log(el);
+                //console.log($scope);
                 $(el).find('.back-button').on('click', function(){
+                    var appElement = document.querySelector('[ng-app=myApp]');
+                    var $scope      = angular.element($('.add-workout')).scope();
+                    console.log($scope);
+                    $scope.$apply(function() {
+                        $scope.exerciseLabel = '';
+                    });
                     window.history.back();
+
                 })
             }
         };
